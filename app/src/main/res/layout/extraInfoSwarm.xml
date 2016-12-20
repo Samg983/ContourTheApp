@@ -5,4 +5,20 @@
     android:background="#FFF">
     <!-- Whatever your layout will consist of can go here -->
 
+    <TextView
+        android:text="@string/moreAboutSwarm"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/textView3"
+        android:textColor="@color/colorPrimaryDark"
+        android:padding="@dimen/paddingMoreAboutSwarm" />
+
+    <Button
+        android:text="Button"
+        android:background="@drawable/roundedbutton"
+        android:id="@+id/button7"
+        android:layout_weight="1"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
 </RelativeLayout>
