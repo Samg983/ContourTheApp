@@ -22,7 +22,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private static final String TAG = MapsActivity.class.getSimpleName();
     private LatLngBounds EUROPE = new LatLngBounds(
-            new LatLng(48.6908333333, 9.14055555556), new LatLng(48.6908333333, 9.14055555556));
+            new LatLng(41.390205, 2.154007), new LatLng(55.676098, 12.568337));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
