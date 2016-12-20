@@ -2,6 +2,8 @@ package swarm_app_3.ehb.com.contourtheapp;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -24,9 +26,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         createMenu();
     }
+
+
 
     public void goToSplash(View view) {
         Intent toSplash = new Intent(this, SplashScreen.class);
