@@ -59,10 +59,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMinZoomPreference(6.0f);
         mMap.setMaxZoomPreference(42.0f);
 
-
-
-// Set the camera to the greatest possible zoom level that includes the
-// bounds
         
         try {
             boolean success = googleMap.setMapStyle(
