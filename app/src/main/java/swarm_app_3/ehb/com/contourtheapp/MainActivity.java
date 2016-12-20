@@ -13,11 +13,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void goToMaps(View view) {
-        Intent toMaps = new Intent(this, MapsActivity.class);
-        startActivity(toMaps);
-    }
-
     public void goToSplash(View view) {
         Intent toSplash = new Intent(this, SplashScreen.class);
         startActivity(toSplash);
