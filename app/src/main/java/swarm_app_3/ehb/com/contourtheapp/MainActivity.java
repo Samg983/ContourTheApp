@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -45,29 +46,32 @@ public class MainActivity extends AppCompatActivity {
 
     public void createMenu(){
 
-        int screenSize = getResources().getConfiguration().screenLayout &
-                Configuration.SCREENLAYOUT_SIZE_MASK;
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        switch(screenSize) {
-            case Configuration.SCREENLAYOUT_SIZE_LARGE:
+        switch(metrics.densityDpi) {
+            case DisplayMetrics.DENSITY_HIGH:
+            case DisplayMetrics.DENSITY_XHIGH:
+            case DisplayMetrics.DENSITY_XXHIGH:
+            case DisplayMetrics.DENSITY_XXXHIGH:
                 actionButtonParams =  new FloatingActionButton.LayoutParams(300,300);
                 subActionButtonParams = new FloatingActionButton.LayoutParams(450,225);
                 radius = 350;
                 break;
-            case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+            case DisplayMetrics.DENSITY_MEDIUM:
                 actionButtonParams =  new FloatingActionButton.LayoutParams(200,200);
                 subActionButtonParams = new FloatingActionButton.LayoutParams(250,125);
                 radius = 225;
                 break;
-            case Configuration.SCREENLAYOUT_SIZE_SMALL:
+            case DisplayMetrics.DENSITY_LOW:
                 actionButtonParams =  new FloatingActionButton.LayoutParams(100,100);
                 subActionButtonParams = new FloatingActionButton.LayoutParams(150,75);
                 radius = 125;
                 break;
             default:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(200,200);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(250,125);
-                radius = 225;
+                actionButtonParams =  new FloatingActionButton.LayoutParams(300,300);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(450,225);
+                radius = 350;
         }
 
         ImageView icon = new ImageView(this); // Create an icon
