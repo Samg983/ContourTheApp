@@ -17,4 +17,9 @@ public class MainActivity extends AppCompatActivity {
         Intent toSplash = new Intent(this, SplashScreen.class);
         startActivity(toSplash);
     }
+
+    public void openMaps(View view) {
+        Intent toMaps = new Intent(this, MapsActivity.class);
+        startActivity(toMaps);
+    }
 }
