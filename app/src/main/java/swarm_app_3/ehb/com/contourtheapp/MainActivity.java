@@ -1,10 +1,12 @@
 package swarm_app_3.ehb.com.contourtheapp;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
@@ -12,7 +14,8 @@ import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    FloatingActionButton.LayoutParams actionButtonParams = new FloatingActionButton.LayoutParams(300,300);
+    FloatingActionButton.LayoutParams actionButtonParams;
+    FloatingActionButton.LayoutParams subActionButtonParams;
 
 
     @Override
@@ -40,6 +43,28 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void createMenu(){
+
+        int screenSize = getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK;
+
+        switch(screenSize) {
+            case Configuration.SCREENLAYOUT_SIZE_LARGE:
+                actionButtonParams =  new FloatingActionButton.LayoutParams(300,300);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(450,225);
+                break;
+            case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                actionButtonParams =  new FloatingActionButton.LayoutParams(150,150);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(225,112);
+                break;
+            case Configuration.SCREENLAYOUT_SIZE_SMALL:
+                actionButtonParams =  new FloatingActionButton.LayoutParams(100,100);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(200,100);
+                break;
+            default:
+                actionButtonParams =  new FloatingActionButton.LayoutParams(150,150);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(225,112);
+        }
+
         ImageView icon = new ImageView(this); // Create an icon
         icon.setImageDrawable(getDrawable(R.drawable.circle_menu_green));
         FloatingActionButton actionButton = new FloatingActionButton.Builder(this)
@@ -52,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         // repeat many times:
         ImageView itemIcon = new ImageView(this);
         itemIcon.setImageDrawable(getDrawable(R.drawable.menu_item1));
-        SubActionButton swarmButton = itemBuilder.setContentView(itemIcon).setLayoutParams(new FloatingActionButton.LayoutParams(450, 225)).setBackgroundDrawable(getDrawable(R.drawable.transparent)).build();
+        SubActionButton swarmButton = itemBuilder.setContentView(itemIcon).setLayoutParams(subActionButtonParams).setBackgroundDrawable(getDrawable(R.drawable.transparent)).build();
 
         ImageView itemIcon2 = new ImageView(this);
         itemIcon2.setImageDrawable(getDrawable(R.drawable.menu_item2));
