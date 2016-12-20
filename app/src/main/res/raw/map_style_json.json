@@ -8,6 +8,14 @@
     ]
   },
   {
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
     "elementType": "labels.icon",
     "stylers": [
       {
@@ -37,6 +45,15 @@
     "stylers": [
       {
         "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.country",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#000000"
       }
     ]
   },
@@ -84,15 +101,6 @@
   },
   {
     "featureType": "poi",
-    "elementType": "labels.text",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
     "elementType": "labels.text.fill",
     "stylers": [
       {
@@ -124,15 +132,6 @@
     "stylers": [
       {
         "color": "#ffffff"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels",
-    "stylers": [
-      {
-        "visibility": "off"
       }
     ]
   },
@@ -243,10 +242,10 @@
   },
   {
     "featureType": "water",
-    "elementType": "labels.text",
+    "elementType": "geometry.fill",
     "stylers": [
       {
-        "visibility": "off"
+        "color": "#fefcff"
       }
     ]
   },

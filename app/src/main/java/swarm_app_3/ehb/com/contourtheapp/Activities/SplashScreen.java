@@ -19,12 +19,13 @@ public class SplashScreen extends AppCompatActivity {
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "Raleway-Thin.ttf");
         contourtitel.setTypeface(customFonts);
         ctitel.setTypeface(customFonts);
+
         Thread SplashThread = new Thread(){
             @Override
             public void run() {
                 try {
                     sleep(3000);
-                    Intent splashToMain = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent splashToMain = new Intent(getApplicationContext(), HomeScreen.class);
                     startActivity(splashToMain);
                     finish();
                 } catch (InterruptedException e) {
