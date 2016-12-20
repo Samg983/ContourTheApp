@@ -2,29 +2,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.MapsActivity" >
+    tools:context=".Activities.MapsActivity">
 
 
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.MapsActivity" />
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.MapsActivity" />
 
     <Button
-        android:text="\?"
-        android:layout_width="30dp"
         android:id="@+id/button5"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignRight="@+id/map"
-        android:background="@drawable/roundedbutton"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundedbutton"
+        android:onClick="openPopup"
         android:shadowColor="@color/colorPrimaryDark"
         android:shadowDx="5"
-        android:shadowDy="5" />
+        android:shadowDy="5"
+        android:text="\?" />
 </RelativeLayout>
 
