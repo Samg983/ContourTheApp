@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ContourTheApp</string>
+    <string name="app_name">Contour</string>
     <string name="title_activity_maps">Map</string>
     <string name="moreAboutSwarm">Hallo, dit is meer tekst over swarm enzo</string>
 </resources>
