@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -16,6 +17,7 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import swarm_app_3.ehb.com.contourtheapp.Model.OpenDialog;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -72,5 +74,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } catch (Resources.NotFoundException e) {
 
         }
+    }
+
+    public void openPopup(View view) {
+        OpenDialog dialog = new OpenDialog(this);
+        dialog.show();
     }
 }

@@ -25,6 +25,7 @@
         android:layout_marginRight="10dp"
         android:shadowColor="@color/colorPrimaryDark"
         android:shadowDx="5"
-        android:shadowDy="5" />
+        android:shadowDy="5"
+        android:onClick="openPopup"/>
 </RelativeLayout>
 
