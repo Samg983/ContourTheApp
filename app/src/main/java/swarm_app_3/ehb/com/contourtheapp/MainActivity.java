@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton.LayoutParams actionButtonParams;
     FloatingActionButton.LayoutParams subActionButtonParams;
+    int radius;
 
 
     @Override
@@ -51,18 +52,22 @@ public class MainActivity extends AppCompatActivity {
             case Configuration.SCREENLAYOUT_SIZE_LARGE:
                 actionButtonParams =  new FloatingActionButton.LayoutParams(300,300);
                 subActionButtonParams = new FloatingActionButton.LayoutParams(450,225);
+                radius = 350;
                 break;
             case Configuration.SCREENLAYOUT_SIZE_NORMAL:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(150,150);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(225,112);
+                actionButtonParams =  new FloatingActionButton.LayoutParams(200,200);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(250,125);
+                radius = 225;
                 break;
             case Configuration.SCREENLAYOUT_SIZE_SMALL:
                 actionButtonParams =  new FloatingActionButton.LayoutParams(100,100);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(200,100);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(150,75);
+                radius = 125;
                 break;
             default:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(150,150);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(225,112);
+                actionButtonParams =  new FloatingActionButton.LayoutParams(200,200);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(250,125);
+                radius = 225;
         }
 
         ImageView icon = new ImageView(this); // Create an icon
@@ -103,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 .addSubActionView(galleryButton)
                 .setStartAngle(180)
                 .setEndAngle(360)
-                .setRadius(350)
+                .setRadius(radius)
                 // ...
                 .attachTo(actionButton)
                 .build();
