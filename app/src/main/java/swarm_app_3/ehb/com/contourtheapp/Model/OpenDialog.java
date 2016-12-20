@@ -30,7 +30,7 @@ public class OpenDialog extends Dialog implements android.view.View.OnClickListe
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             requestWindowFeature(Window.FEATURE_NO_TITLE);
-            setContentView(R.layout.extrainfoswarm);
+            setContentView(R.layout.extra_info_swarm);
         }
 
         @Override
