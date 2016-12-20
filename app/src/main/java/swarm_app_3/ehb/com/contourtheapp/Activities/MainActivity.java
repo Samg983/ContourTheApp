@@ -11,6 +11,7 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
+import swarm_app_3.ehb.com.contourtheapp.Model.OpenDialog;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public void openMaps(View view) {
         Intent toMaps = new Intent(this, MapsActivity.class);
         startActivity(toMaps);
+
     }
 
     public void openHome(View view) {
