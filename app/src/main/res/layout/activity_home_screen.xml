@@ -12,13 +12,6 @@
     android:background="@color/colorPrimary"
     tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.HomeScreen">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/hoogtelijnenbackground"
-        android:layout_alignParentTop="true"
-        android:id="@+id/imageView3" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,5 +45,13 @@
             />
 
     </LinearLayout>
+
+    <VideoView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/VidV"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
