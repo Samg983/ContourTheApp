@@ -2,16 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#1C1C1C">
+    android:background="#FFF">
     <!-- Whatever your layout will consist of can go here -->
 
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="175dp"
-        android:id="@+id/button6" />
 </RelativeLayout>
