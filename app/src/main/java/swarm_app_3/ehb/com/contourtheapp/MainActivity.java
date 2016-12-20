@@ -22,4 +22,9 @@ public class MainActivity extends AppCompatActivity {
         Intent toMaps = new Intent(this, MapsActivity.class);
         startActivity(toMaps);
     }
+
+    public void openHome(View view) {
+        Intent toHome = new Intent(this, HomeScreen.class);
+        startActivity(toHome);
+    }
 }
