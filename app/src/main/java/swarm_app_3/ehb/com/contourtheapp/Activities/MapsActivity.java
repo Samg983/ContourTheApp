@@ -1,4 +1,4 @@
-package swarm_app_3.ehb.com.contourtheapp;
+package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -13,9 +13,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MapStyleOptions;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+
+import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 

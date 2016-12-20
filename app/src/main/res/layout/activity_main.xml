@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/colorPrimary"
-    tools:context="swarm_app_3.ehb.com.contourtheapp.MainActivity">
+    tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.MainActivity">
 
 
     <Button

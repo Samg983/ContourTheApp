@@ -10,7 +10,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     android:background="@color/colorPrimary"
-    tools:context="swarm_app_3.ehb.com.contourtheapp.SplashScreen">
+    tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.SplashScreen">
 
     <ImageView
         android:layout_width="wrap_content"

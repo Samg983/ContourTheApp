@@ -10,7 +10,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     android:background="@color/colorPrimary"
-    tools:context="swarm_app_3.ehb.com.contourtheapp.HomeScreen">
+    tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.HomeScreen">
 
     <ImageView
         android:layout_width="wrap_content"

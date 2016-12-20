@@ -1,19 +1,17 @@
-package swarm_app_3.ehb.com.contourtheapp;
+package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
+
+import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
