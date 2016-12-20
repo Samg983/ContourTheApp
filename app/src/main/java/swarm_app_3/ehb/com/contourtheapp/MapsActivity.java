@@ -57,13 +57,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .color(Color.GREEN));
 
         mMap.setMinZoomPreference(6.0f);
-        mMap.setMaxZoomPreference(14.0f);
+        mMap.setMaxZoomPreference(42.0f);
 
 
 
 // Set the camera to the greatest possible zoom level that includes the
 // bounds
-        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(EUROPE, 0));
+        
         try {
             boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
