@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_home_screen"
     android:layout_width="match_parent"
@@ -8,8 +9,15 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    android:background="@drawable/hoogtelijnenbackground"
+    android:background="@color/colorPrimary"
     tools:context="swarm_app_3.ehb.com.contourtheapp.HomeScreen">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/hoogtelijnenbackground"
+        android:layout_alignParentTop="true"
+        android:id="@+id/imageView3" />
 
     <LinearLayout
         android:layout_width="match_parent"
