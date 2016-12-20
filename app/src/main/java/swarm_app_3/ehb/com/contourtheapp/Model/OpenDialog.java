@@ -8,11 +8,8 @@ package swarm_app_3.ehb.com.contourtheapp.Model;
     import android.app.Activity;
     import android.app.Dialog;
     import android.os.Bundle;
-    import android.support.v7.app.AlertDialog;
     import android.view.View;
     import android.view.Window;
-    import android.widget.Button;
-    import android.widget.EditText;
 
     import swarm_app_3.ehb.com.contourtheapp.R;
 
@@ -33,7 +30,7 @@ public class OpenDialog extends Dialog implements android.view.View.OnClickListe
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             requestWindowFeature(Window.FEATURE_NO_TITLE);
-            setContentView(R.layout.my_dialog);
+            setContentView(R.layout.extraInfoSwarm);
         }
 
         @Override
