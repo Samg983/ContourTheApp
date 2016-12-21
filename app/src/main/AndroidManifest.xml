@@ -51,9 +51,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.BlogListActivity"
-            android:screenOrientation="portrait"></activity>
-
-
+            android:screenOrientation="portrait" />
+        <activity android:name=".Activities.GalleryActivity"></activity>
     </application>
 
 </manifest>
