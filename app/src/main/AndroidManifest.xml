@@ -54,7 +54,10 @@
             android:name=".Activities.BlogListActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Activities.GalleryActivity" />
-        <activity android:name=".Activities.Register1Basic"></activity>
+        <activity android:name=".Activities.Register1Basic" />
+        <activity android:name=".Activities.Register2Personal" />
+        <activity android:name=".Activities.Register3Weird" />
+        <activity android:name=".Activities.Register4AlmostFinished"></activity>
     </application>
 
 </manifest>
