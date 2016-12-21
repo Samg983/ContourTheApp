@@ -10,8 +10,6 @@
     <string name="Age">Age</string>
     <string name="city">City</string>
     <string name="PersonalTitle">Something more personal:</string>
-<<<<<<< HEAD
-=======
     <string name="gender">Gender</string>
     <string name="height">Height</string>
     <string name="male">Male</string>
@@ -19,5 +17,4 @@
     <string name="other">Other</string>
     <string name="cm">cm</string>
     <string name="eyecolor">Eye Color</string>
->>>>>>> origin/master
 </resources>
