@@ -96,7 +96,9 @@
         android:id="@+id/editText4"
         android:layout_marginTop="5dp"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp" />
+        android:paddingBottom="5dp"
+        android:textColor="?attr/colorPrimaryDark"
+        android:paddingTop="5dp" />
 
     <TextView
         android:text="@string/cm"
@@ -108,5 +110,38 @@
         android:layout_toEndOf="@+id/editText4"
         android:layout_marginStart="12dp"
         android:paddingBottom="2dp" />
+
+    <TextView
+        android:text="@string/eyecolor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eyecolor"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBaseline="@+id/textView31"
+        android:layout_alignBottom="@+id/textView31"
+        android:layout_toEndOf="@+id/textView31" />
+
+    <TextView
+        android:text="|"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView31"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/editText4"
+        android:layout_alignStart="@+id/spinner2" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_height="30dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textView31"
+        android:layout_alignStart="@+id/editText4"
+        android:layout_marginTop="5dp" />
+
 
 </RelativeLayout>
