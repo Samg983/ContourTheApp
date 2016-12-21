@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toSplash);
     }
 
+    public void goToRegi(View view) {
+        Intent toRegi = new Intent(this, Register1Basic.class);
+        startActivity(toRegi);
+    }
+
     public void openMaps(View view) {
         Intent toMaps = new Intent(this, MapsActivity.class);
         startActivity(toMaps);
