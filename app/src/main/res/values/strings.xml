@@ -7,4 +7,6 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="RegisterBasicTitle">Some information about you:</string>
     <string name="Name">Name</string>
+    <string name="Age">Age</string>
+    <string name="city">City</string>
 </resources>
