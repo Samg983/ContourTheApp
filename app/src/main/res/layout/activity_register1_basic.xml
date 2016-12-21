@@ -30,7 +30,8 @@
         android:layout_marginTop="5dp"
         android:background="@color/lightgrey"
         android:textColor="?attr/actionModeSplitBackground"
-        android:layout_width="wrap_content" />
+        android:layout_width="wrap_content"
+        android:paddingBottom="5dp" />
 
     <TextView
         android:text="@string/RegisterBasicTitle"
@@ -56,14 +57,14 @@
         android:layout_alignStart="@+id/editText" />
 
     <TextView
-        android:text="@string/Age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/age"
+        android:id="@+id/dateofbirth"
         android:textColor="@color/cast_expanded_controller_background_color"
         android:layout_alignBaseline="@+id/textView5"
         android:layout_alignBottom="@+id/textView5"
-        android:layout_alignStart="@+id/name" />
+        android:layout_alignStart="@+id/name"
+        android:text="@string/dateofbirth" />
 
     <TextView
         android:text="@string/city"
@@ -73,7 +74,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:layout_alignBaseline="@+id/textView8"
         android:layout_alignBottom="@+id/textView8"
-        android:layout_alignStart="@+id/age" />
+        android:layout_alignStart="@+id/dateofbirth" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -86,7 +87,8 @@
         android:layout_alignStart="@+id/textView8"
         android:layout_marginTop="5dp"
         android:layout_alignEnd="@+id/editText"
-        android:textColor="?attr/colorPrimaryDark" />
+        android:textColor="?attr/colorPrimaryDark"
+        android:paddingBottom="5dp" />
 
     <TextView
         android:text="|"
@@ -125,14 +127,12 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="date"
         android:ems="15"
-        android:background="@color/lightgrey"
         android:id="@+id/editText3"
         android:layout_below="@+id/textView5"
-        android:layout_alignStart="@+id/textView5"
-        android:layout_marginTop="5dp"
-        android:textColor="?attr/colorPrimaryDark" />
+        android:layout_toEndOf="@+id/textView5"
+        android:paddingBottom="5dp" />
 
 
 </RelativeLayout>

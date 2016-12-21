@@ -87,7 +87,6 @@
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:text=""
         android:ems="14"
@@ -95,7 +94,9 @@
         android:layout_below="@+id/textView41"
         android:layout_alignStart="@+id/textView41"
         android:id="@+id/editText4"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp" />
 
     <TextView
         android:text="@string/cm"
@@ -103,9 +104,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
         android:textColor="@color/cast_expanded_controller_background_color"
-        android:layout_alignBaseline="@+id/editText4"
         android:layout_alignBottom="@+id/editText4"
         android:layout_toEndOf="@+id/editText4"
-        android:layout_marginStart="10dp" />
+        android:layout_marginStart="12dp"
+        android:paddingBottom="2dp" />
 
 </RelativeLayout>
