@@ -1,7 +1,9 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -17,5 +19,10 @@ public class Register2Personal extends AppCompatActivity {
         String[] items = new String[]{"Male", "Female", "Other", "Not sure"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
+    }
+
+    public void goToRegiDrie(View view) {
+        Intent toRegiDrie = new Intent(this, Register3Weird.class);
+        startActivity(toRegiDrie);
     }
 }
