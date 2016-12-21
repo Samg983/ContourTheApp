@@ -62,7 +62,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMinZoomPreference(6.0f);
         mMap.setMaxZoomPreference(42.0f);
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(EUROPE, 0));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(EUROPE, 50));
         try {
             boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
