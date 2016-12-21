@@ -28,10 +28,11 @@
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginStart="25dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="18dp" />
 
     <TextView
-        android:text="Gender"
+        android:text="@string/gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/name"
@@ -61,4 +62,50 @@
         android:layout_below="@+id/textView4"
         android:layout_alignStart="@+id/textView4"
         android:layout_marginTop="5dp" />
+
+    <TextView
+        android:text="|"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView41"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_below="@+id/spinner1"
+        android:layout_alignStart="@+id/spinner1"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:text="@string/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Height"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBaseline="@+id/textView41"
+        android:layout_alignBottom="@+id/textView41"
+        android:layout_toEndOf="@+id/textView41" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:ems="14"
+        android:background="@color/lightgrey"
+        android:layout_below="@+id/textView41"
+        android:layout_alignStart="@+id/textView41"
+        android:id="@+id/editText4"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:text="@string/cm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:layout_alignBaseline="@+id/editText4"
+        android:layout_alignBottom="@+id/editText4"
+        android:layout_toEndOf="@+id/editText4"
+        android:layout_marginStart="10dp" />
+
 </RelativeLayout>
