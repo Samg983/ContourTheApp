@@ -1,11 +1,14 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -35,6 +38,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        TextView next = (TextView) findViewById(R.id.lblNext);
+        Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "Raleway-Thin.ttf");
+        next.setTypeface(customFonts);
     }
 
 
@@ -85,4 +92,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
+    public void goToRegisterFromSwarm(View view) {
+        Intent toRegisterFromSwarm = new Intent(this, Register1Basic.class);
+        startActivity(toRegisterFromSwarm);
+    }
+
+    public void goToHomeFromSwarm(View view) {
+        Intent toHomeFromSwarm = new Intent(this, HomeScreen.class);
+        startActivity(toHomeFromSwarm);
+    }
 }

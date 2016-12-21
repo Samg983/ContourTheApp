@@ -10,4 +10,5 @@
     <string name="Age">Age</string>
     <string name="city">City</string>
     <string name="PersonalTitle">Something more personal:</string>
+    <string name="NextSwarm">Next</string>
 </resources>

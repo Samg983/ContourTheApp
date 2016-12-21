@@ -27,5 +27,30 @@
         android:shadowDx="5"
         android:shadowDy="5"
         android:text="\?" />
+
+    <Button
+        android:id="@+id/btnSubscribe1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="14dp"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/subscribebutton"
+        android:onClick="goToRegisterFromSwarm" />
+
+    <TextView
+        android:text="@string/NextSwarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblNext"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_middle"
+        android:padding="@dimen/paddingNextSwarm"
+        android:background="@android:color/white"
+        android:layout_alignBottom="@+id/btnSubscribe1"
+        android:layout_alignEnd="@+id/button5"
+        android:layout_marginEnd="13dp" android:onClick="goToHomeFromSwarm" />
 </RelativeLayout>
 
