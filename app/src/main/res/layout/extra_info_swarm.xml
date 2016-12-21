@@ -6,19 +6,21 @@
     <!-- Whatever your layout will consist of can go here -->
 
     <TextView
-        android:text="@string/moreAboutSwarm"
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/textView3"
-        android:textColor="@color/colorPrimaryDark"
-        android:padding="@dimen/paddingMoreAboutSwarm" />
+        android:layout_above="@+id/btnSubscribeSwarm"
+        android:padding="@dimen/paddingMoreAboutSwarm"
+        android:text="@string/moreAboutSwarm"
+        android:textColor="@color/colorPrimaryDark" />
 
     <Button
-        android:text="Button"
-        android:background="@drawable/roundedbutton"
-        android:id="@+id/button7"
-        android:layout_weight="1"
+        android:id="@+id/btnSubscribeSwarm"
         android:layout_width="60dp"
-        android:layout_height="60dp" />
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:background="@drawable/roundedbutton"
+        android:text="Button" />
 
 </RelativeLayout>

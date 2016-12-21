@@ -1,9 +1,12 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 
@@ -54,6 +57,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         LatLng Gent = new LatLng(51.0535, 3.7304);
         LatLng Biella = new LatLng(45.5630400, 8.0579600);
+        LatLng België = new LatLng(50.503887,4.4699359999999615);
 
         Polyline line = mMap.addPolyline(new PolylineOptions()
                 .add(Gent, Biella)
@@ -63,7 +67,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMinZoomPreference(6.0f);
         mMap.setMaxZoomPreference(42.0f);
 
-       // MapView newMapView = MapView();
+       mMap.moveCamera(CameraUpdateFactory.newLatLng(België));
         try {
             boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
