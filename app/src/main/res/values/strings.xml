@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Contour</string>
     <string name="title_activity_maps">Map</string>
-    <string name="moreAboutSwarm">Hallo, dit is meer tekst over swarm enzo</string>
+    <string name="moreAboutSwarm">The Swarm is forming. All current participants are displayed on the map.
+
+Do you want to be part of the Swarm, walking across a contour line in the Alps?
+
+Enter your information now and let the world know where you're from! Joining now will give you access to the full app experience. You can also explore the app now and join at a later stage.</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
