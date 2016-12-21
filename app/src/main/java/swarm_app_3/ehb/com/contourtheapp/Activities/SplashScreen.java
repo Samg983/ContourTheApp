@@ -1,5 +1,6 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,5 +19,21 @@ public class SplashScreen extends AppCompatActivity {
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "Raleway-Thin.ttf");
         contourtitel.setTypeface(customFonts);
         ctitel.setTypeface(customFonts);
+
+        Thread SplashThread = new Thread(){
+            @Override
+            public void run() {
+                try {
+                    sleep(1500);
+                    Intent splashToMain = new Intent(getApplicationContext(), HomeScreen.class);
+                    startActivity(splashToMain);
+                    finish();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        SplashThread.start();
     }
 }

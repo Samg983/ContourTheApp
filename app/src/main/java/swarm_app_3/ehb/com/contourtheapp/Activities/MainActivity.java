@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
         blogButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent toMaps = new Intent(MainActivity.this, SplashScreen.class);
-                startActivity(toMaps);
+                Intent toBlogs = new Intent(MainActivity.this, BlogListActivity.class);
+                startActivity(toBlogs);
                 actionMenu.close(true);
             }
         });

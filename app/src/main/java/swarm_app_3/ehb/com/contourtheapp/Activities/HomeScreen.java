@@ -49,33 +49,33 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-    public void createMenu(){
+    public void createMenu() {
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        switch(metrics.densityDpi) {
+        switch (metrics.densityDpi) {
             case DisplayMetrics.DENSITY_HIGH:
             case DisplayMetrics.DENSITY_XHIGH:
             case DisplayMetrics.DENSITY_XXHIGH:
             case DisplayMetrics.DENSITY_XXXHIGH:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(300,300);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(450,225);
+                actionButtonParams = new FloatingActionButton.LayoutParams(300, 300);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(450, 225);
                 radius = 350;
                 break;
             case DisplayMetrics.DENSITY_MEDIUM:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(200,200);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(250,125);
+                actionButtonParams = new FloatingActionButton.LayoutParams(200, 200);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(250, 125);
                 radius = 225;
                 break;
             case DisplayMetrics.DENSITY_LOW:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(100,100);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(150,75);
+                actionButtonParams = new FloatingActionButton.LayoutParams(100, 100);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(150, 75);
                 radius = 125;
                 break;
             default:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(300,300);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(450,225);
+                actionButtonParams = new FloatingActionButton.LayoutParams(300, 300);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(450, 225);
                 radius = 350;
         }
 
@@ -122,36 +122,36 @@ public class HomeScreen extends AppCompatActivity {
                 .attachTo(actionButton)
                 .build();
 
-        swarmButton.setOnClickListener(new View.OnClickListener(){
+        swarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent toMaps = new Intent(HomeScreen.this, MapsActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
         });
 
-        blogButton.setOnClickListener(new View.OnClickListener(){
+        blogButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent toMaps = new Intent(HomeScreen.this, SplashScreen.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
         });
 
-        trackerButton.setOnClickListener(new View.OnClickListener(){
+        trackerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent toMaps = new Intent(HomeScreen.this, HomeScreen.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
         });
 
-        galleryButton.setOnClickListener(new View.OnClickListener(){
+        galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent toMaps = new Intent(HomeScreen.this, MapsActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
@@ -160,10 +160,20 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-public void videoplay(View v){
-    String path = "android.resource://" + getPackageName() + "/" + R.raw.lines;
-    Uri uri = Uri.parse(path);
-    videov.setVideoURI(uri);
-    videov.start();
-}
+    public void videoplay(View v) {
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.lines;
+        Uri uri = Uri.parse(path);
+        videov.setVideoURI(uri);
+        videov.start();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+        videov.start();
+
+
+    }
 }
