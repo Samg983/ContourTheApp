@@ -45,7 +45,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     int radius;
     private GoogleMap mMap;
     private static final String TAG = MapsActivity.class.getSimpleName();
-   
+
     boolean alreadySubscribed = false;
 
     @Override
