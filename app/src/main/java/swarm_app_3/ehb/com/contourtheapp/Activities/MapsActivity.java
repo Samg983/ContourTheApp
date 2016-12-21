@@ -1,17 +1,25 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+>>>>>>> origin/master
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -20,7 +28,7 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
-import swarm_app_3.ehb.com.contourtheapp.Model.OpenMoreInfoSwarmDialog;
+import swarm_app_3.ehb.com.contourtheapp.Model.OpenDialog;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -85,10 +93,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void openPopup(View view) {
-        OpenMoreInfoSwarmDialog dialog = new OpenMoreInfoSwarmDialog(this);
+        OpenDialog dialog = new OpenDialog(this);
         dialog.show();
-
-
     }
 
 
