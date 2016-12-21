@@ -38,7 +38,8 @@
 
         <activity
             android:name=".Activities.MapsActivity"
-<<<<<<< HEAD
+
+        <<<<<<< HEAD
             android:label="@string/title_activity_maps" android:screenOrientation="portrait"/>
         <activity android:name=".Activities.SplashScreen" android:screenOrientation="portrait"/>
         <activity android:name=".Activities.HomeScreen" android:screenOrientation="portrait">
