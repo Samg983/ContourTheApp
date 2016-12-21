@@ -61,4 +61,14 @@
         android:layout_below="@+id/textView4"
         android:layout_alignStart="@+id/textView4"
         android:layout_marginTop="5dp" />
+
+    <Button
+        android:text="Next Page plis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="38dp"
+        android:id="@+id/btnNextPage"
+        android:onClick="goToRegiDrie (Register2Personal)" />
 </RelativeLayout>
