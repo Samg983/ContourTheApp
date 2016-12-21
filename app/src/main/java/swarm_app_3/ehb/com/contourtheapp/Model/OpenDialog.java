@@ -7,10 +7,12 @@ package swarm_app_3.ehb.com.contourtheapp.Model;
 
     import android.app.Activity;
     import android.app.Dialog;
+    import android.content.Intent;
     import android.os.Bundle;
     import android.view.View;
     import android.view.Window;
 
+    import swarm_app_3.ehb.com.contourtheapp.Activities.Register1Basic;
     import swarm_app_3.ehb.com.contourtheapp.R;
 
 
@@ -35,11 +37,13 @@ public class OpenDialog extends Dialog implements android.view.View.OnClickListe
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
+            /*switch (v.getId()) {
                 default:
                     break;
             }
-            dismiss();
+            dismiss();*/
+           
+
         }
 
     }

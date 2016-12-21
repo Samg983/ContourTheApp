@@ -1,6 +1,7 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -85,4 +86,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         OpenDialog dialog = new OpenDialog(this);
         dialog.show();
     }
+
+
 }
