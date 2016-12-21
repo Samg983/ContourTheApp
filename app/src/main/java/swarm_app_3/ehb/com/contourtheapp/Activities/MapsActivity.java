@@ -1,12 +1,12 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
-<<<<<<< HEAD
+
 import android.content.Intent;
-=======
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
->>>>>>> origin/master
+
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
