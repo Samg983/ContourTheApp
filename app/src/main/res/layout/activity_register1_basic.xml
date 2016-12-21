@@ -11,4 +11,48 @@
     android:background="@drawable/hoogtelijnenbackground"
     tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.Register1Basic">
 
+    <TextView
+        android:text="@string/RegisterBasicTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+    <TextView
+        android:text="|"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toStartOf="@+id/textView2" />
+
+    <TextView
+        android:text="@string/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:id="@+id/textView2"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginLeft="5dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="16"
+        android:layout_below="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_marginTop="15dp"
+        android:id="@+id/editText4"
+        android:textColor="?attr/colorBackgroundFloating" />
+
 </RelativeLayout>
