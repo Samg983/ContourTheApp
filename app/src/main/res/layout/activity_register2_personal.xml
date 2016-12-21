@@ -96,7 +96,9 @@
         android:id="@+id/editText4"
         android:layout_marginTop="5dp"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp" />
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:textColor="?attr/colorPrimaryDark" />
 
     <TextView
         android:text="@string/cm"
@@ -104,9 +106,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
         android:textColor="@color/cast_expanded_controller_background_color"
+        android:layout_marginStart="11dp"
+        android:paddingBottom="2dp"
+        android:layout_alignBaseline="@+id/editText4"
         android:layout_alignBottom="@+id/editText4"
-        android:layout_toEndOf="@+id/editText4"
-        android:layout_marginStart="12dp"
-        android:paddingBottom="2dp" />
+        android:layout_toEndOf="@+id/editText4" />
 
 </RelativeLayout>
