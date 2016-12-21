@@ -15,32 +15,10 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/hoogtelijnenbackground"
+        android:background="@drawable/hoogtelijnenbackground"
         android:id="@+id/imageView2"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="|"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_alignBaseline="@+id/name"
-        android:layout_alignBottom="@+id/name"
-        android:layout_alignStart="@+id/titel" />
-
-    <TextView
-        android:text="@string/Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:id="@+id/name"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginLeft="5dp"
-        android:layout_below="@+id/titel"
-        android:layout_toEndOf="@+id/textView4" />
 
     <EditText
         android:layout_height="wrap_content"
@@ -126,7 +104,30 @@
         android:background="@color/lightgrey"
         android:layout_below="@+id/textView8"
         android:layout_alignStart="@+id/textView8"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:layout_alignEnd="@+id/editText" />
+
+    <TextView
+        android:text="|"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/name"
+        android:layout_alignBottom="@+id/name"
+        android:layout_alignStart="@+id/titel" />
+
+    <TextView
+        android:text="@string/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:id="@+id/name"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/titel"
+        android:layout_toEndOf="@+id/textView4" />
 
 
 </RelativeLayout>
