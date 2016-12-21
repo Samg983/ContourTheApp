@@ -45,18 +45,19 @@
         <activity
             android:name=".Activities.MainActivity"
             android:screenOrientation="portrait" />
+        
         <activity
             android:name=".Activities.HomeScreen"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".Activities.BlogActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".Activities.BlogListActivity"
             android:screenOrientation="portrait"></activity>
 
-
-        >>>>>>> origin/master
     </application>
 
 </manifest>
