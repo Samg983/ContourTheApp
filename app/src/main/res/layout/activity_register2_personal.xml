@@ -66,9 +66,78 @@
         android:text="Next Page plis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="38dp"
         android:id="@+id/btnNextPage"
         android:onClick="goToRegiDrie (Register2Personal)" />
+=======
+        android:id="@+id/Height"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBaseline="@+id/textView41"
+        android:layout_alignBottom="@+id/textView41"
+        android:layout_toEndOf="@+id/textView41" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:ems="14"
+        android:background="@color/lightgrey"
+        android:layout_below="@+id/textView41"
+        android:layout_alignStart="@+id/textView41"
+        android:id="@+id/editText4"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:textColor="?attr/colorPrimaryDark"
+        android:paddingTop="5dp" />
+
+    <TextView
+        android:text="@string/cm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:layout_alignBottom="@+id/editText4"
+        android:layout_toEndOf="@+id/editText4"
+        android:layout_marginStart="12dp"
+        android:paddingBottom="2dp" />
+
+    <TextView
+        android:text="@string/eyecolor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eyecolor"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="5dp"
+        android:layout_alignBaseline="@+id/textView31"
+        android:layout_alignBottom="@+id/textView31"
+        android:layout_toEndOf="@+id/textView31" />
+
+    <TextView
+        android:text="|"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView31"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/editText4"
+        android:layout_alignStart="@+id/spinner2" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_height="30dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textView31"
+        android:layout_alignStart="@+id/editText4"
+        android:layout_marginTop="5dp" />
+
+
+>>>>>>> origin/master
 </RelativeLayout>
