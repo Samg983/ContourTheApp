@@ -21,13 +21,16 @@ public class Register2Personal extends AppCompatActivity {
         dropdown.setAdapter(adapter);
     }
 
+<<<<<<< HEAD
     public void goToRegiDrie(View view) {
         Intent toRegiDrie = new Intent(this, Register3Weird.class);
         startActivity(toRegiDrie);
+=======
         Spinner dropdown2 = (Spinner)findViewById(R.id.spinner2);
         String[] items2 = new String[]{"Amber", "Hazel", "Brown", "Green", "Blue", "Grey"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items2);
         dropdown.setAdapter(adapter2);
 
+>>>>>>> origin/master
     }
 }
