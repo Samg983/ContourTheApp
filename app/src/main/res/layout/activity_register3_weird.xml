@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:id="@+id/WeirdTitle"
+        android:id="@+id/finishtitle"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginStart="25dp"
         android:layout_alignParentTop="true"
@@ -148,7 +148,7 @@
         android:layout_marginLeft="5dp"
         android:text="@string/noselength"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/WeirdTitle"
+        android:layout_below="@+id/finishtitle"
         android:layout_toEndOf="@+id/textView4" />
 
     <TextView
@@ -160,18 +160,7 @@
         android:textSize="20sp"
         android:layout_alignBaseline="@+id/noselength"
         android:layout_alignBottom="@+id/noselength"
-        android:layout_alignStart="@+id/WeirdTitle" />
-
-    <TextView
-        android:text="|"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_alignBaseline="@+id/shoesize"
-        android:layout_alignBottom="@+id/shoesize"
-        android:layout_alignStart="@+id/spinner3" />
+        android:layout_alignStart="@+id/finishtitle" />
 
     <Spinner
         android:id="@+id/spinner4"
@@ -181,16 +170,6 @@
         android:layout_width="wrap_content"
         android:layout_below="@+id/textView8"
         android:layout_alignStart="@+id/textView8"
-        android:layout_marginTop="5dp" />
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_height="30dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/dimples"
-        android:layout_alignStart="@+id/textView5"
         android:layout_marginTop="5dp" />
 
     <EditText
@@ -211,17 +190,6 @@
         android:text="|"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView6"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/spinner1"
-        android:layout_alignStart="@+id/spinner1" />
-
-    <TextView
-        android:text="|"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/textView5"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
@@ -237,7 +205,39 @@
         android:layout_marginLeft="5dp"
         android:text="@string/shoesize"
         android:layout_marginTop="28dp"
-        android:layout_below="@+id/spinner3"
+        android:layout_below="@+id/spinner1"
         android:layout_toEndOf="@+id/textView8" />
+
+    <TextView
+        android:text="|"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_below="@+id/spinner4"
+        android:layout_alignStart="@+id/spinner4"
+        android:layout_marginTop="19dp" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_height="30dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:text="|"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/shoesize"
+        android:layout_alignBottom="@+id/shoesize"
+        android:layout_alignStart="@+id/spinner1" />
 
 </RelativeLayout>

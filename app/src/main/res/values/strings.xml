@@ -23,4 +23,8 @@
     <string name="numberoffingers">Number of fingers</string>
     <string name="numberoftoes">Number of toes</string>
     <string name="shoesize">Shoe size</string>
+    <string name="finishtitle">Almost finished!</string>
+    <string name="finish">Finish</string>
+    <string name="cometoitaly">Do you plan to come to Italy?</string>
+    <string name="howmanypeople">How many people will come with you?</string>
 </resources>

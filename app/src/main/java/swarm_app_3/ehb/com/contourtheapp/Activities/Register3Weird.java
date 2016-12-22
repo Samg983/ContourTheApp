@@ -18,6 +18,7 @@ public class Register3Weird extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register3_weird);
 
+        TextView title = (TextView) findViewById(R.id.finishtitle);
         TextView noselength = (TextView) findViewById(R.id.noselength);
         TextView dimples = (TextView) findViewById(R.id.dimples);
         TextView numberoffingers = (TextView) findViewById(R.id.numberoffingers);
@@ -26,6 +27,7 @@ public class Register3Weird extends AppCompatActivity {
         TextView next = (TextView) findViewById(R.id.lblNext);
         TextView prev = (TextView) findViewById(R.id.lblPrev);
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
+        title.setTypeface(customFonts);
         noselength.setTypeface(customFonts);
         dimples.setTypeface(customFonts);
         numberoffingers.setTypeface(customFonts);

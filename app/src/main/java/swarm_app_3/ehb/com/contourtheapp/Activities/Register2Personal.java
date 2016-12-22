@@ -22,7 +22,7 @@ public class Register2Personal extends AppCompatActivity {
         TextView height = (TextView) findViewById(R.id.dimples);
         TextView eyecolor = (TextView) findViewById(R.id.eyecolor);
         TextView haircolor = (TextView) findViewById(R.id.haircolor);
-        TextView titel = (TextView) findViewById(R.id.WeirdTitle);
+        TextView titel = (TextView) findViewById(R.id.finishtitle);
         TextView next = (TextView) findViewById(R.id.lblNext);
         TextView prev = (TextView) findViewById(R.id.lblPrev);
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
