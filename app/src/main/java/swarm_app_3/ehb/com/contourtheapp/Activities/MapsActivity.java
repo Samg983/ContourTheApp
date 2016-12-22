@@ -19,6 +19,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Polyline;
@@ -76,13 +78,38 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng Biella = new LatLng(45.5630400, 8.0579600);
         LatLng Strasbourg = new LatLng(48.58392,7.74553);
         LatLng Paris = new LatLng(48.864716,2.349014);
+        int bigDot = 10000;
+        int smallDot = 5000;
+
+        Circle circleCenter = mMap.addCircle(new CircleOptions()
+                .center(Biella)
+                .radius(bigDot)
+                .zIndex(5)
+                .fillColor(Color.argb(0,0,0,0))
+                .strokeColor(Color.argb(255,66,160,71)));
+
+        Circle circle1 = mMap.addCircle(new CircleOptions()
+                .center(Gent)
+                .radius(smallDot)
+                .zIndex(5)
+                .fillColor(Color.argb(0,0,0,0))
+                .strokeColor(Color.argb(255,66,160,71)));
+
+        Circle circle2 = mMap.addCircle(new CircleOptions()
+                .center(Paris)
+                .radius(smallDot)
+                .zIndex(5)
+                .fillColor(Color.argb(0,0,0,0))
+                .strokeColor(Color.argb(255,66,160,71)));
 
         Polyline line = mMap.addPolyline(new PolylineOptions()
+                .zIndex(10)
                 .add(Gent, Biella)
                 .width(5)
                 .color(Color.BLACK));
 
         Polyline line2 = mMap.addPolyline(new PolylineOptions()
+                .zIndex(10)
                 .add(Paris, Biella)
                 .width(5)
                 .color(Color.BLACK));
