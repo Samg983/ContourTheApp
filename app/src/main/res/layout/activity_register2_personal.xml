@@ -159,7 +159,8 @@
         android:id="@+id/imageView3"
         app:srcCompat="@drawable/inschrijving2"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp" />
 
     <TextView
         android:text="|"
@@ -173,20 +174,7 @@
         android:layout_alignStart="@+id/editText4" />
 
     <Button
-        android:text="@string/prev"
-        android:layout_height="wrap_content"
-        android:id="@+id/button8"
-        android:onClick="goToRegi1"
-        android:layout_marginLeft="10dp"
-        android:padding="0dp"
-        android:layout_alignBaseline="@+id/button7"
-        android:layout_alignBottom="@+id/button7"
-        android:layout_alignEnd="@+id/haircolor"
-        android:layout_width="80dp" />
-
-    <Button
         android:text="@string/next"
-        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:id="@+id/button7"
         android:layout_marginBottom="16dp"
@@ -194,6 +182,20 @@
         android:layout_marginRight="10dp"
         android:layout_marginEnd="17dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:padding="0dp"
+        android:layout_width="80dp" />
+
+    <Button
+        android:text="@string/prev"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8"
+        android:onClick="goToRegi1"
+        android:layout_marginLeft="10dp"
+        android:padding="0dp"
+        android:layout_width="80dp"
+        android:layout_alignBaseline="@+id/button7"
+        android:layout_alignBottom="@+id/button7"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
