@@ -17,16 +17,16 @@ import swarm_app_3.ehb.com.contourtheapp.Activities.Register1Basic;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 
-public class OpenDialog extends Dialog implements android.view.View.OnClickListener {
+public class OpenDialogSwarmInfo extends Dialog implements android.view.View.OnClickListener {
 
     public Activity activity;
     public Button subscribeButton;
 
-    public OpenDialog() {
+    public OpenDialogSwarmInfo() {
         super(null);
     }
 
-    public OpenDialog(Activity activity) {
+    public OpenDialogSwarmInfo(Activity activity) {
         super(activity);
         this.activity = activity;
     }
