@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/autocomplete_tv"
         android:background="@color/lightgrey"
         android:layout_below="@+id/textView8"
         android:layout_alignStart="@+id/textView8"
@@ -90,6 +90,10 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:textColor="?attr/colorPrimaryDark" />
+
+    <android.support.v7.widget.RecyclerView>
+
+    </android.support.v7.widget.RecyclerView>
 
     <TextView
         android:text="|"
@@ -156,6 +160,5 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="17dp"
         android:onClick="goToRegi2" />
-
 
 </RelativeLayout>
