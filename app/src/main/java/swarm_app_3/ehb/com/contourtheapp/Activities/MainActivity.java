@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         trackerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent toMaps = new Intent(MainActivity.this, HomeScreen.class);
+                Intent toMaps = new Intent(MainActivity.this, TrackerActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
