@@ -64,7 +64,7 @@
         android:textColor="@color/cast_expanded_controller_background_color"
         android:layout_alignBaseline="@+id/textView5"
         android:layout_alignBottom="@+id/textView5"
-        android:layout_alignStart="@+id/name" />
+        android:layout_alignStart="@+id/gender" />
 
     <TextView
         android:text="@string/city"
@@ -102,8 +102,8 @@
         android:id="@+id/textView4"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
-        android:layout_alignBaseline="@+id/name"
-        android:layout_alignBottom="@+id/name"
+        android:layout_alignBaseline="@+id/gender"
+        android:layout_alignBottom="@+id/gender"
         android:layout_alignStart="@+id/titel" />
 
     <TextView
@@ -111,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:id="@+id/name"
+        android:id="@+id/gender"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="5dp"
         android:layout_below="@+id/titel"

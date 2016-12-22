@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
@@ -21,7 +19,7 @@ public class Register1Basic extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register1_basic);
         TextView titel = (TextView) findViewById(R.id.titel);
-        TextView name = (TextView) findViewById(R.id.name);
+        TextView name = (TextView) findViewById(R.id.gender);
         TextView dateofbirth = (TextView) findViewById(R.id.dateofbirth);
         TextView city = (TextView) findViewById(R.id.city);
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
