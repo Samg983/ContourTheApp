@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.MapsActivity">
+    tools:context=".Activities.SwarmActivity">
 
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,7 +12,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.MapsActivity" />
+        tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.SwarmActivity" />
 
     <Button
         android:id="@+id/button5"

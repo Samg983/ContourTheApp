@@ -34,12 +34,12 @@ import swarm_app_3.ehb.com.contourtheapp.R;
 
 
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class SwarmActivity extends FragmentActivity implements OnMapReadyCallback {
     FloatingActionButton.LayoutParams actionButtonParams;
     FloatingActionButton.LayoutParams subActionButtonParams;
     int radius;
     private GoogleMap mMap;
-    private static final String TAG = MapsActivity.class.getSimpleName();
+    private static final String TAG = SwarmActivity.class.getSimpleName();
 
     boolean alreadySubscribed = false;
 
@@ -222,7 +222,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         swarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(getApplicationContext(), MapsActivity.class);
+                Intent toMaps = new Intent(getApplicationContext(), SwarmActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
@@ -249,7 +249,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(getApplicationContext(), MapsActivity.class);
+                Intent toMaps = new Intent(getApplicationContext(), SwarmActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }

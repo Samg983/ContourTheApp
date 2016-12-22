@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openMaps(View view) {
-        Intent toMaps = new Intent(this, MapsActivity.class);
+        Intent toMaps = new Intent(this, SwarmActivity.class);
         startActivity(toMaps);
 
     }
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         swarmButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent toMaps = new Intent(MainActivity.this, MapsActivity.class);
+                Intent toMaps = new Intent(MainActivity.this, SwarmActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         galleryButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent toMaps = new Intent(MainActivity.this, MapsActivity.class);
+                Intent toMaps = new Intent(MainActivity.this, SwarmActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }

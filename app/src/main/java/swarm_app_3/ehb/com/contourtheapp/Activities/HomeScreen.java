@@ -125,7 +125,7 @@ public class HomeScreen extends AppCompatActivity {
         swarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(HomeScreen.this, MapsActivity.class);
+                Intent toMaps = new Intent(HomeScreen.this, SwarmActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
@@ -152,7 +152,7 @@ public class HomeScreen extends AppCompatActivity {
         galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(HomeScreen.this, MapsActivity.class);
+                Intent toMaps = new Intent(HomeScreen.this, SwarmActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
