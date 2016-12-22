@@ -22,7 +22,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/roundedbutton"
-        android:onClick="openPopup"
+        android:onClick="openPopupSwarm"
         android:shadowColor="@color/colorPrimaryDark"
         android:shadowDx="5"
         android:shadowDy="5"

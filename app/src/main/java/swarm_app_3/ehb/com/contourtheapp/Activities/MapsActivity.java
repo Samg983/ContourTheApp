@@ -104,9 +104,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    public void openPopup(View view) {
-        OpenDialogSwarmInfo dialog = new OpenDialogSwarmInfo(this);
-        dialog.show();
+    public void openPopupSwarm(View view) {
+        OpenDialogSwarmInfo dialogSwarm = new OpenDialogSwarmInfo(this);
+        dialogSwarm.show();
     }
 
 
