@@ -17,12 +17,12 @@ public class Register1Basic extends AppCompatActivity {
         setContentView(R.layout.activity_register1_basic);
         TextView titel = (TextView) findViewById(R.id.titel);
         TextView name = (TextView) findViewById(R.id.name);
-        TextView age = (TextView) findViewById(R.id.age);
+        TextView dateofbirth = (TextView) findViewById(R.id.dateofbirth);
         TextView city = (TextView) findViewById(R.id.city);
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
         titel.setTypeface(customFonts);
         name.setTypeface(customFonts);
-        age.setTypeface(customFonts);
+        dateofbirth.setTypeface(customFonts);
         city.setTypeface(customFonts);
 
         Spinner dropdown = (Spinner)findViewById(R.id.spinner1);
