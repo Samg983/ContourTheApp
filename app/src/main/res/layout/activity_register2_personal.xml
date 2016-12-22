@@ -153,15 +153,6 @@
         android:layout_alignStart="@+id/textView7"
         android:layout_marginTop="5dp" />
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView3"
-        app:srcCompat="@drawable/inschrijving2"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp" />
-
     <TextView
         android:text="|"
         android:layout_width="wrap_content"
@@ -172,6 +163,15 @@
         android:layout_marginTop="25dp"
         android:layout_below="@+id/editText4"
         android:layout_alignStart="@+id/editText4" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        app:srcCompat="@drawable/inschrijving2"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp" />
 
     <Button
         android:text="@string/next"
