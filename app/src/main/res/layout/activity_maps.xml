@@ -37,7 +37,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="14dp"
         android:background="@android:color/transparent"
-        android:drawableTop="@drawable/subscribebutton"
+        android:drawableTop="@drawable/subscribe_button"
         android:onClick="goToRegisterFromSwarm" />
 
     <TextView
