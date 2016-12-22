@@ -106,13 +106,13 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
                 .zIndex(10)
                 .add(Gent, Biella)
                 .width(5)
-                .color(Color.BLACK));
+                .color(Color.argb(255,66,160,71)));
 
         Polyline line2 = mMap.addPolyline(new PolylineOptions()
                 .zIndex(10)
                 .add(Paris, Biella)
                 .width(5)
-                .color(Color.BLACK));
+                .color(Color.argb(255,66,160,71)));
 
         mMap.setMinZoomPreference(6.0f);
         mMap.setMaxZoomPreference(100.0f);
