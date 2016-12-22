@@ -1,4 +1,4 @@
-package swarm_app_3.ehb.com.contourtheapp;
+package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -10,7 +10,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Tracker extends FragmentActivity implements OnMapReadyCallback {
+import swarm_app_3.ehb.com.contourtheapp.R;
+
+public class TrackerActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 

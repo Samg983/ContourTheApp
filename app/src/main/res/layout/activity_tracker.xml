@@ -5,4 +5,4 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="swarm_app_3.ehb.com.contourtheapp.Tracker" />
+    tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.TrackerActivity" />
