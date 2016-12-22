@@ -32,7 +32,8 @@
         android:textColor="?attr/actionModeSplitBackground"
         android:layout_width="wrap_content"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp" />
+        android:paddingTop="5dp"
+        android:paddingLeft="5dp" />
 
     <TextView
         android:text="@string/RegisterBasicTitle"
@@ -81,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:ems="10"
+        android:ems="15"
         android:id="@+id/autocomplete_tv"
         android:background="@color/lightgrey"
         android:layout_below="@+id/textView8"
@@ -90,7 +91,8 @@
         android:layout_alignEnd="@+id/editText"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:textColor="?attr/colorPrimaryDark" />
+        android:textColor="?attr/colorPrimaryDark"
+        android:paddingLeft="5dp" />
 
     <TextView
         android:text="|"
@@ -126,7 +128,8 @@
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:background="@color/lightgrey"
-        android:textColor="?attr/colorPrimaryDark" />
+        android:textColor="?attr/colorPrimaryDark"
+        android:paddingLeft="5dp" />
 
     <ImageView
         android:layout_width="150dp"
