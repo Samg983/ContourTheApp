@@ -58,6 +58,9 @@
         <activity android:name=".Activities.Register2Personal" />
         <activity android:name=".Activities.Register3Weird" />
         <activity android:name=".Activities.Register4AlmostFinished" />
+        <activity
+            android:name=".Tracker"
+            android:label="@string/title_activity_tracker"></activity>
     </application>
 
 </manifest>
