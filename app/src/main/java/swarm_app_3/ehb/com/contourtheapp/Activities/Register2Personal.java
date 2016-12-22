@@ -23,12 +23,16 @@ public class Register2Personal extends AppCompatActivity {
         TextView eyecolor = (TextView) findViewById(R.id.eyecolor);
         TextView haircolor = (TextView) findViewById(R.id.haircolor);
         TextView titel = (TextView) findViewById(R.id.PersonalTitle);
+        TextView next = (TextView) findViewById(R.id.lblNext);
+        TextView prev = (TextView) findViewById(R.id.lblPrev);
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
         titel.setTypeface(customFonts);
         gender.setTypeface(customFonts);
         height.setTypeface(customFonts);
         eyecolor.setTypeface(customFonts);
         haircolor.setTypeface(customFonts);
+        next.setTypeface(customFonts);
+        prev.setTypeface(customFonts);
 
         Spinner dropdown = (Spinner)findViewById(R.id.spinner1);
         String[] items = new String[]{"Male", "Female", "Other"};

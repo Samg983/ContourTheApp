@@ -22,11 +22,13 @@ public class Register1Basic extends AppCompatActivity {
         TextView name = (TextView) findViewById(R.id.gender);
         TextView dateofbirth = (TextView) findViewById(R.id.dateofbirth);
         TextView city = (TextView) findViewById(R.id.city);
+        TextView next = (TextView) findViewById(R.id.lblNext);
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
         titel.setTypeface(customFonts);
         name.setTypeface(customFonts);
         dateofbirth.setTypeface(customFonts);
         city.setTypeface(customFonts);
+        next.setTypeface(customFonts);
     }
 
     public void goToRegi2 (View view) {
