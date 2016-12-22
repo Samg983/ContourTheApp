@@ -7,9 +7,14 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="RegisterBasicTitle">Some information about you:</string>
     <string name="Name">Name</string>
-    <string name="Age">Age</string>
+    <string name="dateofbirth">Date of Birth</string>
     <string name="city">City</string>
     <string name="PersonalTitle">Something more personal:</string>
+    <string name="next">Next</string>
+    <string name="gender">Gender</string>
+    <string name="height">Height (centimeters)</string>
+    <string name="eyecolor">Eye Color</string>
+    <string name="haircolor">Hair Color</string>
+    <string name="prev">Prev</string>
     <string name="NextSwarm">Next</string>
-    <string name="title_activity_tracker">Map</string>
 </resources>
