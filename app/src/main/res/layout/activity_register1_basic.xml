@@ -104,17 +104,6 @@
         android:layout_alignStart="@+id/titel" />
 
     <TextView
-        android:text="@string/Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:id="@+id/gender"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginLeft="5dp"
-        android:layout_below="@+id/titel"
-        android:layout_toEndOf="@+id/textView4" />
-
-    <TextView
         android:text="|"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -163,5 +152,16 @@
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:paddingRight="15dp" />
+
+    <TextView
+        android:text="@string/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:id="@+id/gender"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/titel"
+        android:layout_toEndOf="@+id/textView4" />
 
 </RelativeLayout>
