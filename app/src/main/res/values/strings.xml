@@ -18,7 +18,7 @@
     <string name="haircolor">Hair Color</string>
     <string name="prev">Prev</string>
     <string name="NextSwarm">Next</string>
-    <string name="noselength">Nose Length</string>
+    <string name="noselength">Nose Length (centimeters)</string>
     <string name="dimpleswhenyoulaugh">Do you have dimples when you laugh?</string>
     <string name="numberoffingers">Number of fingers</string>
     <string name="numberoftoes">Number of toes</string>

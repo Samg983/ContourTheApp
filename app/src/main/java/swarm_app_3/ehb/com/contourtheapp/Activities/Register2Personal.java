@@ -18,11 +18,11 @@ public class Register2Personal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register2_personal);
 
-        TextView gender = (TextView) findViewById(R.id.gender);
-        TextView height = (TextView) findViewById(R.id.height);
+        TextView gender = (TextView) findViewById(R.id.noselength);
+        TextView height = (TextView) findViewById(R.id.dimples);
         TextView eyecolor = (TextView) findViewById(R.id.eyecolor);
         TextView haircolor = (TextView) findViewById(R.id.haircolor);
-        TextView titel = (TextView) findViewById(R.id.PersonalTitle);
+        TextView titel = (TextView) findViewById(R.id.WeirdTitle);
         TextView next = (TextView) findViewById(R.id.lblNext);
         TextView prev = (TextView) findViewById(R.id.lblPrev);
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");

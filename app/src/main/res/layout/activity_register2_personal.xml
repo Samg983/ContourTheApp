@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:id="@+id/PersonalTitle"
+        android:id="@+id/WeirdTitle"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginStart="25dp"
         android:layout_alignParentTop="true"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/gender"
+        android:id="@+id/noselength"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="5dp"
         android:layout_alignBaseline="@+id/textView4"
@@ -67,7 +67,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/height"
+        android:id="@+id/dimples"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="5dp"
         android:text="@string/height"
@@ -181,6 +181,17 @@
         android:layout_marginTop="27dp" />
 
     <TextView
+        android:text="|"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/WeirdTitle"
+        android:layout_alignStart="@+id/WeirdTitle" />
+
+    <TextView
         android:text="@string/prev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -195,17 +206,6 @@
         android:paddingRight="15dp"
         android:layout_alignBaseline="@+id/lblNext"
         android:layout_alignBottom="@+id/lblNext"
-        android:layout_toEndOf="@+id/textView7" />
-
-    <TextView
-        android:text="|"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_marginTop="21dp"
-        android:layout_below="@+id/PersonalTitle"
-        android:layout_alignStart="@+id/PersonalTitle" />
+        android:layout_alignEnd="@+id/noselength" />
 
 </RelativeLayout>

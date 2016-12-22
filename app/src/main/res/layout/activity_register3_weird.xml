@@ -183,30 +183,8 @@
         android:layout_alignStart="@+id/textView8"
         android:layout_marginTop="5dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/shoesize"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginLeft="5dp"
-        android:text="@string/shoesize"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/spinner3"
-        android:layout_toEndOf="@+id/textView8" />
-
-    <TextView
-        android:text="|"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView5"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_marginTop="43dp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
-
     <Spinner
-        android:id="@+id/spinner5"
+        android:id="@+id/spinner1"
         android:layout_height="30dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
@@ -226,7 +204,8 @@
         android:id="@+id/editText2"
         android:layout_marginTop="5dp"
         android:paddingTop="5dp"
-        android:paddingBottom="5dp" />
+        android:paddingBottom="5dp"
+        android:textColor="?attr/colorPrimaryDark" />
 
     <TextView
         android:text="|"
@@ -236,7 +215,29 @@
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:layout_marginTop="17dp"
-        android:layout_below="@+id/spinner5"
-        android:layout_alignStart="@+id/spinner5" />
+        android:layout_below="@+id/spinner1"
+        android:layout_alignStart="@+id/spinner1" />
+
+    <TextView
+        android:text="|"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/editText2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shoesize"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="5dp"
+        android:text="@string/shoesize"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/spinner3"
+        android:layout_toEndOf="@+id/textView8" />
 
 </RelativeLayout>
