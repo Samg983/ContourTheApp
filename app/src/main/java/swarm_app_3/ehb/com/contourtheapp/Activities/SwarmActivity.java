@@ -41,6 +41,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
     FloatingActionButton.LayoutParams actionButtonParams;
     FloatingActionButton.LayoutParams subActionButtonParams;
     int radius;
+    float distance = 0;
     private GoogleMap mMap;
     private static final String TAG = SwarmActivity.class.getSimpleName();
 
@@ -92,6 +93,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         //Tekenen wandelingplaats
         mMap.addMarker(new MarkerOptions()
                         .position(Biella)
+                        .anchor(0.5f,0.5f)
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.swarm_place))
                         .title(BiellaS));
 
@@ -122,6 +124,11 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
     public void openPopupSwarm(View view) {
         OpenDialogSwarmInfo dialogSwarm = new OpenDialogSwarmInfo(this);
         dialogSwarm.show();
+    }
+
+    public float calculateDistance(LatLng a,LatLng b) {
+        
+        return distance;
     }
 
     public void WriteLoc(LatLng a, String b) {
