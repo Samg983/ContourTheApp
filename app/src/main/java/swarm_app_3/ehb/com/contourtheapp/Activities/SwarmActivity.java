@@ -3,12 +3,14 @@ package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.content.Intent;
 
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -42,7 +44,6 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
     FloatingActionButton.LayoutParams actionButtonParams;
     FloatingActionButton.LayoutParams subActionButtonParams;
     int radius;
-    float distance = 0;
     private GoogleMap mMap;
     private static final String TAG = SwarmActivity.class.getSimpleName();
 
@@ -73,8 +74,11 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         }
     }
 
+
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
 
         //Plaatsen die getekend worden op map
@@ -109,8 +113,8 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
 
         mMap.setMinZoomPreference(6.0f);
         mMap.setMaxZoomPreference(100.0f);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(Strasbourg));
 
-       mMap.moveCamera(CameraUpdateFactory.newLatLng(Strasbourg));
         try {
             boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
@@ -127,11 +131,6 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         dialogSwarm.show();
     }
 
-    public float calculateDistance(LatLng a,LatLng b) {
-        float plus = 0;
-        return distance+=plus;
-    }
-
     public void WriteLoc(LatLng a, String b) {
         LatLng Biella = new LatLng(45.5630400, 8.0579600);
         Polyline line = mMap.addPolyline(new PolylineOptions()
@@ -141,6 +140,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
                 .width(5)
                 .color(Color.argb(255,66,160,71)));
         mMap.addMarker(new MarkerOptions()
+                .zIndex(20)
                 .position(a)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.swarm_place))
                 .anchor(0.5f,0.5f)
