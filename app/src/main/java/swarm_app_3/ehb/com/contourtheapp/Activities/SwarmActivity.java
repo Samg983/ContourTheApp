@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Location;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -34,6 +35,7 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
+import swarm_app_3.ehb.com.contourtheapp.Manifest;
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenDialogSwarmInfo;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
@@ -91,7 +93,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         LatLng Keulen = new LatLng(50.937531, 6.960279);
         LatLng Amsterdam = new LatLng(52.370216, 4.895168);
 
-        //Plaatsen wandeling
+        //Plaats van wandeling
         LatLng Biella = new LatLng(45.5630400, 8.0579600);
         String BiellaS = "Biella";
 
