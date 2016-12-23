@@ -105,12 +105,14 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         Polyline line = mMap.addPolyline(new PolylineOptions()
                 .zIndex(10)
                 .add(Gent, Biella)
+                .geodesic(true)
                 .width(5)
                 .color(Color.argb(255,66,160,71)));
 
         Polyline line2 = mMap.addPolyline(new PolylineOptions()
                 .zIndex(10)
                 .add(Paris, Biella)
+                .geodesic(true)
                 .width(5)
                 .color(Color.argb(255,66,160,71)));
 
