@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -127,8 +128,8 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
     }
 
     public float calculateDistance(LatLng a,LatLng b) {
-        
-        return distance;
+        float plus = 0;
+        return distance+=plus;
     }
 
     public void WriteLoc(LatLng a, String b) {
