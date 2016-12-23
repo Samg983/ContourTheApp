@@ -154,8 +154,8 @@ public class MainActivity extends AppCompatActivity {
         galleryButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent toMaps = new Intent(MainActivity.this, SwarmActivity.class);
-                startActivity(toMaps);
+                Intent toGallery = new Intent(MainActivity.this, GalleryActivity.class);
+                startActivity(toGallery);
                 actionMenu.close(true);
             }
         });
