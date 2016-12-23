@@ -27,4 +27,5 @@
     <string name="finish">Finish</string>
     <string name="cometoitaly">Do you plan to come to Italy?</string>
     <string name="howmanypeople">How many people will come with you?</string>
+    <string name="skip">Skip</string>
 </resources>
