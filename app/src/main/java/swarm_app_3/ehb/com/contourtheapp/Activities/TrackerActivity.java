@@ -1,6 +1,7 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.content.res.Resources;
+import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,8 +30,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
-
+    
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
