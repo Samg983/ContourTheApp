@@ -128,6 +128,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         WriteLoc(Kortrijk,"Kortrijk");
         WriteLoc(Antwerpen,"Antwerpen");
         WriteLoc(Tilburg,"Tilburg");
+        WriteLoc(Turnhout,"Turnhout");
 
         //Plaats van wandeling
         LatLng Biella = new LatLng(45.5630400, 8.0579600);
