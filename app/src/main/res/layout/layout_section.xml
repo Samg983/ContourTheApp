@@ -12,29 +12,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="7dp"
-            android:paddingBottom="7dp"
-            android:paddingStart="15dp"
+            android:layout_gravity="left"
+
             android:background="#fff"
             android:textColor="#000"
             android:textSize="28sp"
             android:id="@+id/text_section"
-            android:layout_weight="0.12"/>
+/>
+                  <!-- android:layout_weight="0.12"-->
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
 
         <ToggleButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+
             android:id="@+id/toggle_button_section"
-            android:background="#eee"
-            android:padding="7dp"
-            android:textOn="up"
-            android:textOff="down"
-            android:layout_weight="0.88"/>
+            android:background="@drawable/arrow_toggle_bg"
+            android:layout_gravity="center"
+            style="@style/toggleButton"
+            />
+
+        <!--android:layout_weight="0.50" android:layout_margin="20dp"-->
 
     </LinearLayout>
 

@@ -125,14 +125,14 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
         ToggleButton sectionToggleButton;
 
         //for item
-        ImageView itemImageView;
+        SquareImageView itemImageView;
 
         public ViewHolder(View view, int viewType) {
             super(view);
             this.viewType = viewType;
             this.view = view;
             if (viewType == VIEW_TYPE_ITEM) {
-                itemImageView = (ImageView) view.findViewById(R.id.image_item);
+                itemImageView = (SquareImageView) view.findViewById(R.id.image_item);
             } else {
                 sectionTextView = (TextView) view.findViewById(R.id.text_section);
                 sectionToggleButton = (ToggleButton) view.findViewById(R.id.toggle_button_section);
