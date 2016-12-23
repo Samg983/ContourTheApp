@@ -167,4 +167,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void showImei(View view) {
+        
+
+    }
 }
