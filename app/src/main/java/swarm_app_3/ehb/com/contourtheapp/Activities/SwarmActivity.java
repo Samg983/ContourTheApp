@@ -92,7 +92,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         //Tekenen wandelingplaats
         mMap.addMarker(new MarkerOptions()
                         .position(Biella)
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.swarm_place))
                         .title(BiellaS));
 
         //Tekenen van Userlocations
@@ -134,7 +134,8 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
                 .color(Color.argb(255,66,160,71)));
         mMap.addMarker(new MarkerOptions()
                 .position(a)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.swarm_place))
+                .anchor(0.5f,0.5f)
                 .title(b));
     }
 
