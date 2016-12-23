@@ -52,4 +52,14 @@
         android:id="@+id/button6"
         android:onClick="goToRegi" />
 
+    <Button
+        android:text="Tracker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button7"
+        android:layout_below="@+id/button6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:onClick="goToTracker" />
+
 </RelativeLayout>

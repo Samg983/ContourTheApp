@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.android.gms.analytics.Tracker;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
@@ -50,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toHome);
     }
 
+    public void goToTracker(View view) {
+        Intent toTracker = new Intent(this, TrackerActivity.class);
+        startActivity(toTracker);
+    }
 
     public void createMenu(){
 
