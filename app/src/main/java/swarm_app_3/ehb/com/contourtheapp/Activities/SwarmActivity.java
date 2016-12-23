@@ -19,10 +19,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
@@ -32,6 +34,7 @@ import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenDialogSwarmInfo;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
+import static swarm_app_3.ehb.com.contourtheapp.R.id.map;
 
 
 public class SwarmActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -49,7 +52,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+                .findFragmentById(map);
         mapFragment.getMapAsync(this);
 
         TextView next = (TextView) findViewById(R.id.lblNext);
@@ -68,53 +71,38 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         }
     }
 
-
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        //Plaatsen die getekend worden op map
         LatLng Gent = new LatLng(51.0535, 3.7304);
-        LatLng Biella = new LatLng(45.5630400, 8.0579600);
         LatLng Strasbourg = new LatLng(48.58392,7.74553);
         LatLng Paris = new LatLng(48.864716,2.349014);
-        int bigDot = 10000;
-        int smallDot = 5000;
+        LatLng Brussel = new LatLng(50.850340, 4.35171);
+        LatLng Namen = new LatLng(50.467388, 4.871985);
+        LatLng Dusseldorf = new LatLng(51.227741, 6.773456);
+        LatLng Keulen = new LatLng(50.937531, 6.960279);
+        LatLng Amsterdam = new LatLng(52.370216, 4.895168);
 
-        Circle circleCenter = mMap.addCircle(new CircleOptions()
-                .center(Biella)
-                .radius(bigDot)
-                .zIndex(5)
-                .fillColor(Color.argb(0,0,0,0))
-                .strokeColor(Color.argb(255,66,160,71)));
+        //Plaatsen wandeling
+        LatLng Biella = new LatLng(45.5630400, 8.0579600);
+        String BiellaS = "Biella";
 
-        Circle circle1 = mMap.addCircle(new CircleOptions()
-                .center(Gent)
-                .radius(smallDot)
-                .zIndex(5)
-                .fillColor(Color.argb(0,0,0,0))
-                .strokeColor(Color.argb(255,66,160,71)));
+        //Tekenen wandelingplaats
+        mMap.addMarker(new MarkerOptions()
+                        .position(Biella)
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                        .title(BiellaS));
 
-        Circle circle2 = mMap.addCircle(new CircleOptions()
-                .center(Paris)
-                .radius(smallDot)
-                .zIndex(5)
-                .fillColor(Color.argb(0,0,0,0))
-                .strokeColor(Color.argb(255,66,160,71)));
-
-        Polyline line = mMap.addPolyline(new PolylineOptions()
-                .zIndex(10)
-                .add(Gent, Biella)
-                .geodesic(true)
-                .width(5)
-                .color(Color.argb(255,66,160,71)));
-
-        Polyline line2 = mMap.addPolyline(new PolylineOptions()
-                .zIndex(10)
-                .add(Paris, Biella)
-                .geodesic(true)
-                .width(5)
-                .color(Color.argb(255,66,160,71)));
+        //Tekenen van Userlocations
+        WriteLoc(Paris,"Paris");
+        WriteLoc(Gent,"Gent");
+        WriteLoc(Brussel,"Brussel");
+        WriteLoc(Namen,"Namur");
+        WriteLoc(Dusseldorf,"Dusseldorf");
+        WriteLoc(Keulen,"Cologne");
+        WriteLoc(Amsterdam,"Amsterdam");
 
         mMap.setMinZoomPreference(6.0f);
         mMap.setMaxZoomPreference(100.0f);
@@ -128,9 +116,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
             if (!success) {
                 Log.e(TAG, "Style parsing failed.");
             }
-        } catch (Resources.NotFoundException e) {
-
-        }
+        } catch (Resources.NotFoundException e) {}
     }
 
     public void openPopupSwarm(View view) {
@@ -138,6 +124,19 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         dialogSwarm.show();
     }
 
+    public void WriteLoc(LatLng a, String b) {
+        LatLng Biella = new LatLng(45.5630400, 8.0579600);
+        Polyline line = mMap.addPolyline(new PolylineOptions()
+                .zIndex(10)
+                .add(a, Biella)
+                .geodesic(true)
+                .width(5)
+                .color(Color.argb(255,66,160,71)));
+        mMap.addMarker(new MarkerOptions()
+                .position(a)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .title(b));
+    }
 
     public void goToRegisterFromSwarm(View view) {
         Intent toRegisterFromSwarm = new Intent(this, Register1Basic.class);
