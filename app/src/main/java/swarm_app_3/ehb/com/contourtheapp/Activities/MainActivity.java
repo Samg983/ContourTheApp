@@ -1,11 +1,14 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.analytics.Tracker;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
@@ -15,7 +18,7 @@ import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class MainActivity extends AppCompatActivity {
-
+private TelephonyManager telephonyManager;
     FloatingActionButton.LayoutParams actionButtonParams;
     FloatingActionButton.LayoutParams subActionButtonParams;
     int radius;
@@ -167,8 +170,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void showImei(View view) {
-        
-
+    public void showImeiNumber(View view) {
+        String IMEI_Number_Holder;
+        telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+        IMEI_Number_Holder = telephonyManager.getDeviceId();
+        Toast.makeText(this, "Imei: " + IMEI_Number_Holder, Toast.LENGTH_SHORT).show();
     }
 }
