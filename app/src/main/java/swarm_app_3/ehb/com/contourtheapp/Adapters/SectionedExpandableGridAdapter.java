@@ -1,21 +1,24 @@
 package swarm_app_3.ehb.com.contourtheapp.Adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 
+import swarm_app_3.ehb.com.contourtheapp.Activities.GalleryActivity;
 import swarm_app_3.ehb.com.contourtheapp.Model.GalleryCheckpoint;
 import swarm_app_3.ehb.com.contourtheapp.Model.GalleryPhoto;
 import swarm_app_3.ehb.com.contourtheapp.R;
+
+import static swarm_app_3.ehb.com.contourtheapp.R.id.ctitel;
 
 /**
  * Created by Bram Schrooyen on 23/12/2016.
@@ -32,6 +35,8 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
     //listeners
     private final ItemClickListener mItemClickListener;
     private final SectionStateChangeListener mSectionStateChangeListener;
+
+    private GalleryActivity galleryActivity;
 
     //view type
     private static final int VIEW_TYPE_SECTION = R.layout.layout_section;
@@ -72,7 +77,11 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
                 holder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+
                         mItemClickListener.itemClicked(item);
+
+
                     }
                 });
                 break;
@@ -82,7 +91,7 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
                 holder.sectionTextView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mItemClickListener.itemClicked(section);
+                        //mItemClickListener.itemClicked(section);
                         if(!section.isExpanded){ //Zorgt ervoor dat toggle button ook werkt bij het klikken op de section titel.
                             mSectionStateChangeListener.onSectionStateChanged(section, true);
                         } else if(section.isExpanded){
@@ -135,6 +144,11 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
                 itemImageView = (SquareImageView) view.findViewById(R.id.image_item);
             } else {
                 sectionTextView = (TextView) view.findViewById(R.id.text_section);
+
+                //FONT AANPASSEN BIJ ADAPTERS
+                Typeface tf_regular = Typeface.createFromAsset(itemView.getContext().getAssets(), "CutiveMono-Regular.ttf");
+                sectionTextView.setTypeface(tf_regular);
+
                 sectionToggleButton = (ToggleButton) view.findViewById(R.id.toggle_button_section);
             }
         }
