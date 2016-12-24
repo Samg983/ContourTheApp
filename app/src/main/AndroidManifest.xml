@@ -49,14 +49,25 @@
         <activity
             android:name=".Activities.BlogListActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activities.GalleryActivity" />
-        <activity android:name=".Activities.Register1Basic" />
-        <activity android:name=".Activities.Register2Personal" />
-        <activity android:name=".Activities.Register3Weird" />
-        <activity android:name=".Activities.Register4AlmostFinished" />
+        <activity
+            android:name=".Activities.GalleryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.Register1Basic"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.Register2Personal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.Register3Weird"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.Register4AlmostFinished"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.TrackerActivity"
-            android:label="@string/title_activity_tracker"></activity>
+            android:label="@string/title_activity_tracker"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
