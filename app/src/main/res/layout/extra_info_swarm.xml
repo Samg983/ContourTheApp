@@ -8,7 +8,7 @@
     <!-- Whatever your layout will consist of can go here -->
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/lblMoreInfoSwarm"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"

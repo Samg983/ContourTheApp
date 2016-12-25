@@ -31,6 +31,7 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import swarm_app_3.ehb.com.contourtheapp.Model.OpenMessagesTracker;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class TrackerActivity extends FragmentActivity implements OnMapReadyCallback,
@@ -75,6 +76,8 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+
 
         try {
             boolean success = googleMap.setMapStyle(
@@ -143,10 +146,22 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title("messages");
         markerOptions.flat(true);
         markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.arrow));
+
+
         mCurrLocationMarker = mMap.addMarker(markerOptions);
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                if(marker.equals(mCurrLocationMarker)){
+                    OpenMessagesTracker messages = new OpenMessagesTracker(TrackerActivity.this);
+                    messages.show();
+                }
+               return true;
+            }
+        });
 
         if(mLastLocation.hasBearing()){
             mCurrLocationMarker.setRotation(mLastLocation.getBearing());
@@ -231,38 +246,4 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         }
     }
 
-    public void animateMarker(final Marker marker, final Location location) {
-        final Handler handler = new Handler();
-        final long start = SystemClock.uptimeMillis();
-        final LatLng startLatLng = marker.getPosition();
-        final double startRotation = marker.getRotation();
-        final long duration = 500;
-
-        final Interpolator interpolator = new LinearInterpolator();
-
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                long elapsed = SystemClock.uptimeMillis() - start;
-                float t = interpolator.getInterpolation((float) elapsed
-                        / duration);
-
-                double lng = t * location.getLongitude() + (1 - t)
-                        * startLatLng.longitude;
-                double lat = t * location.getLatitude() + (1 - t)
-                        * startLatLng.latitude;
-
-                float rotation = (float) (t * location.getBearing() + (1 - t)
-                        * startRotation);
-
-                marker.setPosition(new LatLng(lat, lng));
-                marker.setRotation(rotation);
-
-                if (t < 1.0) {
-                    // Post again 16ms later.
-                    handler.postDelayed(this, 16);
-                }
-            }
-        });
-    }
 }

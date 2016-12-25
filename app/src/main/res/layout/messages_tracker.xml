@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFF"
+    android:orientation="vertical">
+    <!-- Whatever your layout will consist of can go here -->
+
+
+    <TextView
+        android:text="@string/informationMessagesTracker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblInformationMessageTracker"
+        android:textColor="@android:color/black"
+        android:padding="@dimen/paddingMessagesTracker"
+        android:textSize="@dimen/text_size_middle" />
+
+    <TextView
+        android:text="@string/messageMoveAlong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblMoveAlong"
+        android:padding="@dimen/paddingMessagesTracker"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="@string/messageWalkOnTheLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblWalkOnTheLine"
+        android:padding="@dimen/paddingMessagesTracker"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="@string/messageHiCutie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblHi"
+        android:padding="@dimen/paddingMessagesTracker"
+        android:textColor="@android:color/black" />
+</LinearLayout>

@@ -8,10 +8,14 @@ package swarm_app_3.ehb.com.contourtheapp.Model;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
+
+
 
 import swarm_app_3.ehb.com.contourtheapp.Activities.Register1Basic;
 import swarm_app_3.ehb.com.contourtheapp.R;
@@ -19,8 +23,9 @@ import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class OpenDialogSwarmInfo extends Dialog implements android.view.View.OnClickListener {
 
-    public Activity activity;
-    public Button subscribeButton;
+    private Activity activity;
+    private Button subscribeButton;
+    private TextView lblMoreInfoSwarm;
 
     public OpenDialogSwarmInfo() {
         super(null);
@@ -36,6 +41,13 @@ public class OpenDialogSwarmInfo extends Dialog implements android.view.View.OnC
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.extra_info_swarm);
+
+        lblMoreInfoSwarm = (TextView) findViewById(R.id.lblMoreInfoSwarm);
+
+        Typeface ralewayRegular = Typeface.createFromAsset(activity.getAssets(), "Raleway-Regular.ttf");
+
+        lblMoreInfoSwarm.setTypeface(ralewayRegular);
+
         subscribeButton = (Button) findViewById(R.id.btnSubscribe);
         subscribeButton.setOnClickListener(new View.OnClickListener() {
             @Override
