@@ -80,9 +80,6 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
                             this, R.raw.map_style_json));
-            //mMap.setMyLocationEnabled(true);
-
-
             if (!success) {
                 Log.e(TAG, "Style parsing failed.");
             }
@@ -218,7 +215,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                         if (mGoogleApiClient == null) {
                             buildGoogleApiClient();
                         }
-                        mMap.setMyLocationEnabled(true);
+                        //mMap.setMyLocationEnabled(true);
                     }
 
                 } else {
