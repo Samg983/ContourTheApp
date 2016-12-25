@@ -5,11 +5,15 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.location.Location;
 import android.os.Build;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -35,11 +39,12 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         LocationListener {
 
     private GoogleMap mMap;
-    GoogleApiClient mGoogleApiClient;
-    Location mLastLocation;
-    Marker mCurrLocationMarker;
-    LocationRequest mLocationRequest;
+    private GoogleApiClient mGoogleApiClient;
+    private Location mLastLocation;
+    private Marker mCurrLocationMarker;
+    private LocationRequest mLocationRequest;
     private static final String TAG = TrackerActivity.class.getSimpleName();
+    private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,12 +96,12 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient();
-                mMap.setMyLocationEnabled(true);
+                //mMap.setMyLocationEnabled(true);
             }
         }
         else {
             buildGoogleApiClient();
-            mMap.setMyLocationEnabled(true);
+            //mMap.setMyLocationEnabled(true);
         }
     }
 
@@ -141,10 +146,14 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title("Current Position");
+        markerOptions.title("messages");
+        markerOptions.flat(true);
         markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.arrow));
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
+        if(mLastLocation.hasBearing()){
+            mCurrLocationMarker.setRotation(mLastLocation.getBearing());
+        }
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
@@ -160,8 +169,6 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
-
-    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public boolean checkLocationPermission(){
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
@@ -225,5 +232,40 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             // other 'case' lines to check for other permissions this app might request.
             // You can add here other case statements according to your requirement.
         }
+    }
+
+    public void animateMarker(final Marker marker, final Location location) {
+        final Handler handler = new Handler();
+        final long start = SystemClock.uptimeMillis();
+        final LatLng startLatLng = marker.getPosition();
+        final double startRotation = marker.getRotation();
+        final long duration = 500;
+
+        final Interpolator interpolator = new LinearInterpolator();
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                long elapsed = SystemClock.uptimeMillis() - start;
+                float t = interpolator.getInterpolation((float) elapsed
+                        / duration);
+
+                double lng = t * location.getLongitude() + (1 - t)
+                        * startLatLng.longitude;
+                double lat = t * location.getLatitude() + (1 - t)
+                        * startLatLng.latitude;
+
+                float rotation = (float) (t * location.getBearing() + (1 - t)
+                        * startRotation);
+
+                marker.setPosition(new LatLng(lat, lng));
+                marker.setRotation(rotation);
+
+                if (t < 1.0) {
+                    // Post again 16ms later.
+                    handler.postDelayed(this, 16);
+                }
+            }
+        });
     }
 }

@@ -1,8 +1,12 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
@@ -23,11 +27,10 @@ import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class MainActivity extends AppCompatActivity {
     private TelephonyManager telephonyManager;
-    FloatingActionButton.LayoutParams actionButtonParams;
-    FloatingActionButton.LayoutParams subActionButtonParams;
-    int radius;
-
-
+    private FloatingActionButton.LayoutParams actionButtonParams;
+    private FloatingActionButton.LayoutParams subActionButtonParams;
+    private int radius;
+    private static final int MY_PERMISSIONS_REQUEST_TELEPHONESTATE = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,10 +180,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showImeiNumber(View view) {
-        String IMEI_Number_Holder;
-        telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
-        IMEI_Number_Holder = telephonyManager.getDeviceId();
-        Toast.makeText(this, "Imei: " + IMEI_Number_Holder, Toast.LENGTH_SHORT).show();
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_PHONE_STATE)
+                == PackageManager.PERMISSION_GRANTED) {
+            String IMEI_Number_Holder;
+            telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+            IMEI_Number_Holder = telephonyManager.getDeviceId();
+            Toast.makeText(this, "Imei: " + IMEI_Number_Holder, Toast.LENGTH_SHORT).show();
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_PHONE_STATE},
+                    MY_PERMISSIONS_REQUEST_TELEPHONESTATE);
+        }
     }
 
 
