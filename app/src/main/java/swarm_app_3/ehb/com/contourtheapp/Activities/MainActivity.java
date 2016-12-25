@@ -1,5 +1,6 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.maps.GoogleMap;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
@@ -18,10 +22,11 @@ import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class MainActivity extends AppCompatActivity {
-private TelephonyManager telephonyManager;
+    private TelephonyManager telephonyManager;
     FloatingActionButton.LayoutParams actionButtonParams;
     FloatingActionButton.LayoutParams subActionButtonParams;
     int radius;
+
 
 
     @Override
@@ -29,8 +34,9 @@ private TelephonyManager telephonyManager;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createMenu();
-    }
 
+
+    }
 
 
     public void goToSplash(View view) {
@@ -59,33 +65,33 @@ private TelephonyManager telephonyManager;
         startActivity(toTracker);
     }
 
-    public void createMenu(){
+    public void createMenu() {
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        switch(metrics.densityDpi) {
+        switch (metrics.densityDpi) {
             case DisplayMetrics.DENSITY_HIGH:
             case DisplayMetrics.DENSITY_XHIGH:
             case DisplayMetrics.DENSITY_XXHIGH:
             case DisplayMetrics.DENSITY_XXXHIGH:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(300,300);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(450,225);
+                actionButtonParams = new FloatingActionButton.LayoutParams(300, 300);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(450, 225);
                 radius = 350;
                 break;
             case DisplayMetrics.DENSITY_MEDIUM:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(200,200);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(250,125);
+                actionButtonParams = new FloatingActionButton.LayoutParams(200, 200);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(250, 125);
                 radius = 225;
                 break;
             case DisplayMetrics.DENSITY_LOW:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(100,100);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(150,75);
+                actionButtonParams = new FloatingActionButton.LayoutParams(100, 100);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(150, 75);
                 radius = 125;
                 break;
             default:
-                actionButtonParams =  new FloatingActionButton.LayoutParams(300,300);
-                subActionButtonParams = new FloatingActionButton.LayoutParams(450,225);
+                actionButtonParams = new FloatingActionButton.LayoutParams(300, 300);
+                subActionButtonParams = new FloatingActionButton.LayoutParams(450, 225);
                 radius = 350;
         }
 
@@ -132,36 +138,36 @@ private TelephonyManager telephonyManager;
                 .attachTo(actionButton)
                 .build();
 
-        swarmButton.setOnClickListener(new View.OnClickListener(){
+        swarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent toMaps = new Intent(MainActivity.this, SwarmActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
         });
 
-        blogButton.setOnClickListener(new View.OnClickListener(){
+        blogButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent toBlogs = new Intent(MainActivity.this, BlogListActivity.class);
                 startActivity(toBlogs);
                 actionMenu.close(true);
             }
         });
 
-        trackerButton.setOnClickListener(new View.OnClickListener(){
+        trackerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent toMaps = new Intent(MainActivity.this, TrackerActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
         });
 
-        galleryButton.setOnClickListener(new View.OnClickListener(){
+        galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent toGallery = new Intent(MainActivity.this, GalleryActivity.class);
                 startActivity(toGallery);
                 actionMenu.close(true);
@@ -176,4 +182,6 @@ private TelephonyManager telephonyManager;
         IMEI_Number_Holder = telephonyManager.getDeviceId();
         Toast.makeText(this, "Imei: " + IMEI_Number_Holder, Toast.LENGTH_SHORT).show();
     }
+
+
 }

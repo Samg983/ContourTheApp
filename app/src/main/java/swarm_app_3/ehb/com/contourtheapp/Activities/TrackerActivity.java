@@ -8,7 +8,9 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
 
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -65,7 +67,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         } else{
 
         // Add a marker in Sydney and move the camera
-            LatLng myCurrentLocation = new LatLng(50.8424, 4.32254);
+            /*LatLng myCurrentLocation = new LatLng(50.8424, 4.32254);
             Marker myLocation = mMap.addMarker(new MarkerOptions()
                     .position(myCurrentLocation)
                     .title("Your current location")
@@ -75,16 +77,16 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.arrow)));
             CameraUpdate zoom = CameraUpdateFactory.zoomTo(20);
             mMap.moveCamera(CameraUpdateFactory.newLatLng(myCurrentLocation));
-            mMap.animateCamera(zoom);
+            mMap.animateCamera(zoom);*/
 
-
+            mMap.setMyLocationEnabled(true);
 
 
             try {
                 boolean success = googleMap.setMapStyle(
                         MapStyleOptions.loadRawResourceStyle(
                                 this, R.raw.map_style_json));
-                mMap.setMyLocationEnabled(true);
+
 
 
                 if (!success) {
@@ -95,4 +97,5 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             }
         }
     }
+
 }
