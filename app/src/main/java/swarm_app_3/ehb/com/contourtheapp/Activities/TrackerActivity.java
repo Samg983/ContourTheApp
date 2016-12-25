@@ -3,6 +3,7 @@ package swarm_app_3.ehb.com.contourtheapp.Activities;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Build;
 import android.os.Handler;
@@ -30,6 +31,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenMessagesTracker;
 import swarm_app_3.ehb.com.contourtheapp.R;
@@ -163,12 +166,22 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             }
         });
 
-        if(mLastLocation.hasBearing()){
-            mCurrLocationMarker.setRotation(mLastLocation.getBearing());
-        }
+
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+
+        double oldLatitude = mLastLocation.getLatitude();
+        double oldLongitude = mLastLocation.getLongitude();
+
+
+
+        Polyline line = mMap.addPolyline(new PolylineOptions()
+                .zIndex(10)
+                .add(new LatLng(oldLatitude, oldLongitude), new LatLng(oldLatitude, oldLongitude))
+                .geodesic(true)
+                .width(5)
+                .color(Color.argb(255,66,160,71)));
 
         //stop location updates
         if (mGoogleApiClient != null) {
