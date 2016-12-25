@@ -180,17 +180,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showImeiNumber(View view) {
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.READ_PHONE_STATE)
-                == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
+
             String IMEI_Number_Holder;
             telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
             IMEI_Number_Holder = telephonyManager.getDeviceId();
             Toast.makeText(this, "Imei: " + IMEI_Number_Holder, Toast.LENGTH_SHORT).show();
+
         } else {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_PHONE_STATE},
-                    MY_PERMISSIONS_REQUEST_TELEPHONESTATE);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, MY_PERMISSIONS_REQUEST_TELEPHONESTATE);
         }
     }
 
