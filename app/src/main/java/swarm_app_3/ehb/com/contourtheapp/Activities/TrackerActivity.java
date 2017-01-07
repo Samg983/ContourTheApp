@@ -27,6 +27,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
@@ -73,14 +74,14 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
 
         //arraylist for latlng
         points = new ArrayList<LatLng>();
-        
+
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        
-        try {
+
+        /*try {
             boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
                             this, R.raw.map_style_json));
@@ -89,7 +90,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             }
         } catch (Resources.NotFoundException e) {
 
-        }
+        }*/
 
         //Initialize Google Play Services
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -99,8 +100,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                 buildGoogleApiClient();
                 //mMap.setMyLocationEnabled(true);
             }
-        }
-        else {
+        } else {
             buildGoogleApiClient();
             //mMap.setMyLocationEnabled(true);
         }
@@ -161,23 +161,37 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             Toast.makeText(this, "Removed", Toast.LENGTH_SHORT).show();
         }*/
         Toast.makeText(this, "Location changed", Toast.LENGTH_SHORT).show();
+        //updateCameraBearing(mMap, location.getBearing());
+
+    }
+
+    private void updateCameraBearing(GoogleMap googleMap, float bearing) {
+        if (googleMap == null) return;
+        CameraPosition camPos = CameraPosition
+                .builder(
+                        googleMap.getCameraPosition() // current Camera
+                )
+                .bearing(bearing)
+                .build();
+        googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(camPos));
+        //googleMap.animateCamera(CameraUpdateFactory.zoomTo(21));
 
     }
 
     private void redrawLine() {
         mMap.clear();  //clears all Markers and Polylines
 
-        PolylineOptions options = new PolylineOptions().width(10).color(Color.argb(255,66,160,71)).geodesic(true);
+        PolylineOptions options = new PolylineOptions().width(10).color(Color.argb(255, 66, 160, 71)).geodesic(true);
         for (int i = 0; i < points.size(); i++) {
             LatLng point = points.get(i);
             options.add(point);
         }
-        addMarker(points.get(points.size()-1)); //add Marker in current position
+        addMarker(points.get(points.size() - 1)); //add Marker in current position
         line = mMap.addPolyline(options); //add Polyline
         Toast.makeText(this, "Redraw", Toast.LENGTH_SHORT).show();
     }
 
-    private void addMarker(LatLng last){
+    private void addMarker(LatLng last) {
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(last);
@@ -189,7 +203,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                if(marker.equals(mCurrLocationMarker)){
+                if (marker.equals(mCurrLocationMarker)) {
                     OpenMessagesTracker messages = new OpenMessagesTracker(TrackerActivity.this);
                     messages.show();
                 }
@@ -203,7 +217,8 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
-    public boolean checkLocationPermission(){
+
+    public boolean checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
