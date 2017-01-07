@@ -13,8 +13,10 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -26,6 +28,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -75,6 +78,8 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         //arraylist for latlng
         points = new ArrayList<LatLng>();
 
+
+
     }
 
     @Override
@@ -99,6 +104,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                     == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient();
                 //mMap.setMyLocationEnabled(true);
+
             }
         } else {
             buildGoogleApiClient();
@@ -136,7 +142,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     }
 
     @Override
-    public void onLocationChanged(Location location) {
+    public void onLocationChanged(final Location location) {
 
         mLastLocation = location;
         if (mCurrLocationMarker != null) {
@@ -148,11 +154,12 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
 
 
         points.add(latLng);
-        redrawLine();
+        redrawLine(location);
+
 
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(21));
+        //mMap.animateCamera(CameraUpdateFactory.zoomTo(21));
 
 
         /*stop location updates
@@ -178,7 +185,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
 
     }
 
-    private void redrawLine() {
+    private void redrawLine(Location location) {
         mMap.clear();  //clears all Markers and Polylines
 
         PolylineOptions options = new PolylineOptions().width(10).color(Color.argb(255, 66, 160, 71)).geodesic(true);
@@ -186,16 +193,17 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             LatLng point = points.get(i);
             options.add(point);
         }
-        addMarker(points.get(points.size() - 1)); //add Marker in current position
+        addMarker(points.get(points.size() - 1), location); //add Marker in current position
         line = mMap.addPolyline(options); //add Polyline
         Toast.makeText(this, "Redraw", Toast.LENGTH_SHORT).show();
     }
 
-    private void addMarker(LatLng last) {
+    private void addMarker(LatLng last, Location location) {
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(last);
         markerOptions.flat(true);
+        markerOptions.rotation(location.getBearing());
         markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.arrow));
 
         mCurrLocationMarker = mMap.addMarker(markerOptions);
