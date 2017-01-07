@@ -34,6 +34,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import java.util.ArrayList;
+
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenMessagesTracker;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
@@ -49,6 +51,12 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     private LocationRequest mLocationRequest;
     private static final String TAG = TrackerActivity.class.getSimpleName();
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+    private ArrayList<LatLng> points;
+    private Polyline line;
+
+    private static final long INTERVAL = 1000; //1 minute
+    private static final long FASTEST_INTERVAL = 1000; // 1 minute
+    private static final float SMALLEST_DISPLACEMENT = 0.05F; //quarter of a meter
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,25 +71,15 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
+        //arraylist for latlng
+        points = new ArrayList<LatLng>();
+        
     }
 
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-
-
+        
         try {
             boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
@@ -121,15 +119,15 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     public void onConnected(Bundle bundle) {
 
         mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(1000);
-        mLocationRequest.setFastestInterval(1000);
+        mLocationRequest.setInterval(INTERVAL);
+        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+        mLocationRequest.setSmallestDisplacement(SMALLEST_DISPLACEMENT);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         }
-
     }
 
     @Override
@@ -145,13 +143,46 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             mCurrLocationMarker.remove();
         }
 
-        //Place current location marker
+        //get latLng from current location
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+
+
+        points.add(latLng);
+        redrawLine();
+
+        //move map camera
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(21));
+
+
+        /*stop location updates
+        if (mGoogleApiClient != null) {
+            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+            Toast.makeText(this, "Removed", Toast.LENGTH_SHORT).show();
+        }*/
+        Toast.makeText(this, "Location changed", Toast.LENGTH_SHORT).show();
+
+    }
+
+    private void redrawLine() {
+        mMap.clear();  //clears all Markers and Polylines
+
+        PolylineOptions options = new PolylineOptions().width(10).color(Color.argb(255,66,160,71)).geodesic(true);
+        for (int i = 0; i < points.size(); i++) {
+            LatLng point = points.get(i);
+            options.add(point);
+        }
+        addMarker(points.get(points.size()-1)); //add Marker in current position
+        line = mMap.addPolyline(options); //add Polyline
+        Toast.makeText(this, "Redraw", Toast.LENGTH_SHORT).show();
+    }
+
+    private void addMarker(LatLng last){
+
         MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
+        markerOptions.position(last);
         markerOptions.flat(true);
         markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.arrow));
-
 
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
@@ -162,31 +193,9 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                     OpenMessagesTracker messages = new OpenMessagesTracker(TrackerActivity.this);
                     messages.show();
                 }
-               return true;
+                return true;
             }
         });
-
-
-        //move map camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-
-        double oldLatitude = mLastLocation.getLatitude();
-        double oldLongitude = mLastLocation.getLongitude();
-
-
-
-        Polyline line = mMap.addPolyline(new PolylineOptions()
-                .zIndex(10)
-                .add(new LatLng(oldLatitude, oldLongitude), new LatLng(oldLatitude, oldLongitude))
-                .geodesic(true)
-                .width(5)
-                .color(Color.argb(255,66,160,71)));
-
-        //stop location updates
-        if (mGoogleApiClient != null) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
-        }
 
     }
 
@@ -224,6 +233,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             return true;
         }
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
