@@ -153,13 +153,14 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
 
+
         points.add(latLng);
-        redrawLine(location);
+        redrawLine();
 
 
         //move map camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(21));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
 
 
         /*stop location updates
@@ -167,25 +168,28 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             Toast.makeText(this, "Removed", Toast.LENGTH_SHORT).show();
         }*/
-        Toast.makeText(this, "Location changed", Toast.LENGTH_SHORT).show();
-        //updateCameraBearing(mMap, location.getBearing());
+        Toast.makeText(this, "Bearing " + location.getBearing(), Toast.LENGTH_SHORT).show();
+        updateCameraBearing(mMap, location, latLng);
 
     }
 
-    private void updateCameraBearing(GoogleMap googleMap, float bearing) {
+    private void updateCameraBearing(GoogleMap googleMap, Location location, LatLng latLng) {
         if (googleMap == null) return;
         CameraPosition camPos = CameraPosition
                 .builder(
                         googleMap.getCameraPosition() // current Camera
                 )
-                .bearing(bearing)
+                .target(latLng)
+                .zoom(20)
+                .tilt(0)
                 .build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(camPos));
+        location.bearingTo(location);
         //googleMap.animateCamera(CameraUpdateFactory.zoomTo(21));
 
     }
 
-    private void redrawLine(Location location) {
+    private void redrawLine() {
         mMap.clear();  //clears all Markers and Polylines
 
         PolylineOptions options = new PolylineOptions().width(10).color(Color.argb(255, 66, 160, 71)).geodesic(true);
@@ -193,17 +197,16 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             LatLng point = points.get(i);
             options.add(point);
         }
-        addMarker(points.get(points.size() - 1), location); //add Marker in current position
+        addMarker(points.get(points.size() - 1)); //add Marker in current position
         line = mMap.addPolyline(options); //add Polyline
         Toast.makeText(this, "Redraw", Toast.LENGTH_SHORT).show();
     }
 
-    private void addMarker(LatLng last, Location location) {
+    private void addMarker(LatLng last) {
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(last);
         markerOptions.flat(true);
-        markerOptions.rotation(location.getBearing());
         markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.arrow));
 
         mCurrLocationMarker = mMap.addMarker(markerOptions);
