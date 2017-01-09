@@ -47,13 +47,13 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
 
     final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
 
-    FloatingActionButton.LayoutParams actionButtonParams;
-    FloatingActionButton.LayoutParams subActionButtonParams;
-    int radius;
+    private FloatingActionButton.LayoutParams actionButtonParams;
+    private FloatingActionButton.LayoutParams subActionButtonParams;
+    private int radius;
     private GoogleMap mMap;
     private static final String TAG = SwarmActivity.class.getSimpleName();
 
-    boolean alreadySubscribed = false;
+    boolean alreadySubscribed = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +86,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
-
+        mMap.getUiSettings().setAllGesturesEnabled(false);
         //Plaatsen die getekend worden op map
         LatLng Gent = new LatLng(51.0535, 3.7304);
         LatLng Strasbourg = new LatLng(48.58392,7.74553);
@@ -217,10 +217,11 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         }
 
         ImageView icon = new ImageView(this); // Create an icon
-        icon.setImageDrawable(getDrawable(R.drawable.circle_menu_green));
+        icon.setImageDrawable(getDrawable(R.drawable.circle_menu_green_with_white_border));
         FloatingActionButton actionButton = new FloatingActionButton.Builder(this)
                 .setContentView(icon)
                 .setPosition(5)
+                .setBackgroundDrawable(getDrawable(R.drawable.transparent))
                 .setLayoutParams(actionButtonParams)
                 .build();
 
@@ -271,7 +272,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         blogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(getApplicationContext(), SplashScreen.class);
+                Intent toMaps = new Intent(getApplicationContext(), BlogActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
@@ -280,7 +281,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         trackerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(getApplicationContext(), HomeScreen.class);
+                Intent toMaps = new Intent(getApplicationContext(), TrackerActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
@@ -289,7 +290,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(getApplicationContext(), SwarmActivity.class);
+                Intent toMaps = new Intent(getApplicationContext(), GalleryActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }

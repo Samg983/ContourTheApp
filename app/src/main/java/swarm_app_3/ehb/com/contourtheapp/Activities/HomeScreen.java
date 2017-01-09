@@ -134,7 +134,7 @@ public class HomeScreen extends AppCompatActivity {
         blogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(HomeScreen.this, SplashScreen.class);
+                Intent toMaps = new Intent(HomeScreen.this, BlogActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
@@ -143,7 +143,7 @@ public class HomeScreen extends AppCompatActivity {
         trackerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(HomeScreen.this, HomeScreen.class);
+                Intent toMaps = new Intent(HomeScreen.this, TrackerActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
@@ -152,7 +152,7 @@ public class HomeScreen extends AppCompatActivity {
         galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(HomeScreen.this, SwarmActivity.class);
+                Intent toMaps = new Intent(HomeScreen.this, GalleryActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
