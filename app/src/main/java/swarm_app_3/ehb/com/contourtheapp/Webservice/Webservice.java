@@ -10,7 +10,7 @@ import swarm_app_3.ehb.com.contourtheapp.Activities.MijnApplicatie;
  */
 
 public class Webservice {
-    public static final String WEBSERVERURL = "http://10.0.50.49:8080/";
+    public static final String WEBSERVERURL = "http://10.3.50.49:8080/";
     private static RequestQueue mijnRequestQueue;
 
     public static RequestQueue getRequestQueue() {
