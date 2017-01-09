@@ -14,6 +14,6 @@ import swarm_app_3.ehb.com.contourtheapp.Webservice.SimpleWebrequest;
 
 public class KenmerkGetAll extends SimpleWebrequest<ArrayList<Kenmerk>> {
     public KenmerkGetAll(Response.Listener<ArrayList<Kenmerk>> uitvoerenIndienGeslaagd, Response.ErrorListener uitvoerenIndienNietGeslaagd) {
-        super(Request.Method.GET, KenmerkWebservice.BASISURL + "Kenmerk/getAll", (new ArrayList<Kenmerk>()).getClass(), uitvoerenIndienGeslaagd, uitvoerenIndienNietGeslaagd);
+        super(Request.Method.GET, KenmerkWebservice.BASISURL + "getAll", (new ArrayList<Kenmerk>()).getClass(), uitvoerenIndienGeslaagd, uitvoerenIndienNietGeslaagd);
     }
 }

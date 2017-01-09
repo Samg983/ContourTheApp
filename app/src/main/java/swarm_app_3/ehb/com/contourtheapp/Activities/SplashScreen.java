@@ -16,6 +16,7 @@ import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerk;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetAll;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetById;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -48,15 +49,29 @@ public class SplashScreen extends AppCompatActivity {
         KenmerkGetAll kenmerkGetAll = new KenmerkGetAll(new Response.Listener<ArrayList<Kenmerk>>() {
             @Override
             public void onResponse(ArrayList<Kenmerk> response) {
-                Log.d("Geslaagd?", response.toString());
+                Log.d("Geslaagd", response.toString());
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("fail?", error.toString());
+                Log.d("fail", error.toString());
             }
         });
 
         Webservice.getRequestQueue().add(kenmerkGetAll);
+
+        KenmerkGetById kenmerkGetById = new KenmerkGetById("2", new Response.Listener<Kenmerk>() {
+            @Override
+            public void onResponse(Kenmerk response) {
+                Log.d("Geslaagd id", response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("fail id", error.toString());
+            }
+        });
+
+        Webservice.getRequestQueue().add(kenmerkGetById);
     }
 }
