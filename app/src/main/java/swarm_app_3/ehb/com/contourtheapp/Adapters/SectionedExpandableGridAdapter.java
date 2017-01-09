@@ -14,11 +14,9 @@ import android.widget.ToggleButton;
 import java.util.ArrayList;
 
 import swarm_app_3.ehb.com.contourtheapp.Activities.GalleryActivity;
-import swarm_app_3.ehb.com.contourtheapp.Model.GalleryCheckpoint;
-import swarm_app_3.ehb.com.contourtheapp.Model.GalleryPhoto;
+import swarm_app_3.ehb.com.contourtheapp.Model.Checkpoint;
+import swarm_app_3.ehb.com.contourtheapp.Model.Photo;
 import swarm_app_3.ehb.com.contourtheapp.R;
-
-import static swarm_app_3.ehb.com.contourtheapp.R.id.ctitel;
 
 /**
  * Created by Bram Schrooyen on 23/12/2016.
@@ -59,7 +57,7 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
     }
 
     private boolean isSection(int position) {
-        return mDataArrayList.get(position) instanceof GalleryCheckpoint;
+        return mDataArrayList.get(position) instanceof Checkpoint;
     }
 
     @Override
@@ -72,8 +70,8 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
     public void onBindViewHolder(ViewHolder holder, int position) {
         switch (holder.viewType) {
             case VIEW_TYPE_ITEM :
-                final GalleryPhoto item = (GalleryPhoto) mDataArrayList.get(position);
-                holder.itemImageView.setImageResource(item.getImgGallery());
+                final Photo item = (Photo) mDataArrayList.get(position);
+                holder.itemImageView.setImageResource(item.getSourcePhoto());
                 holder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -86,8 +84,8 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
                 });
                 break;
             case VIEW_TYPE_SECTION :
-                final GalleryCheckpoint section = (GalleryCheckpoint) mDataArrayList.get(position);
-                holder.sectionTextView.setText(section.getName());
+                final Checkpoint section = (Checkpoint) mDataArrayList.get(position);
+                holder.sectionTextView.setText("Checkpoint " + Integer.toString(section.getCheckpointId()));
                 holder.sectionTextView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

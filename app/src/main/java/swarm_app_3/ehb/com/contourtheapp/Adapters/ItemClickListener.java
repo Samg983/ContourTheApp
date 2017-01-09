@@ -1,7 +1,7 @@
 package swarm_app_3.ehb.com.contourtheapp.Adapters;
 
-import swarm_app_3.ehb.com.contourtheapp.Model.GalleryCheckpoint;
-import swarm_app_3.ehb.com.contourtheapp.Model.GalleryPhoto;
+import swarm_app_3.ehb.com.contourtheapp.Model.Checkpoint;
+import swarm_app_3.ehb.com.contourtheapp.Model.Photo;
 
 /**
  * Created by Bram Schrooyen on 23/12/2016.
@@ -9,7 +9,7 @@ import swarm_app_3.ehb.com.contourtheapp.Model.GalleryPhoto;
 
 public interface ItemClickListener {
 
-    void itemClicked(GalleryPhoto item);
-    void itemClicked(GalleryCheckpoint section);
+    void itemClicked(Photo item);
+    void itemClicked(Checkpoint section);
 
 }

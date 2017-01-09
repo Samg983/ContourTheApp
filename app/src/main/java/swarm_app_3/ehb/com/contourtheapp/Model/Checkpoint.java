@@ -1,12 +1,33 @@
 package swarm_app_3.ehb.com.contourtheapp.Model;
 
 /**
- * Created by Bram Schrooyen on 9/01/2017.
+ * Created by Bram Schrooyen on 23/12/2016.
  */
 
 public class Checkpoint {
+
     private int checkpointId, volgorde, routeId;
     private double latitude, longtitude;
+
+    public boolean isExpanded;
+
+    public Checkpoint() {
+    }
+
+    public Checkpoint(int checkpointId, double latitude, double longtitude, int volgorde, int routeId) {
+        this.checkpointId = checkpointId;
+        this.volgorde = volgorde;
+        this.routeId = routeId;
+        this.latitude = latitude;
+        this.longtitude = longtitude;
+        isExpanded = false;
+    }
+
+    public Checkpoint(int checkpointId){
+        this.checkpointId = checkpointId;
+    }
+
+
 
     public int getCheckpointId() {
         return checkpointId;
@@ -48,14 +69,21 @@ public class Checkpoint {
         this.longtitude = longtitude;
     }
 
-    public Checkpoint() {
-    }
 
-    public Checkpoint(int checkpointId, double latitude, double longtitude, int volgorde, int routeId) {
-        this.checkpointId = checkpointId;
-        this.volgorde = volgorde;
-        this.routeId = routeId;
-        this.latitude = latitude;
-        this.longtitude = longtitude;
-    }
+
+    //BACKUP CODE
+
+    //private String name;
+
+    /*public Checkpoint(String name) {
+        this.name = name;
+        isExpanded = false;
+    }*/
+
+
+
+    /*public String getName() {
+        return name;
+    }*/
+
 }

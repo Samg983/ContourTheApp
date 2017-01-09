@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import swarm_app_3.ehb.com.contourtheapp.Model.GalleryCheckpoint;
-import swarm_app_3.ehb.com.contourtheapp.Model.GalleryPhoto;
+import swarm_app_3.ehb.com.contourtheapp.Model.Checkpoint;
+import swarm_app_3.ehb.com.contourtheapp.Model.Photo;
 
 /**
  * Created by Bram Schrooyen on 23/12/2016.
@@ -19,12 +19,12 @@ import swarm_app_3.ehb.com.contourtheapp.Model.GalleryPhoto;
 public class SectionedExpandableLayoutHelper implements SectionStateChangeListener{
 
     //data list
-    private LinkedHashMap<GalleryCheckpoint, ArrayList<GalleryPhoto>> mSectionDataMap = new LinkedHashMap<GalleryCheckpoint, ArrayList<GalleryPhoto>>();
+    private LinkedHashMap<Checkpoint, ArrayList<Photo>> mSectionDataMap = new LinkedHashMap<Checkpoint, ArrayList<Photo>>();
     private ArrayList<Object> mDataArrayList = new ArrayList<Object>();
 
     //section map
     //TODO : look for a way to avoid this
-    private HashMap<String, GalleryCheckpoint> mSectionMap = new HashMap<String, GalleryCheckpoint>();
+    private HashMap<String, Checkpoint> mSectionMap = new HashMap<String, Checkpoint>();
 
     //adapter
     private SectionedExpandableGridAdapter mSectionedExpandableGridAdapter;
@@ -51,17 +51,17 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
         mSectionedExpandableGridAdapter.notifyDataSetChanged();
     }
 
-    public void addSection(String section, ArrayList<GalleryPhoto> items) {
-        GalleryCheckpoint newSection;
-        mSectionMap.put(section, (newSection = new GalleryCheckpoint(section)));
+    public void addSection(int section, ArrayList<Photo> items) {
+        Checkpoint newSection;
+        mSectionMap.put(Integer.toString(section), (newSection = new Checkpoint(section)));
         mSectionDataMap.put(newSection, items);
     }
 
-    public void addItem(String section, GalleryPhoto item) {
+    public void addItem(String section, Photo item) {
         mSectionDataMap.get(mSectionMap.get(section)).add(item);
     }
 
-    public void removeGalleryPhoto(String section, GalleryPhoto item) {
+    public void removeGalleryPhoto(String section, Photo item) {
         mSectionDataMap.get(mSectionMap.get(section)).remove(item);
     }
 
@@ -72,8 +72,8 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
 
     private void generateDataList () {
         mDataArrayList.clear();
-        for (Map.Entry<GalleryCheckpoint, ArrayList<GalleryPhoto>> entry : mSectionDataMap.entrySet()) {
-            GalleryCheckpoint key;
+        for (Map.Entry<Checkpoint, ArrayList<Photo>> entry : mSectionDataMap.entrySet()) {
+            Checkpoint key;
             mDataArrayList.add((key = entry.getKey()));
             if (key.isExpanded)
                 mDataArrayList.addAll(entry.getValue());
@@ -81,7 +81,7 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
     }
 
     @Override
-    public void onSectionStateChanged(GalleryCheckpoint section, boolean isOpen) {
+    public void onSectionStateChanged(Checkpoint section, boolean isOpen) {
         if (!mRecyclerView.isComputingLayout()) {
             section.isExpanded = isOpen;
             notifyDataSetChanged();
