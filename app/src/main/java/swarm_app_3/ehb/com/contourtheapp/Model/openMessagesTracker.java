@@ -1,16 +1,16 @@
 package swarm_app_3.ehb.com.contourtheapp.Model;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.graphics.Typeface;
-import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.TextView;
+        import android.app.Activity;
+        import android.app.Dialog;
+        import android.graphics.Typeface;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.view.Window;
+        import android.widget.Button;
+        import android.widget.TextView;
 
-import swarm_app_3.ehb.com.contourtheapp.Activities.TrackerActivity;
-import swarm_app_3.ehb.com.contourtheapp.R;
+        import swarm_app_3.ehb.com.contourtheapp.Activities.TrackerActivity;
+        import swarm_app_3.ehb.com.contourtheapp.R;
 
 /**
  * Created by SamGoeman on 25/12/2016.
