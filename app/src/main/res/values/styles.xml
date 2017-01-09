@@ -27,4 +27,8 @@
         <item name="android:textOff"></item>
     </style>
 
+    <style name="splashScreenTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/biella_place</item>
+    </style>
+
 </resources>
