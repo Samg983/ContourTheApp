@@ -80,10 +80,11 @@ public class HomeScreen extends AppCompatActivity {
         }
 
         ImageView icon = new ImageView(this); // Create an icon
-        icon.setImageDrawable(getDrawable(R.drawable.circle_menu_green));
+        icon.setImageDrawable(getDrawable(R.drawable.circle_menu_green_with_white_border));
         FloatingActionButton actionButton = new FloatingActionButton.Builder(this)
                 .setContentView(icon)
                 .setPosition(5)
+                .setBackgroundDrawable(R.drawable.shadow_circular_button)
                 .setLayoutParams(actionButtonParams)
                 .build();
 

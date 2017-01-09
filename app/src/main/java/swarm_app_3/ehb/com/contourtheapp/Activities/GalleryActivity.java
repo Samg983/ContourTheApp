@@ -76,7 +76,7 @@ public class GalleryActivity extends AppCompatActivity implements ItemClickListe
         //sectionedExpandableLayoutHelper.notifyDataSetChanged();
     }
 
-    /*@Override
+/*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -150,10 +150,11 @@ public class GalleryActivity extends AppCompatActivity implements ItemClickListe
         }
 
         ImageView icon = new ImageView(this); // Create an icon
-        icon.setImageDrawable(getDrawable(R.drawable.circle_menu_green));
+        icon.setImageDrawable(getDrawable(R.drawable.circle_menu_green_with_white_border));
         FloatingActionButton actionButton = new FloatingActionButton.Builder(this)
                 .setContentView(icon)
                 .setPosition(5)
+                .setBackgroundDrawable(R.drawable.shadow_circular_button)
                 .setLayoutParams(actionButtonParams)
                 .build();
 

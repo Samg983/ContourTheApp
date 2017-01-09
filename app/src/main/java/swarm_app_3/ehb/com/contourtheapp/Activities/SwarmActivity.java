@@ -53,7 +53,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     private static final String TAG = SwarmActivity.class.getSimpleName();
 
-    boolean alreadySubscribed = true;
+    private boolean alreadySubscribed = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,8 +221,9 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         FloatingActionButton actionButton = new FloatingActionButton.Builder(this)
                 .setContentView(icon)
                 .setPosition(5)
-                .setBackgroundDrawable(getDrawable(R.drawable.transparent))
+                .setBackgroundDrawable(R.drawable.shadow_circular_button)
                 .setLayoutParams(actionButtonParams)
+
                 .build();
 
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
@@ -256,6 +257,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
                 .setStartAngle(180)
                 .setEndAngle(360)
                 .setRadius(radius)
+
                 // ...
                 .attachTo(actionButton)
                 .build();
