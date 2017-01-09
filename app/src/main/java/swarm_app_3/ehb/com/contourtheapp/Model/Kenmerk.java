@@ -34,5 +34,11 @@ public class Kenmerk {
         this.naam = naam;
     }
 
-
+    @Override
+    public String toString() {
+        return "Kenmerk{" +
+                "kenmerkId=" + kenmerkId +
+                ", naam='" + naam + '\'' +
+                '}';
+    }
 }

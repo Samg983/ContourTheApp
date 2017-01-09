@@ -53,7 +53,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     private static final String TAG = SwarmActivity.class.getSimpleName();
 
-    private boolean alreadySubscribed = true;
+    private boolean alreadySubscribed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
