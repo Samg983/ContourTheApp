@@ -4,9 +4,18 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
+import java.util.ArrayList;
+
+import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerk;
 import swarm_app_3.ehb.com.contourtheapp.R;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetAll;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -35,5 +44,19 @@ public class SplashScreen extends AppCompatActivity {
         };
 
         SplashThread.start();
+
+        KenmerkGetAll kenmerkGetAll = new KenmerkGetAll(new Response.Listener<ArrayList<Kenmerk>>() {
+            @Override
+            public void onResponse(ArrayList<Kenmerk> response) {
+                Log.d("Geslaagd?", response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("fail?", error.toString());
+            }
+        });
+
+        Webservice.getRequestQueue().add(kenmerkGetAll);
     }
 }

@@ -55,19 +55,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        KenmerkGetAll kenmerkGetAll = new KenmerkGetAll(new Response.Listener<ArrayList<Kenmerk>>() {
-            @Override
-            public void onResponse(ArrayList<Kenmerk> response) {
-                Log.d("Geslaagd?", response.toString());
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("fail?", error.toString());
-            }
-        });
 
-        Webservice.getRequestQueue().add(kenmerkGetAll);
 
     }
 
