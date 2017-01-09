@@ -24,7 +24,7 @@ public class BlogListActivity extends AppCompatActivity {
 
 
     private void updateBlogListView(){
-        //ArrayList<Blog> workList = WorkDao.getWorks();
+        //ArrayList<Blogpost> workList = WorkDao.getWorks();
 
         //WorkArrayAdapter myWorkArrayAdapter = new WorkArrayAdapter(this, workList);
         ListView lstBlogs = (ListView)findViewById(R.id.lstBlogs);

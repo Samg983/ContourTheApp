@@ -11,19 +11,19 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import swarm_app_3.ehb.com.contourtheapp.Model.Blog;
+import swarm_app_3.ehb.com.contourtheapp.Model.Blogpost;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 /**
  * Created by Bram Schrooyen on 20/12/2016.
  */
 
-public class BlogArrayAdapter extends ArrayAdapter<Blog> {
+public class BlogArrayAdapter extends ArrayAdapter<Blogpost> {
         private Context mijnContext;
-        private List<Blog> myBlogList;
-        public BlogArrayAdapter(Context context, List<Blog> objects) {
+        private List<Blogpost> myBlogpostList;
+        public BlogArrayAdapter(Context context, List<Blogpost> objects) {
             super(context, -1, objects);
-            this.myBlogList = objects;
+            this.myBlogpostList = objects;
             this.mijnContext = context;
         }
 
@@ -38,7 +38,7 @@ public class BlogArrayAdapter extends ArrayAdapter<Blog> {
             TextView txtLocation = (TextView)mijnListViewItemView.findViewById(R.id.txtLocation);
             TextView txtDate = (TextView)mijnListViewItemView.findViewById(R.id.txtDate);
 
-           /* Blog weerTeGevenWork = myBlogList.get(position);
+           /* Blogpost weerTeGevenWork = myBlogpostList.get(position);
             txtTitle.setText(weerTeGevenWork.getTitle());
             txtArtist.setText(weerTeGevenWork.getArtist());
             imgAfbeelding.setImageResource(weerTeGevenWork.getImageResource());*/
