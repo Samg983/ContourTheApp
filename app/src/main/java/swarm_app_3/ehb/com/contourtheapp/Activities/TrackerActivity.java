@@ -207,7 +207,6 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             options.add(point);
         }
 
-        //todo remove toast and add permission
         addMarker(points.get(points.size() - 1)); //add Marker in current position
         line = mMap.addPolyline(options); //add Polyline
     }
