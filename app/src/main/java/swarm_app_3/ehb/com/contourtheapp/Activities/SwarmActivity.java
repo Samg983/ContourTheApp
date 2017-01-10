@@ -102,7 +102,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
             }
         });
 
-        Webservice.getRequestQueue().add(kenmerkGetAll);
+       // Webservice.getRequestQueue().add(kenmerkGetAll);
 
         KenmerkGetById kenmerkGetById = new KenmerkGetById(2, new Response.Listener<Kenmerk>() {
             @Override
