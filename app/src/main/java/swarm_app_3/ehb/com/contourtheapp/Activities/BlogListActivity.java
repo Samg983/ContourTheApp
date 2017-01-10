@@ -8,39 +8,64 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 
+import swarm_app_3.ehb.com.contourtheapp.Adapters.BlogArrayAdapter;
+import swarm_app_3.ehb.com.contourtheapp.Model.Blogpost;
+import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerk;
 import swarm_app_3.ehb.com.contourtheapp.R;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.blogpost.BlogpostGetAll;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.blogpost.BlogpostWebservice;
 
 public class BlogListActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blog_list);
 
-        updateBlogListView();
+        BlogpostGetAll mijnBlogpostGetAll = new BlogpostGetAll(new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Request geslaagd?", response);
+
+                Gson gson = new Gson();
+                ArrayList<Blogpost> blogList = gson.fromJson(response, new TypeToken<ArrayList<Blogpost>>(){}.getType());
+
+                for(Blogpost blogpost : blogList) {
+                    Log.d("Request geslaagd?", blogpost.toString());
+                }
+
+                BlogArrayAdapter myBlogArrayAdapter = new BlogArrayAdapter(getApplicationContext(),blogList);
+
+                updateBlogListView(myBlogArrayAdapter);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Request geslaagd?", "Noooooooooo");
+            }
+        });
+
+        Webservice.getRequestQueue().add(mijnBlogpostGetAll);
+
     }
 
 
-    private void updateBlogListView(){
-        //ArrayList<Blogpost> workList = WorkDao.getWorks();
+    private void updateBlogListView(BlogArrayAdapter blogArrayAdapter){
 
-        //WorkArrayAdapter myWorkArrayAdapter = new WorkArrayAdapter(this, workList);
         ListView lstBlogs = (ListView)findViewById(R.id.lstBlogs);
-        //lstBlogs.setAdapter(myBlogArrayAdapter);
 
-        /*lstWorks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Work selectedWork = (Work)parent.getItemAtPosition(position);
-                Log.d("Selected Work", Integer.toString(selectedWork.getWorkId()));
-
-                Intent mijnIntent = new Intent(WorkListActivity.this, WorkActivity.class);
-                mijnIntent.putExtra("workid", selectedWork.getWorkId());
-                startActivity(mijnIntent);
-            }
-        });*/
+        lstBlogs.setAdapter(blogArrayAdapter);
 
     }
 }

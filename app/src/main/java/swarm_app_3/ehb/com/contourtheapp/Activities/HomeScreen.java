@@ -145,7 +145,7 @@ public class HomeScreen extends AppCompatActivity {
         blogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toMaps = new Intent(HomeScreen.this, BlogActivity.class);
+                Intent toMaps = new Intent(HomeScreen.this, BlogListActivity.class);
                 startActivity(toMaps);
                 actionMenu.close(true);
             }
