@@ -6,6 +6,8 @@
     android:background="#fff"
     android:layout_marginBottom="10dp"
     android:layout_marginTop="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="20dp"
     android:elevation="5dp">
 
 
@@ -14,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtTitle"
-        android:textSize="@dimen/abc_text_size_large_material"
+        android:textSize="32dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:textColor="#000"
@@ -30,24 +32,41 @@
         android:layout_marginStart="20dp"
         android:adjustViewBounds="true"/>
 
-    <TextView
-        android:text="Location"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtLocation"
-        android:layout_below="@+id/imgBlog"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:textColor="#000"
-        />
+        android:id="@+id/locationLayout"
+        android:layout_below="@+id/imgBlog">
+
+        <ImageView
+            android:layout_height="10dp"
+            android:layout_width="10dp"
+            app:srcCompat="@drawable/arrow_toggle"
+            android:id="@+id/locationMarker"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:text="Location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLocation"
+            android:textSize="24dp"
+            android:textColor="#000"
+            />
+
+    </LinearLayout>
+
+
 
     <TextView
         android:text="Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtDescription"
-        android:layout_below="@+id/txtLocation"
+        android:layout_below="@+id/locationLayout"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
@@ -63,6 +82,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:textSize="16dp"
         android:textColor="@color/greenContour"
         />
 

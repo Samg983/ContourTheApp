@@ -1,6 +1,7 @@
 package swarm_app_3.ehb.com.contourtheapp.Adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ public class BlogArrayAdapter extends ArrayAdapter<Blogpost> {
             TextView txtLocation = (TextView)mijnListViewItemView.findViewById(R.id.txtLocation);
             TextView txtDate = (TextView)mijnListViewItemView.findViewById(R.id.txtDate);
             ImageView imgBlog = (ImageView)mijnListViewItemView.findViewById(R.id.imgBlog);
+            ImageView imgMarker = (ImageView)mijnListViewItemView.findViewById(R.id.locationMarker);
 
             Blogpost weerTeGevenBlog = myBlogpostList.get(position);
             txtTitle.setText(weerTeGevenBlog.getTitle());
@@ -46,6 +48,16 @@ public class BlogArrayAdapter extends ArrayAdapter<Blogpost> {
             txtLocation.setText(weerTeGevenBlog.getPlace());
             txtDate.setText(weerTeGevenBlog.getDateBlog());
             imgBlog.setImageResource(R.drawable.alps1);
+            imgMarker.setImageResource(R.drawable.arrow_toggle);
+
+
+            //Fonts voor blogs
+            Typeface cutiveType = Typeface.createFromAsset(mijnListViewItemView.getContext().getAssets(), "CutiveMono-Regular.ttf");
+            Typeface ralewayType = Typeface.createFromAsset(mijnListViewItemView.getContext().getAssets(), "CutiveMono-Regular.ttf");
+            txtTitle.setTypeface(cutiveType);
+            txtLocation.setTypeface(cutiveType);
+            txtDate.setTypeface(cutiveType);
+            txtDescription.setTypeface(ralewayType);
 
             return mijnListViewItemView;
         //}
