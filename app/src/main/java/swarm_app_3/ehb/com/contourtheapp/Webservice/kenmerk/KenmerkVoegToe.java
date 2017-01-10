@@ -12,10 +12,10 @@ import swarm_app_3.ehb.com.contourtheapp.Webservice.SimpleWebrequest;
 
 public class KenmerkVoegToe extends SimpleWebrequest<String> {
 
-    public KenmerkVoegToe(Kenmerk teVerzendenProduct, Response.Listener<String> uitvoerenIndienGeslaagd, Response.ErrorListener uitvoerenIndienNietGeslaagd) {
+    public KenmerkVoegToe(Kenmerk teVerzendenKenmerk, Response.Listener<String> uitvoerenIndienGeslaagd, Response.ErrorListener uitvoerenIndienNietGeslaagd) {
         super(Request.Method.POST, KenmerkWebservice.BASISURL + "voegToe", String.class, uitvoerenIndienGeslaagd, uitvoerenIndienNietGeslaagd);
 
-        this.teVerzendenObjectAlsJson = teVerzendenProduct;
+        this.teVerzendenObjectAlsJson = teVerzendenKenmerk;
     }
 
 }

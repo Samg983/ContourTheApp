@@ -7,5 +7,5 @@ import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
  */
 
 public class RouteWebservice {
-    public static final String BASISURL = Webservice.WEBSERVERURL;
+    public static final String BASISURL = Webservice.WEBSERVERURL + "Route/";
 }
