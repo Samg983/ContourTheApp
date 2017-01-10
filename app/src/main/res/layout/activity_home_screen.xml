@@ -39,7 +39,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="ontour"
-            android:id="@+id/titel"
+            android:id="@+id/lblTitel"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="50dp"
             />

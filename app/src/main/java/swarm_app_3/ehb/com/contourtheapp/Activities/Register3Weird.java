@@ -18,13 +18,13 @@ public class Register3Weird extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register3_weird);
 
-        TextView title = (TextView) findViewById(R.id.finishtitle);
-        TextView noselength = (TextView) findViewById(R.id.noselength);
+        TextView title = (TextView) findViewById(R.id.lblTitleRegi3);
+        TextView noselength = (TextView) findViewById(R.id.lblGender);
         TextView dimples = (TextView) findViewById(R.id.dimples);
         TextView numberoffingers = (TextView) findViewById(R.id.numberoffingers);
         TextView numberoftoes = (TextView) findViewById(R.id.numberoftoes);
         TextView shoesize = (TextView) findViewById(R.id.shoesize);
-        TextView next = (TextView) findViewById(R.id.lblNext);
+        TextView next = (TextView) findViewById(R.id.lblNextRegi1);
         TextView prev = (TextView) findViewById(R.id.lblPrev);
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
         title.setTypeface(customFonts);
@@ -36,12 +36,12 @@ public class Register3Weird extends AppCompatActivity {
         next.setTypeface(customFonts);
         prev.setTypeface(customFonts);
 
-        Spinner dropdown = (Spinner)findViewById(R.id.spinner1);
+        Spinner dropdown = (Spinner)findViewById(R.id.spnGender);
         String[] items = new String[]{"Yes", "No"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
 
-        Spinner dropdown2 = (Spinner)findViewById(R.id.spinner2);
+        Spinner dropdown2 = (Spinner)findViewById(R.id.spnEyeColor);
         String[] items2 = new String[]{"4", "5", "6", "7", "8", "9", "10"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items2);
         dropdown2.setAdapter(adapter2);

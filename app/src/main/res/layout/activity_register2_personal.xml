@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:id="@+id/finishtitle"
+        android:id="@+id/lblTitleRegi3"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginStart="25dp"
         android:layout_alignParentTop="true"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/noselength"
+        android:id="@+id/lblGender"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="5dp"
         android:layout_alignBaseline="@+id/textView4"
@@ -44,7 +44,7 @@
         android:text="@string/gender" />
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/spnGender"
         android:layout_height="30dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
@@ -56,7 +56,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dimples"
+        android:id="@+id/lblHeight"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="5dp"
         android:text="@string/height"
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="15"
-        android:id="@+id/editText4"
+        android:id="@+id/txtHeight"
         android:background="@color/lightgrey"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
@@ -82,7 +82,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/eyecolor"
+        android:id="@+id/lblEyeColor"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="5dp"
         android:text="@string/eyecolor"
@@ -91,7 +91,7 @@
         android:layout_toEndOf="@+id/textView6" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spnEyeColor"
         android:layout_height="30dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
@@ -108,13 +108,13 @@
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:layout_marginTop="18dp"
-        android:layout_below="@+id/spinner2"
-        android:layout_alignStart="@+id/spinner2" />
+        android:layout_below="@+id/spnEyeColor"
+        android:layout_alignStart="@+id/spnEyeColor" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/haircolor"
+        android:id="@+id/lblHairColor"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="5dp"
         android:text="@string/haircolor"
@@ -123,7 +123,7 @@
         android:layout_toEndOf="@+id/textView7" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/spnHairColor"
         android:layout_height="30dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
@@ -145,7 +145,7 @@
         android:text="@string/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lblNext"
+        android:id="@+id/lblNextRegi1"
         android:textColor="@android:color/black"
         android:textSize="16dp"
         android:background="@android:color/white"
@@ -172,9 +172,9 @@
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:paddingRight="15dp"
-        android:layout_alignBaseline="@+id/lblNext"
-        android:layout_alignBottom="@+id/lblNext"
-        android:layout_alignEnd="@+id/noselength" />
+        android:layout_alignBaseline="@+id/lblNextRegi1"
+        android:layout_alignBottom="@+id/lblNextRegi1"
+        android:layout_alignEnd="@+id/lblGender" />
 
     <TextView
         android:text="|"
@@ -184,8 +184,8 @@
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:layout_marginTop="17dp"
-        android:layout_below="@+id/spinner1"
-        android:layout_alignStart="@+id/spinner1" />
+        android:layout_below="@+id/spnGender"
+        android:layout_alignStart="@+id/spnGender" />
 
     <TextView
         android:text="|"
@@ -195,8 +195,8 @@
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/finishtitle"
-        android:layout_alignStart="@+id/finishtitle" />
+        android:layout_below="@+id/lblTitleRegi3"
+        android:layout_alignStart="@+id/lblTitleRegi3" />
 
     <TextView
         android:text="|"
@@ -206,7 +206,7 @@
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:layout_marginTop="21dp"
-        android:layout_below="@+id/editText4"
-        android:layout_alignStart="@+id/editText4" />
+        android:layout_below="@+id/txtHeight"
+        android:layout_alignStart="@+id/txtHeight" />
 
 </RelativeLayout>

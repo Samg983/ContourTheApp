@@ -18,7 +18,7 @@ public class Register4AlmostFinished extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register4_almost_finished);
 
-        TextView finishtitle = (TextView) findViewById(R.id.finishtitle);
+        TextView finishtitle = (TextView) findViewById(R.id.lblTitleRegi3);
         TextView cometoitaly = (TextView) findViewById(R.id.cometoitaly);
         TextView howmanypeople = (TextView) findViewById(R.id.howmanypeople);
         TextView prev = (TextView) findViewById(R.id.lblPrev);
@@ -30,7 +30,7 @@ public class Register4AlmostFinished extends AppCompatActivity {
         prev.setTypeface(customFonts);
         finish.setTypeface(customFonts);
 
-        Spinner dropdown = (Spinner)findViewById(R.id.spinner1);
+        Spinner dropdown = (Spinner)findViewById(R.id.spnGender);
         String[] items = new String[]{"Yes", "No", "Maybe"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);

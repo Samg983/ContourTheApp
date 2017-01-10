@@ -173,12 +173,12 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         UsercoordinaatVoegToe usercoordinaatVoegToe = new UsercoordinaatVoegToe(new Usercoordinaat(0, location.getLatitude(), location.getLongitude(), "0", 1), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("Geslaagd coordianat", response);
+                Log.d("Geslaagd coordinaat", response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("failed coordianat", error.toString());
+                Log.d("failed coordinaat", error.toString());
             }
         });
 

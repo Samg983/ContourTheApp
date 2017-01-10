@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:id="@+id/finishtitle"
+        android:id="@+id/lblTitleRegi3"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginStart="25dp"
         android:layout_alignParentTop="true"
@@ -55,7 +55,7 @@
         android:layout_toEndOf="@+id/textView6" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spnEyeColor"
         android:layout_height="30dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
@@ -72,8 +72,8 @@
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:layout_marginTop="18dp"
-        android:layout_below="@+id/spinner2"
-        android:layout_alignStart="@+id/spinner2" />
+        android:layout_below="@+id/spnEyeColor"
+        android:layout_alignStart="@+id/spnEyeColor" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -118,15 +118,15 @@
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:paddingRight="15dp"
-        android:layout_alignBaseline="@+id/lblNext"
-        android:layout_alignBottom="@+id/lblNext"
+        android:layout_alignBaseline="@+id/lblNextRegi1"
+        android:layout_alignBottom="@+id/lblNextRegi1"
         android:layout_toStartOf="@+id/imageView3" />
 
     <TextView
         android:text="@string/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lblNext"
+        android:id="@+id/lblNextRegi1"
         android:textColor="@android:color/black"
         android:textSize="16dp"
         android:background="@android:color/white"
@@ -143,12 +143,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/noselength"
+        android:id="@+id/lblGender"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="5dp"
         android:text="@string/noselength"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/finishtitle"
+        android:layout_below="@+id/lblTitleRegi3"
         android:layout_toEndOf="@+id/textView4" />
 
     <TextView
@@ -158,9 +158,9 @@
         android:id="@+id/textView4"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
-        android:layout_alignBaseline="@+id/noselength"
-        android:layout_alignBottom="@+id/noselength"
-        android:layout_alignStart="@+id/finishtitle" />
+        android:layout_alignBaseline="@+id/lblGender"
+        android:layout_alignBottom="@+id/lblGender"
+        android:layout_alignStart="@+id/lblTitleRegi3" />
 
     <Spinner
         android:id="@+id/spinner4"
@@ -178,7 +178,7 @@
         android:inputType="number"
         android:ems="15"
         android:background="@color/lightgrey"
-        android:layout_below="@+id/noselength"
+        android:layout_below="@+id/lblGender"
         android:layout_alignStart="@+id/textView4"
         android:id="@+id/editText2"
         android:layout_marginTop="5dp"
@@ -206,7 +206,7 @@
         android:layout_marginLeft="5dp"
         android:text="@string/shoesize"
         android:layout_marginTop="28dp"
-        android:layout_below="@+id/spinner1"
+        android:layout_below="@+id/spnGender"
         android:layout_toEndOf="@+id/textView8" />
 
     <TextView
@@ -221,7 +221,7 @@
         android:layout_marginTop="19dp" />
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/spnGender"
         android:layout_height="30dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
@@ -239,6 +239,6 @@
         android:textSize="20sp"
         android:layout_alignBaseline="@+id/shoesize"
         android:layout_alignBottom="@+id/shoesize"
-        android:layout_alignStart="@+id/spinner1" />
+        android:layout_alignStart="@+id/spnGender" />
 
 </RelativeLayout>

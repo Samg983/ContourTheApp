@@ -4,19 +4,9 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-
-import java.util.ArrayList;
-
-import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerk;
 import swarm_app_3.ehb.com.contourtheapp.R;
-import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
-import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetAll;
-import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetById;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -24,7 +14,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        TextView contourtitel = (TextView) findViewById(R.id.titel);
+        TextView contourtitel = (TextView) findViewById(R.id.lblTitel);
         TextView ctitel = (TextView) findViewById(R.id.ctitel);
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "Raleway-Thin.ttf");
         contourtitel.setTypeface(customFonts);

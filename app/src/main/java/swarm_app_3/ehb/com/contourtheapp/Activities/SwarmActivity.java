@@ -3,22 +3,15 @@ package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.content.Intent;
 
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.location.Location;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -27,8 +20,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.Circle;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -37,21 +28,14 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
-import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
-import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import swarm_app_3.ehb.com.contourtheapp.Manifest;
 import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerk;
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenDialogSwarmInfo;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
-import swarm_app_3.ehb.com.contourtheapp.Webservice.inschrijving.InschrijvingGetAll;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetAll;
-import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetById;
-import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkVoegToe;
 
 import static swarm_app_3.ehb.com.contourtheapp.R.id.map;
 
@@ -77,7 +61,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
                 .findFragmentById(map);
         mapFragment.getMapAsync(this);
 
-        TextView next = (TextView) findViewById(R.id.lblNext);
+        TextView next = (TextView) findViewById(R.id.lblNextRegi1);
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "Raleway-Thin.ttf");
         next.setTypeface(customFonts);
 
