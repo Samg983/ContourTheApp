@@ -1,24 +1,16 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Build;
-import android.os.Handler;
-import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.View;
-import android.view.animation.Interpolator;
-import android.view.animation.LinearInterpolator;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -32,7 +24,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
+
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
@@ -41,12 +33,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
-import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
-import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
-
-import java.security.Timestamp;
-import java.sql.Date;
 import java.util.ArrayList;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenMessagesTracker;
@@ -69,10 +55,6 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private ArrayList<LatLng> points;
     private Polyline line;
-    private FloatingActionButton.LayoutParams actionButtonParams;
-    private FloatingActionButton.LayoutParams subActionButtonParams;
-    private int radius;
-
     private static final long INTERVAL = 1000; //1 minute
     private static final long FASTEST_INTERVAL = 1000; // 1 minute
     private static final float SMALLEST_DISPLACEMENT = 0.05F; //quarter of a meter

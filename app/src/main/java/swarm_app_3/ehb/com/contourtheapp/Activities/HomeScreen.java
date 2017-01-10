@@ -10,14 +10,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class HomeScreen extends AppCompatActivity {
-    FloatingActionButton.LayoutParams actionButtonParams;
-    FloatingActionButton.LayoutParams subActionButtonParams;
-    int radius;
+
     VideoView videov;
 
     @Override

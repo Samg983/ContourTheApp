@@ -46,9 +46,9 @@ public class Photo {
 
     public void setSourcePhoto(){this.sourcePhoto = sourcePhoto;}
 
-    //public byte[] getSourcePhoto() {return sourcePhoto;} -> gebruiken als blob in orde is?
+    //public byte[] getSourcePhoto() {return sourcePhoto;} -> gebruiken als blob in orde is TODO?
 
-    //public void setSourcePhoto(byte[] sourcePhoto) {this.sourcePhoto = sourcePhoto;} -> gebruiken als blob in orde is?
+    //public void setSourcePhoto(byte[] sourcePhoto) {this.sourcePhoto = sourcePhoto;} -> gebruiken als blob in orde is TODO?
 
 
 

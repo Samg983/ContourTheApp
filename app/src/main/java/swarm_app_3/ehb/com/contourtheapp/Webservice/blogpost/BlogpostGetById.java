@@ -5,9 +5,7 @@ import com.android.volley.Response;
 import java.util.HashMap;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.Blogpost;
-import swarm_app_3.ehb.com.contourtheapp.Model.Checkpoint;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.SimpleWebrequest;
-import swarm_app_3.ehb.com.contourtheapp.Webservice.checkpoint.CheckpointWebservice;
 
 /**
  * Created by SamGoeman on 09/01/2017.

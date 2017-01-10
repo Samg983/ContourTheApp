@@ -27,9 +27,7 @@ public class GalleryActivity extends AppCompatActivity implements ItemClickListe
     private RecyclerView mRecyclerView;
 
     private ImageView galleryPhoto;
-    private FloatingActionButton.LayoutParams actionButtonParams;
-    private FloatingActionButton.LayoutParams subActionButtonParams;
-    private int radius;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

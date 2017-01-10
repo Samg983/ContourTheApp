@@ -48,12 +48,10 @@ public class User {
         this.imeiNummer = imeiNummer;
     }
 
-
-
     public User() {
     }
 
-    public User(int userId,  String naam, String voornaam, String imeiNummer,int roleId) {
+    public User(int userId, String naam, String voornaam, String imeiNummer, int roleId) {
         this.userId = userId;
         this.roleId = roleId;
         this.naam = naam;

@@ -15,8 +15,6 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-
-
 import swarm_app_3.ehb.com.contourtheapp.Activities.Register1Basic;
 import swarm_app_3.ehb.com.contourtheapp.R;
 

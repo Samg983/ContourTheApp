@@ -4,7 +4,7 @@ import com.android.volley.Response;
 
 import java.util.HashMap;
 
-import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerk;
+
 import swarm_app_3.ehb.com.contourtheapp.Model.Userkenmerkwaarde;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.SimpleWebrequest;
 

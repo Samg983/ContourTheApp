@@ -19,6 +19,11 @@ public class Register4AlmostFinished extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register4_almost_finished);
 
+        setItems();
+
+    }
+
+    private void setItems() {
         lblTitleRegi4 = (TextView) findViewById(R.id.lblTitleRegi4);
         lblComeToItaly = (TextView) findViewById(R.id.lblComeToItaly);
         lblHowMany = (TextView) findViewById(R.id.lblHowMany);
@@ -33,22 +38,23 @@ public class Register4AlmostFinished extends AppCompatActivity {
         lblPrevRegi4.setTypeface(customFonts);
         lblFinish.setTypeface(customFonts);
 
-        Spinner spnComeToItaly = (Spinner)findViewById(R.id.spnComeToItaly);
+        Spinner spnComeToItaly = (Spinner) findViewById(R.id.spnComeToItaly);
         String[] items = new String[]{"Yes", "No", "Maybe"};
         ArrayAdapter<String> adapterComeToItaly = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         spnComeToItaly.setAdapter(adapterComeToItaly);
 
-        Spinner spnHowMany = (Spinner)findViewById(R.id.spnHowMany);
+        Spinner spnHowMany = (Spinner) findViewById(R.id.spnHowMany);
         String[] amount = new String[]{"1", "2", "3", "4", "5", "6"};
         ArrayAdapter<String> adapterHowMany = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, amount);
         spnHowMany.setAdapter(adapterHowMany);
     }
-    public void goToRegi3 (View view) {
+
+    public void goToRegi3(View view) {
         Intent toRegi3 = new Intent(this, Register3Weird.class);
         startActivity(toRegi3);
     }
 
-    public void goToHome (View view) {
+    public void goToHome(View view) {
         Intent toHome = new Intent(this, HomeScreen.class);
         startActivity(toHome);
     }

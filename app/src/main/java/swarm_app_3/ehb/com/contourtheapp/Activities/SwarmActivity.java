@@ -27,7 +27,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
+
 
 import java.util.ArrayList;
 
@@ -42,11 +42,6 @@ import static swarm_app_3.ehb.com.contourtheapp.R.id.map;
 
 public class SwarmActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
-
-    private FloatingActionButton.LayoutParams actionButtonParams;
-    private FloatingActionButton.LayoutParams subActionButtonParams;
-    private int radius;
     private GoogleMap mMap;
     private static final String TAG = SwarmActivity.class.getSimpleName();
 
@@ -78,14 +73,13 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         }
 
 
-
         KenmerkGetAll kenmerkGetAll = new KenmerkGetAll(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
                 ArrayList<Kenmerk> list = gson.fromJson(response, new TypeToken<ArrayList<Kenmerk>>() {
                 }.getType());
-                for(Kenmerk kenmerk: list){
+                for (Kenmerk kenmerk : list) {
                     Log.d("Geslaagd", kenmerk.toString());
                 }
             }
@@ -106,8 +100,8 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         //mMap.getUiSettings().setAllGesturesEnabled(false);
         //Plaatsen die getekend worden op map
         LatLng Gent = new LatLng(51.0535, 3.7304);
-        LatLng Strasbourg = new LatLng(48.58392,7.74553);
-        LatLng Paris = new LatLng(48.864716,2.349014);
+        LatLng Strasbourg = new LatLng(48.58392, 7.74553);
+        LatLng Paris = new LatLng(48.864716, 2.349014);
         LatLng Brussel = new LatLng(50.850340, 4.35171);
         LatLng Namen = new LatLng(50.467388, 4.871985);
         LatLng Dusseldorf = new LatLng(51.227741, 6.773456);
@@ -127,25 +121,25 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         LatLng Tilburg = new LatLng(51.557196, 5.090790);
 
         //Tekenen van Userlocations
-        WriteLoc(Paris,"Paris");
-        WriteLoc(Gent,"Gent");
-        WriteLoc(Brussel,"Brussel");
-        WriteLoc(Namen,"Namur");
-        WriteLoc(Dusseldorf,"Dusseldorf");
-        WriteLoc(Keulen,"Cologne");
-        WriteLoc(Amsterdam,"Amsterdam");
-        WriteLoc(Maastricht,"Maastricht");
-        WriteLoc(Spa,"Spa");
-        WriteLoc(Stuttgard,"Stuttgard");
-        WriteLoc(Nancy,"Nancy");
-        WriteLoc(Genève,"Genève");
-        WriteLoc(Milaan,"Milaan");
-        WriteLoc(Luik,"Luik");
-        WriteLoc(Halle,"Halle");
-        WriteLoc(Kortrijk,"Kortrijk");
-        WriteLoc(Antwerpen,"Antwerpen");
-        WriteLoc(Tilburg,"Tilburg");
-        WriteLoc(Turnhout,"Turnhout");
+        WriteLoc(Paris, "Paris");
+        WriteLoc(Gent, "Gent");
+        WriteLoc(Brussel, "Brussel");
+        WriteLoc(Namen, "Namur");
+        WriteLoc(Dusseldorf, "Dusseldorf");
+        WriteLoc(Keulen, "Cologne");
+        WriteLoc(Amsterdam, "Amsterdam");
+        WriteLoc(Maastricht, "Maastricht");
+        WriteLoc(Spa, "Spa");
+        WriteLoc(Stuttgard, "Stuttgard");
+        WriteLoc(Nancy, "Nancy");
+        WriteLoc(Genève, "Genève");
+        WriteLoc(Milaan, "Milaan");
+        WriteLoc(Luik, "Luik");
+        WriteLoc(Halle, "Halle");
+        WriteLoc(Kortrijk, "Kortrijk");
+        WriteLoc(Antwerpen, "Antwerpen");
+        WriteLoc(Tilburg, "Tilburg");
+        WriteLoc(Turnhout, "Turnhout");
 
         //Plaats van wandeling
         LatLng Biella = new LatLng(45.5630400, 8.0579600);
@@ -153,10 +147,10 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
 
         //Tekenen wandelingplaats
         mMap.addMarker(new MarkerOptions()
-                        .position(Biella)
-                        .anchor(0.5f,0.5f)
-                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.biella_place))
-                        .title(BiellaS));
+                .position(Biella)
+                .anchor(0.5f, 0.5f)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.biella_place))
+                .title(BiellaS));
 
         mMap.setMinZoomPreference(6.0f);
         mMap.setMaxZoomPreference(100.0f);
@@ -170,7 +164,8 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
             if (!success) {
                 Log.e(TAG, "Style parsing failed.");
             }
-        } catch (Resources.NotFoundException e) {}
+        } catch (Resources.NotFoundException e) {
+        }
     }
 
     public void openPopupSwarm(View view) {
@@ -185,12 +180,12 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
                 .add(a, Biella)
                 .geodesic(true)
                 .width(5)
-                .color(Color.argb(255,66,160,71)));
+                .color(Color.argb(255, 66, 160, 71)));
         mMap.addMarker(new MarkerOptions()
                 .zIndex(20)
                 .position(a)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.swarm_place))
-                .anchor(0.5f,0.5f)
+                .anchor(0.5f, 0.5f)
                 .title(b));
     }
 

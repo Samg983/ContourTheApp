@@ -4,13 +4,20 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
+import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerkwaarde;
 import swarm_app_3.ehb.com.contourtheapp.R;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerkwaarde.KenmerkwaardeVoegToe;
 
 public class Register2Personal extends AppCompatActivity {
 
@@ -24,6 +31,40 @@ public class Register2Personal extends AppCompatActivity {
         setContentView(R.layout.activity_register2_personal);
 
         setItems();
+
+        Bundle mijnOpgehaaldeGegevens = getIntent().getExtras();
+
+        String dateOfBirth = mijnOpgehaaldeGegevens.get("dateOfBirth").toString();
+        String city = mijnOpgehaaldeGegevens.get("city").toString();
+
+        KenmerkwaardeVoegToe kenmerkwaardeDateOfBirth = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, dateOfBirth, 3), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Geslaagd geboortedatum", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        KenmerkwaardeVoegToe kenmerkwaardeCity = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, city, 5), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Geslaagd city", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        Webservice.getRequestQueue().add(kenmerkwaardeDateOfBirth);
+        Webservice.getRequestQueue().add(kenmerkwaardeCity);
+
+
 
 
     }

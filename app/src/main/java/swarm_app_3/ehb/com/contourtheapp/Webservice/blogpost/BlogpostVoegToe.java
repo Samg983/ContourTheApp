@@ -3,11 +3,8 @@ package swarm_app_3.ehb.com.contourtheapp.Webservice.blogpost;
 import com.android.volley.Response;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.Blogpost;
-import swarm_app_3.ehb.com.contourtheapp.Model.Checkpoint;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.SimpleWebrequest;
-import swarm_app_3.ehb.com.contourtheapp.Webservice.checkpoint.CheckpointWebservice;
 
-;
 
 
 /**

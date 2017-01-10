@@ -9,6 +9,7 @@ public class Checkpoint {
     private int checkpointId, volgorde, routeId;
     private double latitude, longtitude;
 
+    //TODO moet dit public staan??
     public boolean isExpanded;
 
     public Checkpoint() {

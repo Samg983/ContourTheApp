@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -61,7 +61,7 @@ public class Register1Basic extends AppCompatActivity {
         txtDateOfBirth.setTypeface(customFonts);
         txtCity.setTypeface(customFonts);
         txtFirstNameRegi1.setTypeface(customFonts);
-        txtFirstNameRegi1.setText(getImeiNumber());
+
 
     }
 
@@ -72,7 +72,7 @@ public class Register1Basic extends AppCompatActivity {
         String firstName = txtFirstNameRegi1.getText().toString();
 
 
-        UserVoegToe userVoegToe = new UserVoegToe(new User(0, lastName , firstName , getImeiNumber(), 1), new Response.Listener<String>() {
+        UserVoegToe userVoegToe = new UserVoegToe(new User(0, lastName, firstName, getImeiNumber(), 1), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("Geslaagd User toevoegen", response);

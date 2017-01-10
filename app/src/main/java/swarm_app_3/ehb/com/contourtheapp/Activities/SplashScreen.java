@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
         contourtitel.setTypeface(customFonts);
         ctitel.setTypeface(customFonts);
 
-        Thread SplashThread = new Thread(){
+        Thread SplashThread = new Thread() {
             @Override
             public void run() {
                 try {
