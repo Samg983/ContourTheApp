@@ -46,32 +46,6 @@ public class SplashScreen extends AppCompatActivity {
 
         SplashThread.start();
 
-        KenmerkGetAll kenmerkGetAll = new KenmerkGetAll(new Response.Listener<ArrayList<Kenmerk>>() {
-            @Override
-            public void onResponse(ArrayList<Kenmerk> response) {
-                Log.d("Geslaagd", response.toString());
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("fail", error.toString());
-            }
-        });
 
-        Webservice.getRequestQueue().add(kenmerkGetAll);
-
-        KenmerkGetById kenmerkGetById = new KenmerkGetById("2", new Response.Listener<Kenmerk>() {
-            @Override
-            public void onResponse(Kenmerk response) {
-                Log.d("Geslaagd id", response.toString());
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("fail id", error.toString());
-            }
-        });
-
-        Webservice.getRequestQueue().add(kenmerkGetById);
     }
 }

@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -36,9 +38,16 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
+import java.util.ArrayList;
+
 import swarm_app_3.ehb.com.contourtheapp.Manifest;
+import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerk;
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenDialogSwarmInfo;
 import swarm_app_3.ehb.com.contourtheapp.R;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetAll;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetById;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkVoegToe;
 
 import static swarm_app_3.ehb.com.contourtheapp.R.id.map;
 
@@ -78,6 +87,48 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         } else {
             subscribeButton.setVisibility(View.VISIBLE);
         }
+
+        KenmerkGetAll kenmerkGetAll = new KenmerkGetAll(new Response.Listener<ArrayList<Kenmerk>>() {
+            @Override
+            public void onResponse(ArrayList<Kenmerk> response) {
+                Log.d("Geslaagd", response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("fail", error.toString());
+            }
+        });
+
+        Webservice.getRequestQueue().add(kenmerkGetAll);
+
+        KenmerkGetById kenmerkGetById = new KenmerkGetById(2, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Geslaagd id", response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("fail id", error.toString());
+            }
+        });
+
+        Webservice.getRequestQueue().add(kenmerkGetById);
+
+        KenmerkVoegToe kenmerkVoegToe = new KenmerkVoegToe(new Kenmerk(0, "Stad"), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Voeg toe Geslaagd", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Voeg toe failed", error.toString());
+            }
+        });
+
+        Webservice.getRequestQueue().add(kenmerkVoegToe);
     }
 
 
