@@ -5,188 +5,230 @@
     android:id="@+id/activity_register1_basic"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/hoogtelijnenbackground"
+    android:orientation="vertical"
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    android:background="@drawable/hoogtelijnenbackground"
-    tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.Register1Basic"
-    android:orientation="vertical">
+    tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.Register1Basic">
 
     <TextView
-        android:text="@string/RegisterBasicTitle"
+        android:id="@+id/lblTitleRegi1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lblTitleRegi1"
-        android:textColor="@android:color/black"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
-        android:textSize="18sp"
         android:paddingBottom="10dp"
         android:paddingEnd="10dp"
         android:paddingRight="10dp"
-        android:paddingTop="10dp" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:text="|"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtLineRegi1b"
-            android:layout_weight="1"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"
-            android:layout_marginLeft="30dp" />
-
-        <TextView
-            android:text="@string/Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/lblNameRegi1"
-            android:layout_weight="100"
-            android:textColor="@android:color/black"
-            android:paddingBottom="10dp"
-            android:paddingEnd="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtNameRegi1"
-        android:background="@color/lightgrey"
-        android:padding="10dp"
+        android:paddingTop="10dp"
+        android:text="@string/RegisterBasicTitle"
         android:textColor="@android:color/black"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp" />
+        android:textSize="18sp" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:text="|"
+            android:id="@+id/txtLineRegi1b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtLineRegi1a"
+            android:layout_marginLeft="30dp"
             android:layout_weight="1"
+            android:text="|"
             android:textColor="@color/colorAccent"
-            android:textSize="20sp"
-            android:layout_marginLeft="30dp" />
+            android:textSize="20sp" />
 
         <TextView
-            android:text="@string/dateofbirth"
+            android:id="@+id/lblNameRegi1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/lblDateOfBirthRegi1"
             android:layout_weight="100"
-            android:textColor="@android:color/black"
             android:paddingBottom="10dp"
             android:paddingEnd="10dp"
             android:paddingRight="10dp"
             android:paddingTop="10dp"
+            android:text="@string/Name"
+            android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>
 
     <EditText
+        android:id="@+id/txtNameRegi1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/txtDateOfBirthRegi1"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:padding="10dp"
         android:background="@color/lightgrey"
-        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
         android:textColor="@android:color/black" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:text="|"
+            android:id="@+id/txtLineRegi1b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtLineRegi1"
+            android:layout_marginLeft="30dp"
             android:layout_weight="1"
+            android:text="|"
             android:textColor="@color/colorAccent"
-            android:textSize="20sp"
-            android:layout_marginLeft="30dp" />
+            android:textSize="20sp" />
 
         <TextView
-            android:text="@string/city"
+            android:id="@+id/lblFirstNameRegi1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/lblCityRegi1"
             android:layout_weight="100"
-            android:textColor="@android:color/black"
             android:paddingBottom="10dp"
             android:paddingEnd="10dp"
             android:paddingRight="10dp"
             android:paddingTop="10dp"
+            android:text="@string/firstName"
+            android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>
 
     <EditText
+        android:id="@+id/txtFirstNameRegi1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtCityRegi1"
-        android:background="@color/lightgrey"
-        android:padding="10dp"
-        android:textColor="@android:color/black"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp" />
+        android:layout_marginRight="30dp"
+        android:background="@color/lightgrey"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtLineRegi1a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="|"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lblDateOfBirthRegi1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/dateofbirth"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/txtDateOfBirthRegi1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/lightgrey"
+        android:ems="10"
+        android:inputType="number"
+        android:padding="10dp"
+        android:textColor="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtLineRegi1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="|"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lblCityRegi1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/city"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/txtCityRegi1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/lightgrey"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@android:color/black" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <ImageView
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/inschrijving1"
             android:id="@+id/imageView4"
-            android:layout_weight="4"
-            android:scaleType="fitCenter"
             android:layout_width="150dp"
-            android:scaleX=".8"
-            android:scaleY=".8"
-            android:adjustViewBounds="true"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="100dp"
-            android:padding="10dp" />
+            android:layout_weight="4"
+            android:adjustViewBounds="true"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:scaleX=".8"
+            android:scaleY=".8"
+            app:srcCompat="@drawable/inschrijving1" />
 
         <TextView
-            android:text="@string/next"
-            android:layout_height="wrap_content"
             android:id="@+id/lblNextRegi1"
-            android:textColor="@android:color/black"
-            android:padding="10dp"
-            android:background="@android:color/white"
-            android:layout_weight="1"
             android:layout_width="80dp"
-            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
-            android:onClick="goToRegi2"/>
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:gravity="center_horizontal"
+            android:onClick="goToRegi2"
+            android:padding="10dp"
+            android:text="@string/next"
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
 </LinearLayout>

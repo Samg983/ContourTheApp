@@ -23,12 +23,29 @@ public class Register2Personal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register2_personal);
 
-        lblTitleRegi2 = (TextView) findViewById(R.id.lblTitleRegi3);
+        setItems();
+
+
+    }
+
+    public void goToRegi1(View view) {
+        Intent toRegi1 = new Intent(this, Register1Basic.class);
+        startActivity(toRegi1);
+    }
+
+    public void goToRegi3(View view) {
+        Intent toRegi3 = new Intent(this, Register3Weird.class);
+
+        startActivity(toRegi3);
+    }
+
+    public void setItems(){
+        lblTitleRegi2 = (TextView) findViewById(R.id.lblTitleRegi2);
         lblHeight = (TextView) findViewById(R.id.lblHeight);
         lblEyeColor = (TextView) findViewById(R.id.lblEyeColor);
         lblHairColor = (TextView) findViewById(R.id.lblHairColor);
-        lblNextRegi2 = (TextView) findViewById(R.id.lblNextRegi1);
-        lblPrevRegi2 = (TextView) findViewById(R.id.lblPrev);
+        lblNextRegi2 = (TextView) findViewById(R.id.lblNextRegi2);
+        lblPrevRegi2 = (TextView) findViewById(R.id.lblPrevRegi2);
         lblGender = (TextView) findViewById(R.id.lblGender);
 
         txtHeight = (EditText) findViewById(R.id.txtHeight);
@@ -59,16 +76,5 @@ public class Register2Personal extends AppCompatActivity {
         String[] items3 = new String[]{"Brown", "Blonde", "Black", "Ginger", "White", "Grey", "Other"};
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items3);
         spnHairColor.setAdapter(adapter3);
-    }
-
-    public void goToRegi1(View view) {
-        Intent toRegi1 = new Intent(this, Register1Basic.class);
-        startActivity(toRegi1);
-    }
-
-    public void goToRegi3(View view) {
-        Intent toRegi3 = new Intent(this, Register3Weird.class);
-
-        startActivity(toRegi3);
     }
 }

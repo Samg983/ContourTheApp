@@ -12,49 +12,58 @@ import android.widget.TextView;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class Register3Weird extends AppCompatActivity {
+    private TextView lblToes, lblFingers, lblShoeSize, lblNoseLength, lblDimples, lblNextRegi3, lblPrevRegi3, lblTitleRegi3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register3_weird);
 
-        TextView title = (TextView) findViewById(R.id.lblTitleRegi3);
-        TextView noselength = (TextView) findViewById(R.id.lblGender);
-        TextView dimples = (TextView) findViewById(R.id.dimples);
-        TextView numberoffingers = (TextView) findViewById(R.id.numberoffingers);
-        TextView numberoftoes = (TextView) findViewById(R.id.numberoftoes);
-        TextView shoesize = (TextView) findViewById(R.id.shoesize);
-        TextView next = (TextView) findViewById(R.id.lblNextRegi1);
-        TextView prev = (TextView) findViewById(R.id.lblPrev);
+        lblTitleRegi3 = (TextView) findViewById(R.id.lblTitleRegi3);
+        lblToes = (TextView) findViewById(R.id.lblToes);
+        lblFingers = (TextView) findViewById(R.id.lblFingers);
+        lblShoeSize = (TextView) findViewById(R.id.lblShoeSize);
+        lblNoseLength = (TextView) findViewById(R.id.lblNoseLength);
+        lblDimples = (TextView) findViewById(R.id.lblDimples);
+        lblNextRegi3 = (TextView) findViewById(R.id.lblNextRegi3);
+        lblPrevRegi3 = (TextView) findViewById(R.id.lblPrevRegi3);
+
         Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
-        title.setTypeface(customFonts);
-        noselength.setTypeface(customFonts);
-        dimples.setTypeface(customFonts);
-        numberoffingers.setTypeface(customFonts);
-        numberoftoes.setTypeface(customFonts);
-        shoesize.setTypeface(customFonts);
-        next.setTypeface(customFonts);
-        prev.setTypeface(customFonts);
 
-        Spinner dropdown = (Spinner)findViewById(R.id.spnGender);
-        String[] items = new String[]{"Yes", "No"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        dropdown.setAdapter(adapter);
+        lblTitleRegi3.setTypeface(customFonts);
+        lblToes.setTypeface(customFonts);
+        lblFingers.setTypeface(customFonts);
+        lblShoeSize.setTypeface(customFonts);
+        lblNoseLength.setTypeface(customFonts);
+        lblDimples.setTypeface(customFonts);
+        lblNextRegi3.setTypeface(customFonts);
+        lblPrevRegi3.setTypeface(customFonts);
 
-        Spinner dropdown2 = (Spinner)findViewById(R.id.spnEyeColor);
-        String[] items2 = new String[]{"4", "5", "6", "7", "8", "9", "10"};
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items2);
-        dropdown2.setAdapter(adapter2);
 
-        Spinner dropdown3 = (Spinner)findViewById(R.id.spinner3);
-        String[] items3 = new String[]{"4", "5", "6", "7", "8", "9", "10"};
-        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items3);
-        dropdown3.setAdapter(adapter3);
+        Spinner spnNoseLength = (Spinner)findViewById(R.id.spnNoseLength);
+        String[] noseLength = new String[]{"1", "2", "3","4", "5", "6", "7", "8", "9", "10"};
+        ArrayAdapter<String> adapterNoseLength = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, noseLength);
+        spnNoseLength.setAdapter(adapterNoseLength);
 
-        Spinner dropdown4 = (Spinner)findViewById(R.id.spinner4);
-        String[] items4 = new String[]{"25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50"};
-        ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items4);
-        dropdown4.setAdapter(adapter4);
+        Spinner spnDimples = (Spinner)findViewById(R.id.spnDimples);
+        String[] dimples = new String[]{"Yes", "No"};
+        ArrayAdapter<String> adapterDimples = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, dimples);
+        spnDimples.setAdapter(adapterDimples);
+
+        Spinner spnFingers = (Spinner)findViewById(R.id.spnFingers);
+        String[] fingers = new String[]{"4", "5", "6", "7", "8", "9", "10"};
+        ArrayAdapter<String> adapterFingers = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, fingers);
+        spnFingers.setAdapter(adapterFingers);
+
+        Spinner spnToes = (Spinner)findViewById(R.id.spnToes);
+        String[] toes = new String[]{"4", "5", "6", "7", "8", "9", "10"};
+        ArrayAdapter<String> adapterToes = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, toes);
+        spnToes.setAdapter(adapterToes);
+
+        Spinner spnShoeSize = (Spinner)findViewById(R.id.spnShoeSize);
+        String[] shoeSize = new String[]{"25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50"};
+        ArrayAdapter<String> adapterShoeSize = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, shoeSize);
+        spnShoeSize.setAdapter(adapterShoeSize);
     }
 
     public void goToRegi2 (View view) {

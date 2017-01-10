@@ -12,28 +12,36 @@ import android.widget.TextView;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class Register4AlmostFinished extends AppCompatActivity {
+    private TextView lblTitleRegi4, lblComeToItaly, lblHowMany, lblPrevRegi4, lblFinish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register4_almost_finished);
 
-        TextView finishtitle = (TextView) findViewById(R.id.lblTitleRegi3);
-        TextView cometoitaly = (TextView) findViewById(R.id.cometoitaly);
-        TextView howmanypeople = (TextView) findViewById(R.id.howmanypeople);
-        TextView prev = (TextView) findViewById(R.id.lblPrev);
-        TextView finish = (TextView) findViewById(R.id.lblfinish);
-        Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
-        finishtitle.setTypeface(customFonts);
-        cometoitaly.setTypeface(customFonts);
-        howmanypeople.setTypeface(customFonts);
-        prev.setTypeface(customFonts);
-        finish.setTypeface(customFonts);
+        lblTitleRegi4 = (TextView) findViewById(R.id.lblTitleRegi4);
+        lblComeToItaly = (TextView) findViewById(R.id.lblComeToItaly);
+        lblHowMany = (TextView) findViewById(R.id.lblHowMany);
+        lblPrevRegi4 = (TextView) findViewById(R.id.lblPrevRegi4);
+        lblFinish = (TextView) findViewById(R.id.lblFinish);
 
-        Spinner dropdown = (Spinner)findViewById(R.id.spnGender);
+        Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
+
+        lblTitleRegi4.setTypeface(customFonts);
+        lblComeToItaly.setTypeface(customFonts);
+        lblHowMany.setTypeface(customFonts);
+        lblPrevRegi4.setTypeface(customFonts);
+        lblFinish.setTypeface(customFonts);
+
+        Spinner spnComeToItaly = (Spinner)findViewById(R.id.spnComeToItaly);
         String[] items = new String[]{"Yes", "No", "Maybe"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        dropdown.setAdapter(adapter);
+        ArrayAdapter<String> adapterComeToItaly = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        spnComeToItaly.setAdapter(adapterComeToItaly);
+
+        Spinner spnHowMany = (Spinner)findViewById(R.id.spnHowMany);
+        String[] amount = new String[]{"1", "2", "3", "4", "5", "6"};
+        ArrayAdapter<String> adapterHowMany = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, amount);
+        spnHowMany.setAdapter(adapterHowMany);
     }
     public void goToRegi3 (View view) {
         Intent toRegi3 = new Intent(this, Register3Weird.class);

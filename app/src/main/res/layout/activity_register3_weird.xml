@@ -1,244 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_register3_weird"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/hoogtelijnenbackground"
+    android:orientation="vertical"
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    android:background="@color/colorPrimary"
     tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.Register3Weird">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/hoogtelijnenbackground"
-        android:id="@+id/imageView2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
-
     <TextView
-        android:text="This may be weird..."
-        android:layout_width="wrap_content"
+        android:text="@string/MayWeird"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:id="@+id/lblTitleRegi3"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginStart="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:textSize="18dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dimples"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginLeft="5dp"
-        android:text="@string/dimpleswhenyoulaugh"
-        android:layout_alignBaseline="@+id/textView5"
-        android:layout_alignBottom="@+id/textView5"
-        android:layout_toEndOf="@+id/textView5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberoffingers"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginLeft="5dp"
-        android:text="@string/numberoffingers"
-        android:layout_alignBaseline="@+id/textView6"
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6" />
-
-    <Spinner
-        android:id="@+id/spnEyeColor"
-        android:layout_height="30dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/textView6"
-        android:layout_alignStart="@+id/textView6"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:text="|"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView7"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/spnEyeColor"
-        android:layout_alignStart="@+id/spnEyeColor" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberoftoes"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginLeft="5dp"
-        android:text="@string/numberoftoes"
-        android:layout_alignBaseline="@+id/textView7"
-        android:layout_alignBottom="@+id/textView7"
-        android:layout_toEndOf="@+id/textView7" />
-
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_height="30dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/textView7"
-        android:layout_alignStart="@+id/textView7"
-        android:layout_marginTop="5dp" />
-
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView3"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        app:srcCompat="@drawable/inschrijving3" />
-
-    <TextView
-        android:text="@string/prev"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblPrev"
         android:textColor="@android:color/black"
-        android:textSize="16dp"
-        android:background="@android:color/white"
-        android:onClick="goToRegi2"
-        android:paddingLeft="15dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        android:paddingRight="15dp"
-        android:layout_alignBaseline="@+id/lblNextRegi1"
-        android:layout_alignBottom="@+id/lblNextRegi1"
-        android:layout_toStartOf="@+id/imageView3" />
-
-    <TextView
-        android:text="@string/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblNextRegi1"
-        android:textColor="@android:color/black"
-        android:textSize="16dp"
-        android:background="@android:color/white"
-        android:onClick="goToRegi4"
-        android:paddingLeft="15dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        android:paddingRight="15dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginTop="27dp"
-        android:layout_alignTop="@+id/imageView3"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblGender"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginLeft="5dp"
-        android:text="@string/noselength"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/lblTitleRegi3"
-        android:layout_toEndOf="@+id/textView4" />
-
-    <TextView
-        android:text="|"
-        android:layout_width="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_alignBaseline="@+id/lblGender"
-        android:layout_alignBottom="@+id/lblGender"
-        android:layout_alignStart="@+id/lblTitleRegi3" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="|"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            tools:text="|" />
+
+        <TextView
+            android:id="@+id/lblNoseLength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/noselength"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <Spinner
+        android:id="@+id/spnNoseLength"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/background_spinner"
+        android:padding="10dp"
+        android:popupBackground="@color/colorAccent"
+        android:spinnerMode="dropdown" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="|"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            tools:text="|" />
+
+        <TextView
+            android:id="@+id/lblDimples"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/dimpleswhenyoulaugh"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
 
     <Spinner
-        android:id="@+id/spinner4"
-        android:layout_height="30dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/textView8"
-        android:layout_alignStart="@+id/textView8"
-        android:layout_marginTop="5dp" />
+        android:id="@+id/spnDimples"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/background_spinner"
+        android:padding="10dp"
+        android:popupBackground="@color/colorAccent"
+        android:spinnerMode="dropdown" />
 
-    <EditText
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="15"
-        android:background="@color/lightgrey"
-        android:layout_below="@+id/lblGender"
-        android:layout_alignStart="@+id/textView4"
-        android:id="@+id/editText2"
-        android:layout_marginTop="5dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:textColor="?attr/colorPrimaryDark"
-        android:paddingLeft="5dp" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:text="|"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView5"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_marginTop="22dp"
-        android:layout_below="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="|"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            tools:text="|" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/shoesize"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginLeft="5dp"
-        android:text="@string/shoesize"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/spnGender"
-        android:layout_toEndOf="@+id/textView8" />
-
-    <TextView
-        android:text="|"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView6"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_below="@+id/spinner4"
-        android:layout_alignStart="@+id/spinner4"
-        android:layout_marginTop="19dp" />
+        <TextView
+            android:id="@+id/lblFingers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/numberoffingers"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
 
     <Spinner
-        android:id="@+id/spnGender"
-        android:layout_height="30dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/textView5"
-        android:layout_alignStart="@+id/textView5"
-        android:layout_marginTop="5dp" />
+        android:id="@+id/spnFingers"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/background_spinner"
+        android:padding="10dp"
+        android:popupBackground="@color/colorAccent"
+        android:spinnerMode="dropdown" />
 
-    <TextView
-        android:text="|"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_alignBaseline="@+id/shoesize"
-        android:layout_alignBottom="@+id/shoesize"
-        android:layout_alignStart="@+id/spnGender" />
+        android:orientation="horizontal">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="|"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            tools:text="|" />
+
+        <TextView
+            android:id="@+id/lblToes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/numberoftoes"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spnToes"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/background_spinner"
+        android:padding="10dp"
+        android:popupBackground="@color/colorAccent"
+        android:spinnerMode="dropdown" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="|"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            tools:text="|" />
+
+        <TextView
+            android:id="@+id/lblShoeSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/shoesize"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spnShoeSize"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/background_spinner"
+        android:padding="10dp"
+        android:popupBackground="@color/colorAccent"
+        android:spinnerMode="dropdown" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lblPrevRegi3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:onClick="goToRegi2"
+            android:padding="10dp"
+            android:text="@string/prev"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/inschrijving3" />
+
+        <TextView
+            android:id="@+id/lblNextRegi3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:onClick="goToRegi4"
+            android:padding="10dp"
+            android:text="@string/next"
+            android:textColor="@android:color/black" />
+
+    </LinearLayout>
+</LinearLayout>
