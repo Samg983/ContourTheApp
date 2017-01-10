@@ -1,6 +1,7 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
@@ -44,7 +45,7 @@ public class HomeScreen extends AppCompatActivity {
         ctitel.setTypeface(customFonts);
         videov = (VideoView) findViewById(R.id.VidV);
         videoplay(videov);
-        createMenu();
+
         videov.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
             @Override
@@ -55,7 +56,10 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        Context context = getApplicationContext();
 
+        CreateMenu menu = new CreateMenu(HomeScreen.this, context);
+        menu.showMenu();
 
     }
 
