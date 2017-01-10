@@ -48,7 +48,7 @@
         android:layout_height="30dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_below="@+id/textView4"
         android:layout_alignStart="@+id/textView4"
         android:layout_marginTop="5dp" />
@@ -65,7 +65,7 @@
         android:layout_toEndOf="@+id/textView5" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="15"
@@ -95,7 +95,7 @@
         android:layout_height="30dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_below="@+id/textView6"
         android:layout_alignStart="@+id/textView6"
         android:layout_marginTop="5dp" />
@@ -127,7 +127,7 @@
         android:layout_height="30dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_below="@+id/textView7"
         android:layout_alignStart="@+id/textView7"
         android:layout_marginTop="5dp" />
