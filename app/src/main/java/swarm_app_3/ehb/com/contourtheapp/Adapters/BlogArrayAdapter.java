@@ -48,12 +48,12 @@ public class BlogArrayAdapter extends ArrayAdapter<Blogpost> {
             txtLocation.setText(weerTeGevenBlog.getPlace());
             txtDate.setText(weerTeGevenBlog.getDateBlog());
             imgBlog.setImageResource(R.drawable.alps1);
-            imgMarker.setImageResource(R.drawable.arrow_toggle);
+            imgMarker.setImageResource(R.drawable.blog_marker);
 
 
             //Fonts voor blogs
             Typeface cutiveType = Typeface.createFromAsset(mijnListViewItemView.getContext().getAssets(), "CutiveMono-Regular.ttf");
-            Typeface ralewayType = Typeface.createFromAsset(mijnListViewItemView.getContext().getAssets(), "CutiveMono-Regular.ttf");
+            Typeface ralewayType = Typeface.createFromAsset(mijnListViewItemView.getContext().getAssets(), "Raleway-Regular.ttf");
             txtTitle.setTypeface(cutiveType);
             txtLocation.setTypeface(cutiveType);
             txtDate.setTypeface(cutiveType);
