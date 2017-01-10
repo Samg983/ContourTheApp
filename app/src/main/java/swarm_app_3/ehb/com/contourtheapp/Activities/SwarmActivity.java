@@ -84,7 +84,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         Button subscribeButton = (Button) findViewById(R.id.btnSubscribe1);
 
 
-        if(alreadySubscribed){
+        if (alreadySubscribed) {
             subscribeButton.setVisibility(View.INVISIBLE);
             next.setVisibility(View.INVISIBLE);
             createMenu();
@@ -94,6 +94,23 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
 
 
 
+        KenmerkGetAll kenmerkGetAll = new KenmerkGetAll(new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                ArrayList<Kenmerk> list = gson.fromJson(response, new TypeToken<ArrayList<Kenmerk>>() {
+                }.getType());
+                for(Kenmerk kenmerk: list){
+                    Log.d("Geslaagd", kenmerk.toString());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        Webservice.getRequestQueue().add(kenmerkGetAll);
 
     }
 
