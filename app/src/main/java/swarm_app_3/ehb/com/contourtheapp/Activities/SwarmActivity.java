@@ -34,10 +34,13 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import swarm_app_3.ehb.com.contourtheapp.Manifest;
@@ -88,10 +91,12 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
             subscribeButton.setVisibility(View.VISIBLE);
         }
 
-        KenmerkGetAll kenmerkGetAll = new KenmerkGetAll(new Response.Listener<ArrayList<Kenmerk>>() {
+        KenmerkGetAll kenmerkGetAll = new KenmerkGetAll(new Response.Listener<String>() {
             @Override
-            public void onResponse(ArrayList<Kenmerk> response) {
-                for(Kenmerk kenmerk : response) {
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                ArrayList<Kenmerk> list = gson.fromJson(response, new TypeToken<ArrayList<Kenmerk>>(){}.getType());
+                for(Kenmerk kenmerk : list) {
                     Log.d("Geslaagd", kenmerk.toString());
                 }
             }
@@ -102,7 +107,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
             }
         });
 
-       // Webservice.getRequestQueue().add(kenmerkGetAll);
+       Webservice.getRequestQueue().add(kenmerkGetAll);
 
         KenmerkGetById kenmerkGetById = new KenmerkGetById(2, new Response.Listener<Kenmerk>() {
             @Override
