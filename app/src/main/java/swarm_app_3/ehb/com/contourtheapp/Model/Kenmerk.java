@@ -26,21 +26,17 @@ public class Kenmerk {
     }
 
 
-
     public Kenmerk(int kenmerkId, String naam) {
         this.kenmerkId = kenmerkId;
         this.naam = naam;
     }
 
-    public Kenmerk(){
+    public Kenmerk() {
 
     }
 
     @Override
     public String toString() {
-        return "Kenmerk{" +
-                "kenmerkId=" + kenmerkId +
-                ", naam='" + naam + '\'' +
-                '}';
+        return "Kenmerk " + this.naam;
     }
 }

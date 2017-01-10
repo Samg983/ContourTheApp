@@ -91,7 +91,9 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         KenmerkGetAll kenmerkGetAll = new KenmerkGetAll(new Response.Listener<ArrayList<Kenmerk>>() {
             @Override
             public void onResponse(ArrayList<Kenmerk> response) {
-                Log.d("Geslaagd", response.toString());
+                for(Kenmerk kenmerk : response) {
+                    Log.d("Geslaagd", kenmerk.toString());
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -102,9 +104,9 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
 
         Webservice.getRequestQueue().add(kenmerkGetAll);
 
-        KenmerkGetById kenmerkGetById = new KenmerkGetById(2, new Response.Listener<String>() {
+        KenmerkGetById kenmerkGetById = new KenmerkGetById(2, new Response.Listener<Kenmerk>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(Kenmerk response) {
                 Log.d("Geslaagd id", response.toString());
             }
         }, new Response.ErrorListener() {
