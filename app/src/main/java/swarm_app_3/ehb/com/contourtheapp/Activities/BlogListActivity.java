@@ -59,6 +59,9 @@ public class BlogListActivity extends AppCompatActivity {
 
         Webservice.getRequestQueue().add(mijnBlogpostGetAll);
 
+        CreateMenu menu = new CreateMenu(BlogListActivity.this, getApplicationContext());
+        menu.showMenu();
+
     }
 
 
