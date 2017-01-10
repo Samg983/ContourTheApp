@@ -2,7 +2,11 @@
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:elevation="5dp">
 
 
     <TextView
@@ -13,26 +17,29 @@
         android:textSize="@dimen/abc_text_size_large_material"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:textColor="#000"
         />
 
     <ImageView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/imgAfbeelding"
+        android:id="@+id/imgBlog"
         android:layout_below="@+id/txtTitle"
         android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp" />
+        android:layout_marginStart="20dp"
+        android:adjustViewBounds="true"/>
 
     <TextView
         android:text="Location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtLocation"
-        android:layout_below="@+id/imgAfbeelding"
+        android:layout_below="@+id/imgBlog"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:textColor="#000"
         />
 
     <TextView
@@ -44,6 +51,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:textColor="#000"
         />
 
     <TextView

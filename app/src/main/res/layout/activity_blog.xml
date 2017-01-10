@@ -3,7 +3,9 @@
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff"
+    >
 
 
     <TextView
@@ -14,13 +16,14 @@
         android:textSize="@dimen/abc_text_size_large_material"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:textColor="#000"
         />
 
     <ImageView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/imgPhoto"
+        app:srcCompat="@drawable/alps2"
+        android:id="@+id/imgBlog"
         android:layout_below="@+id/txtTitle"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp" />
@@ -30,10 +33,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtLocation"
-        android:layout_below="@+id/imgPhoto"
+        android:layout_below="@+id/imgBlog"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:textColor="#000"
         />
 
     <TextView
@@ -45,6 +49,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:textColor="#000"
         />
 
     <TextView

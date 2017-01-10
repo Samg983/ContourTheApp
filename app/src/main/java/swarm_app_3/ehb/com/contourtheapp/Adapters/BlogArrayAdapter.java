@@ -33,19 +33,20 @@ public class BlogArrayAdapter extends ArrayAdapter<Blogpost> {
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater mijnLayoutInflater = (LayoutInflater)mijnContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View mijnListViewItemView = mijnLayoutInflater.inflate(R.layout.listitemview_blog, parent, false);
-            ImageView imgPhoto = (ImageView)mijnListViewItemView.findViewById(R.id.imgPhoto);
+
             TextView txtTitle = (TextView)mijnListViewItemView.findViewById(R.id.txtTitle);
             TextView txtDescription = (TextView)mijnListViewItemView.findViewById(R.id.txtDescription);
             TextView txtLocation = (TextView)mijnListViewItemView.findViewById(R.id.txtLocation);
             TextView txtDate = (TextView)mijnListViewItemView.findViewById(R.id.txtDate);
+            ImageView imgBlog = (ImageView)mijnListViewItemView.findViewById(R.id.imgBlog);
 
             Blogpost weerTeGevenBlog = myBlogpostList.get(position);
             txtTitle.setText(weerTeGevenBlog.getTitle());
             txtDescription.setText(weerTeGevenBlog.getContent());
             txtLocation.setText(weerTeGevenBlog.getPlace());
             txtDate.setText(weerTeGevenBlog.getDateBlog());
+            imgBlog.setImageResource(R.drawable.alps1);
 
-            //imgPhoto.setImageResource(weerTeGevenWork.getImageResource());
             return mijnListViewItemView;
         //}
     }
