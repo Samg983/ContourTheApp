@@ -21,6 +21,8 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -43,10 +45,15 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
+import java.security.Timestamp;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenMessagesTracker;
+import swarm_app_3.ehb.com.contourtheapp.Model.Usercoordinaat;
 import swarm_app_3.ehb.com.contourtheapp.R;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.usercoordinaat.UsercoordinaatVoegToe;
 
 public class TrackerActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -162,6 +169,20 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         //get latLng from current location
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
+
+        UsercoordinaatVoegToe usercoordinaatVoegToe = new UsercoordinaatVoegToe(new Usercoordinaat(0, location.getLatitude(), location.getLongitude(), "0", 1), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Geslaagd coordianat", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("failed coordianat", error.toString());
+            }
+        });
+
+        Webservice.getRequestQueue().add(usercoordinaatVoegToe);
 
 
         points.add(latLng);

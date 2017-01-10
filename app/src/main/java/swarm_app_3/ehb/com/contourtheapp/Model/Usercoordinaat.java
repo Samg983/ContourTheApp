@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 public class Usercoordinaat {
     private int usercoordinaatId, inschrijvingsId;
     private double latitude, longtitude;
-    private Timestamp timestamp;
+    private String timestamp;
 
     public int getUsercoordinaatId() {
         return usercoordinaatId;
@@ -43,18 +43,18 @@ public class Usercoordinaat {
         this.longtitude = longtitude;
     }
 
-    public Timestamp getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
     public Usercoordinaat() {
     }
 
-    public Usercoordinaat(int usercoordinaatId, double latitude, double longtitude, Timestamp timestamp, int inschrijvingsId) {
+    public Usercoordinaat(int usercoordinaatId, double latitude, double longtitude, String timestamp, int inschrijvingsId) {
         this.usercoordinaatId = usercoordinaatId;
         this.inschrijvingsId = inschrijvingsId;
         this.latitude = latitude;
