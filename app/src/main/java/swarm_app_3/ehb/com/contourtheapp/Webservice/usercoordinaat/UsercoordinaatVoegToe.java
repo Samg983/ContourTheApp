@@ -1,11 +1,9 @@
 package swarm_app_3.ehb.com.contourtheapp.Webservice.usercoordinaat;
 
 import com.android.volley.Response;
-
-import swarm_app_3.ehb.com.contourtheapp.Model.User;
 import swarm_app_3.ehb.com.contourtheapp.Model.Usercoordinaat;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.SimpleWebrequest;
-import swarm_app_3.ehb.com.contourtheapp.Webservice.user.UserWebservice;
+
 
 /**
  * Created by SamGoeman on 10/01/2017.

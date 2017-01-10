@@ -2,10 +2,6 @@ package swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
-
-import java.util.ArrayList;
-
-import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerk;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.SimpleWebrequest;
 
 /**

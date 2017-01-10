@@ -178,7 +178,6 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             Toast.makeText(this, "Removed", Toast.LENGTH_SHORT).show();
         }*/
-        Toast.makeText(this, "Bearing " + location.getBearing(), Toast.LENGTH_SHORT).show();
         updateCameraBearing(mMap, location, latLng);
 
     }
@@ -211,7 +210,6 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         //todo remove toast and add permission
         addMarker(points.get(points.size() - 1)); //add Marker in current position
         line = mMap.addPolyline(options); //add Polyline
-        Toast.makeText(this, "Redraw", Toast.LENGTH_SHORT).show();
     }
 
     private void addMarker(LatLng last) {

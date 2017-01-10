@@ -119,7 +119,7 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
-        mMap.getUiSettings().setAllGesturesEnabled(false);
+        //mMap.getUiSettings().setAllGesturesEnabled(false);
         //Plaatsen die getekend worden op map
         LatLng Gent = new LatLng(51.0535, 3.7304);
         LatLng Strasbourg = new LatLng(48.58392,7.74553);

@@ -3,7 +3,7 @@ package swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerkwaarde;
 import com.android.volley.Response;
 
 import swarm_app_3.ehb.com.contourtheapp.Webservice.SimpleWebrequest;
-import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkWebservice;
+
 
 /**
  * Created by SamGoeman on 09/01/2017.
