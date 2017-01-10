@@ -40,4 +40,12 @@
         android:id="@+id/lblHi"
         android:padding="@dimen/paddingMessagesTracker"
         android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="@string/NeemPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblTakePhoto"
+        android:textColor="@android:color/black"
+        android:padding="10dp" />
 </LinearLayout>
