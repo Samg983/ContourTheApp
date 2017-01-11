@@ -8,8 +8,10 @@ package swarm_app_3.ehb.com.contourtheapp.Model;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -56,7 +58,10 @@ public class OpenDialogSwarmInfo extends Dialog implements android.view.View.OnC
         });
 
 
-       if(StaticIds.alreadySubscribed) subscribeButton.setVisibility(View.INVISIBLE);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+        Boolean alreadySubscribed = preferences.getBoolean("alreadySubscribed", false);
+
+       if(alreadySubscribed) subscribeButton.setVisibility(View.INVISIBLE);
     }
 
     @Override
