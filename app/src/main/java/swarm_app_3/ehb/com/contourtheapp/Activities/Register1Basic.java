@@ -40,6 +40,9 @@ public class Register1Basic extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register1_basic);
+
+        //requesten om phonegegevens te lezen (nodig voor imeinummer)
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, MY_PERMISSIONS_REQUEST_TELEPHONESTATE);
         setItems();
     }
 
@@ -121,6 +124,8 @@ public class Register1Basic extends AppCompatActivity {
     }
 
     private void voegInschrijvingToe(final int userIdFromResponse){
+
+        //nieuwe inschrijving toevoegen
         InschrijvingVoegToe inschrijvingVoegToe = new InschrijvingVoegToe(new Inschrijving(0, "vandaag", 1, userIdFromResponse), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

@@ -274,6 +274,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     private void addMarker(LatLng last) {
 
 
+        //marker plaatsen met een drawable erop
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(last);
         markerOptions.flat(true);
