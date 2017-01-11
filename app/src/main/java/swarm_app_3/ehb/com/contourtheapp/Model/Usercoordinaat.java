@@ -61,4 +61,9 @@ public class Usercoordinaat {
         this.longtitude = longtitude;
         this.timestamp = timestamp;
     }
+
+    @Override
+    public String toString() {
+        return "Usercoordinaat " + this.getLatitude();
+    }
 }

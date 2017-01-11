@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.Inschrijving;
+import swarm_app_3.ehb.com.contourtheapp.Model.StaticIds;
 import swarm_app_3.ehb.com.contourtheapp.Model.User;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
@@ -32,7 +33,7 @@ public class Register1Basic extends AppCompatActivity {
     private EditText txtName, txtDateOfBirth, txtCity, txtFirstNameRegi1;
     private TelephonyManager telephonyManager;
     private static final int MY_PERMISSIONS_REQUEST_TELEPHONESTATE = 99;
-    private int userId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +81,10 @@ public class Register1Basic extends AppCompatActivity {
             public void onResponse(String response) {
 
                 Intent toRegi2 = new Intent(Register1Basic.this, Register2Personal.class);
-                userId = Integer.parseInt(response);
+                StaticIds.userId = Integer.parseInt(response);
                 toRegi2.putExtra("dateOfBirth", txtDateOfBirth.getText().toString());
                 toRegi2.putExtra("city", txtCity.getText().toString());
-                toRegi2.putExtra("userId", Integer.toString(userId));
+                voegInschrijvingToe();
                 startActivity(toRegi2);
             }
         }, new Response.ErrorListener() {
@@ -111,16 +112,17 @@ public class Register1Basic extends AppCompatActivity {
     }
 
     public void voegInschrijvingToe(){
-        InschrijvingVoegToe inschrijvingVoegToe = new InschrijvingVoegToe(new Inschrijving(0, 0, 0), new Response.Listener<String>() {
+        InschrijvingVoegToe inschrijvingVoegToe = new InschrijvingVoegToe(new Inschrijving(0, "vandaag", 1, StaticIds.userId), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                StaticIds.inschrijvingsId = Integer.parseInt(response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
             }
         });
+
+        Webservice.getRequestQueue().add(inschrijvingVoegToe);
     }
 }

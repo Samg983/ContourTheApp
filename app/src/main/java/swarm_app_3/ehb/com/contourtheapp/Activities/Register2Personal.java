@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerkwaarde;
+import swarm_app_3.ehb.com.contourtheapp.Model.StaticIds;
 import swarm_app_3.ehb.com.contourtheapp.Model.Userkenmerkwaarde;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
@@ -41,11 +42,11 @@ public class Register2Personal extends AppCompatActivity {
 
         Bundle mijnOpgehaaldeGegevens = getIntent().getExtras();
 
-        String opgehaaldUserIdString =  mijnOpgehaaldeGegevens.get("userId").toString();
+
         String dateOfBirth = mijnOpgehaaldeGegevens.get("dateOfBirth").toString();
         city = mijnOpgehaaldeGegevens.get("city").toString();
 
-        opgehaaldUserId = Integer.parseInt(opgehaaldUserIdString);
+        opgehaaldUserId = StaticIds.userId;
 
         KenmerkwaardeVoegToe kenmerkwaardeDateOfBirth = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, dateOfBirth, 3), new Response.Listener<String>() {
             @Override

@@ -33,12 +33,18 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 
+import swarm_app_3.ehb.com.contourtheapp.Model.Blogpost;
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenMessagesTracker;
+import swarm_app_3.ehb.com.contourtheapp.Model.StaticIds;
 import swarm_app_3.ehb.com.contourtheapp.Model.Usercoordinaat;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.usercoordinaat.UsercoordinaatGetAllByInschrijvingsId;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.usercoordinaat.UsercoordinaatVoegToe;
 
 public class TrackerActivity extends FragmentActivity implements OnMapReadyCallback,
@@ -53,7 +59,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     private LocationRequest mLocationRequest;
     private static final String TAG = TrackerActivity.class.getSimpleName();
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-    private ArrayList<LatLng> points;
+    private ArrayList<LatLng> points = new ArrayList<LatLng>();;
     private Polyline line;
     private static final long INTERVAL = 1000; //1 minute
     private static final long FASTEST_INTERVAL = 1000; // 1 minute
@@ -72,13 +78,40 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        //arraylist for latlng
-        points = new ArrayList<LatLng>();
+
+
 
 
         CreateMenu menu = new CreateMenu(TrackerActivity.this, getApplicationContext());
         menu.showMenu();
 
+        UsercoordinaatGetAllByInschrijvingsId usercoordinaatGetAllByInschrijvingsId = new UsercoordinaatGetAllByInschrijvingsId(0, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("succes insch", response.toString());
+                gSonToArray(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("succes insch", error.toString());
+            }
+        });
+
+        Webservice.getRequestQueue().add(usercoordinaatGetAllByInschrijvingsId);
+
+    }
+
+    private void gSonToArray(String response) {
+        //JSON-string omzetten naar ArrayList van Usercoordinaten-objecten
+        Gson gson = new Gson();
+        ArrayList<Usercoordinaat> usercoordinaatList = gson.fromJson(response, new TypeToken<ArrayList<Usercoordinaat>>() {
+        }.getType());
+
+        for(Usercoordinaat usercoordinaat : usercoordinaatList){
+            LatLng latLng = new LatLng(usercoordinaat.getLatitude(), usercoordinaat.getLongtitude());
+            points.add(latLng);
+        }
     }
 
     @Override
@@ -151,8 +184,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         //get latLng from current location
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
-
-        UsercoordinaatVoegToe usercoordinaatVoegToe = new UsercoordinaatVoegToe(new Usercoordinaat(0, location.getLatitude(), location.getLongitude(), "0", 1), new Response.Listener<String>() {
+        UsercoordinaatVoegToe usercoordinaatVoegToe = new UsercoordinaatVoegToe(new Usercoordinaat(0, location.getLatitude(), location.getLongitude(), "0", StaticIds.inschrijvingsId), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("Geslaagd coordinaat", response);
