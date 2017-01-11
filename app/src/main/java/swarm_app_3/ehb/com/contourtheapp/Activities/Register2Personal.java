@@ -19,7 +19,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerkwaarde;
-import swarm_app_3.ehb.com.contourtheapp.Model.StaticIds;
 import swarm_app_3.ehb.com.contourtheapp.Model.Userkenmerkwaarde;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;

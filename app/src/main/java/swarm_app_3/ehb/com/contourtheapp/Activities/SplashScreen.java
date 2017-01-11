@@ -1,13 +1,11 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import swarm_app_3.ehb.com.contourtheapp.Model.StaticIds;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 public class SplashScreen extends AppCompatActivity {

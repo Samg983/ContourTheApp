@@ -35,7 +35,6 @@ import java.util.ArrayList;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerk;
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenDialogSwarmInfo;
-import swarm_app_3.ehb.com.contourtheapp.Model.StaticIds;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetAll;
