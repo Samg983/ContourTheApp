@@ -40,6 +40,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 
+import swarm_app_3.ehb.com.contourtheapp.Model.OpenMessagesTracker;
 import swarm_app_3.ehb.com.contourtheapp.Model.SubscribeTracker;
 import swarm_app_3.ehb.com.contourtheapp.Model.Usercoordinaat;
 import swarm_app_3.ehb.com.contourtheapp.R;
