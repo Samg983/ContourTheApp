@@ -45,6 +45,7 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
+    //Video van Contourlijnen laten afspelen
     public void videoplay(View v) {
         String path = "android.resource://" + getPackageName() + "/" + R.raw.lines;
         Uri uri = Uri.parse(path);
@@ -52,6 +53,7 @@ public class HomeScreen extends AppCompatActivity {
         videov.start();
     }
 
+    //Als scherm/activity opnieuw wordt opgeroepen, start te video opnieuw.
     @Override
     protected void onResume() {
         super.onResume();

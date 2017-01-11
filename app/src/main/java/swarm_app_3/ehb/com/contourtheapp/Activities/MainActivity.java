@@ -10,6 +10,8 @@ import android.view.View;
 
 import swarm_app_3.ehb.com.contourtheapp.R;
 
+
+//Niet zichtbaar in de app. Je kan HomeScreen zien als de MainActivity van deze applicatie.
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
