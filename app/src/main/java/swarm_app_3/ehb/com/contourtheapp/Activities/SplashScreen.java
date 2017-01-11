@@ -20,6 +20,7 @@ public class SplashScreen extends AppCompatActivity {
         contourtitel.setTypeface(customFonts);
         ctitel.setTypeface(customFonts);
 
+        //thread pauseren voor 1.5 seconden en dan app laten zien
         Thread SplashThread = new Thread() {
             @Override
             public void run() {

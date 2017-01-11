@@ -201,7 +201,6 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             mCurrLocationMarker.remove();
         }
 
-        Toast.makeText(this, "location changed", Toast.LENGTH_SHORT).show();
         //get latLng from current location
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 

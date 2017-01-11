@@ -51,6 +51,8 @@ public class Register2Personal extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         opgehaaldUserId = preferences.getInt("userId", 0);
 
+
+        //kenmerkwaarden toevoegen in database
         Log.d("opgehaalduserID", "" + opgehaaldUserId);
         KenmerkwaardeVoegToe kenmerkwaardeDateOfBirth = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, dateOfBirth, 3), new Response.Listener<String>() {
             @Override
@@ -269,7 +271,6 @@ public class Register2Personal extends AppCompatActivity {
         Webservice.getRequestQueue().add(kenmerkwaardeHairColor);
 
         Intent toRegi3 = new Intent(this, Register3Weird.class);
-        toRegi3.putExtra("userId", opgehaaldUserId);
         startActivity(toRegi3);
     }
 

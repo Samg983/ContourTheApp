@@ -36,6 +36,7 @@ public class Register3Weird extends AppCompatActivity {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         opgehaaldUserId = preferences.getInt("userId", 0);
+
         setItems();
     }
 
