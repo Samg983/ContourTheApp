@@ -192,23 +192,26 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         //get latLng from current location
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
-        UsercoordinaatVoegToe usercoordinaatVoegToe = new UsercoordinaatVoegToe(new Usercoordinaat(0, location.getLatitude(), location.getLongitude(), "0", StaticIds.inschrijvingsId), new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("Geslaagd coordinaat", response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("failed coordinaat", error.toString());
-            }
-        });
 
-        Webservice.getRequestQueue().add(usercoordinaatVoegToe);
+        if(StaticIds.alreadySubscribed) {
+            UsercoordinaatVoegToe usercoordinaatVoegToe = new UsercoordinaatVoegToe(new Usercoordinaat(0, location.getLatitude(), location.getLongitude(), "0", StaticIds.inschrijvingsId), new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d("Geslaagd coordinaat", response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d("failed coordinaat", error.toString());
+                }
+            });
 
+            Webservice.getRequestQueue().add(usercoordinaatVoegToe);
+            redrawLine();
+        }
 
         //points.add(latLng);
-        redrawLine();
+
 
 
         //move map camera
