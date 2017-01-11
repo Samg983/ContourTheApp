@@ -1,10 +1,12 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -30,7 +32,7 @@ public class Register4AlmostFinished extends AppCompatActivity {
         lblPrevRegi4 = (TextView) findViewById(R.id.lblPrevRegi4);
         lblFinish = (TextView) findViewById(R.id.lblFinish);
 
-        Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
+        final Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
 
         lblTitleRegi4.setTypeface(customFonts);
         lblComeToItaly.setTypeface(customFonts);
@@ -40,18 +42,43 @@ public class Register4AlmostFinished extends AppCompatActivity {
 
         Spinner spnComeToItaly = (Spinner) findViewById(R.id.spnComeToItaly);
         String[] items = new String[]{"Yes", "No", "Maybe"};
-        ArrayAdapter<String> adapterComeToItaly = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ArrayAdapter<String> adapterComeToItaly = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items){
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+
+                // Set the Text color
+                tv.setTextColor(Color.BLACK);
+                tv.setTypeface(customFonts);
+
+                return view;
+            }
+        };
         spnComeToItaly.setAdapter(adapterComeToItaly);
 
         Spinner spnHowMany = (Spinner) findViewById(R.id.spnHowMany);
         String[] amount = new String[]{"1", "2", "3", "4", "5", "6"};
-        ArrayAdapter<String> adapterHowMany = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, amount);
+        ArrayAdapter<String> adapterHowMany = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, amount){
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+
+                // Set the Text color
+                tv.setTextColor(Color.BLACK);
+                tv.setTypeface(customFonts);
+
+                return view;
+            }
+        };
         spnHowMany.setAdapter(adapterHowMany);
     }
 
     public void goToRegi3(View view) {
-        Intent toRegi3 = new Intent(this, Register3Weird.class);
-        startActivity(toRegi3);
+        this.finish();
     }
 
     public void goToHome(View view) {

@@ -1,11 +1,13 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -65,13 +67,10 @@ public class Register2Personal extends AppCompatActivity {
         Webservice.getRequestQueue().add(kenmerkwaardeCity);
 
 
-
-
     }
 
     public void goToRegi1(View view) {
-        Intent toRegi1 = new Intent(this, Register1Basic.class);
-        startActivity(toRegi1);
+        this.finish();
     }
 
     public void goToRegi3(View view) {
@@ -80,7 +79,7 @@ public class Register2Personal extends AppCompatActivity {
         startActivity(toRegi3);
     }
 
-    public void setItems(){
+    public void setItems() {
         lblTitleRegi2 = (TextView) findViewById(R.id.lblTitleRegi2);
         lblHeight = (TextView) findViewById(R.id.lblHeight);
         lblEyeColor = (TextView) findViewById(R.id.lblEyeColor);
@@ -91,8 +90,8 @@ public class Register2Personal extends AppCompatActivity {
 
         txtHeight = (EditText) findViewById(R.id.txtHeight);
 
+        final Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
 
-        Typeface customFonts = Typeface.createFromAsset(this.getAssets(), "CutiveMono-Regular.ttf");
         lblTitleRegi2.setTypeface(customFonts);
         lblHeight.setTypeface(customFonts);
         lblEyeColor.setTypeface(customFonts);
@@ -101,21 +100,64 @@ public class Register2Personal extends AppCompatActivity {
         lblPrevRegi2.setTypeface(customFonts);
         lblGender.setTypeface(customFonts);
         txtHeight.setTypeface(customFonts);
-
+        //TextView lblCustomSpinner = (TextView) findViewById(R.id.lblCustomSpinner);
+        //lblCustomSpinner.setTypeface(customFonts);
 
         spnGender = (Spinner) findViewById(R.id.spnGender);
-        String[] items = new String[]{"Male", "Female", "Other"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        spnGender.setAdapter(adapter);
+        String[] genderItems = new String[]{"Male", "Female", "Other"};
+
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, genderItems) {
+            @Override
+            public View getDropDownView(int position, View convertView,
+                    ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+
+
+                // Set the Text color
+                tv.setTextColor(Color.BLACK);
+                tv.setTypeface(customFonts);
+
+
+                return view;
+            }
+        };
+
+        spnGender.setAdapter(genderAdapter);
 
         spnEyeColor = (Spinner) findViewById(R.id.spnEyeColor);
-        String[] items2 = new String[]{"Brown", "Blue", "Grey", "Green", "Other"};
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items2);
-        spnEyeColor.setAdapter(adapter2);
+        String[] eyeColorItems = new String[]{"Brown", "Blue", "Grey", "Green", "Other"};
+        ArrayAdapter<String> eyeColorAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, eyeColorItems){
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+
+                // Set the Text color
+                tv.setTextColor(Color.BLACK);
+                tv.setTypeface(customFonts);
+
+                return view;
+            }
+        };
+        spnEyeColor.setAdapter(eyeColorAdapter);
 
         spnHairColor = (Spinner) findViewById(R.id.spnHairColor);
-        String[] items3 = new String[]{"Brown", "Blonde", "Black", "Ginger", "White", "Grey", "Other"};
-        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items3);
-        spnHairColor.setAdapter(adapter3);
+        String[] hairColorItems = new String[]{"Brown", "Blonde", "Black", "Ginger", "White", "Grey", "Other"};
+        ArrayAdapter<String> hairColorAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, hairColorItems){
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+
+                // Set the Text color
+                tv.setTextColor(Color.BLACK);
+
+                return view;
+            }
+        };
+        spnHairColor.setAdapter(hairColorAdapter);
     }
 }

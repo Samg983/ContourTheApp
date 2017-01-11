@@ -141,16 +141,16 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/txtDateOfBirthRegi1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/txtDateOfBirthRegi1"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:textColor="@android:color/black"
         android:background="@color/lightgrey"
-        android:padding="10dp" />
+        android:ems="10"
+        android:inputType="date"
+        android:padding="10dp"
+        android:textColor="@android:color/black" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -193,41 +193,48 @@
         android:padding="10dp"
         android:textColor="@android:color/black" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/TextView333333"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@android:color/black" />
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="150dp"
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="100dp"
-            android:layout_weight="4"
-            android:adjustViewBounds="true"
-            android:padding="10dp"
-            android:scaleType="fitCenter"
-            android:scaleX=".8"
-            android:scaleY=".8"
+            android:layout_weight="1"
             app:srcCompat="@drawable/inschrijving1" />
 
         <TextView
             android:id="@+id/lblNextRegi1"
-            android:layout_width="80dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:background="@android:color/white"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:onClick="goToRegi2"
             android:padding="10dp"
             android:text="@string/next"
             android:textColor="@android:color/black" />
-    </LinearLayout>
 
+    </LinearLayout>
 </LinearLayout>
