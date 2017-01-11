@@ -59,7 +59,7 @@ public class Register4AlmostFinished extends AppCompatActivity {
         spnComeToItaly.setAdapter(adapterComeToItaly);
 
         Spinner spnHowMany = (Spinner) findViewById(R.id.spnHowMany);
-        String[] amount = new String[]{"1", "2", "3", "4", "5", "6"};
+        String[] amount = new String[]{"0","1", "2", "3", "4", "5", "6"};
         ArrayAdapter<String> adapterHowMany = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, amount){
             @Override
             public View getDropDownView(int position, View convertView,

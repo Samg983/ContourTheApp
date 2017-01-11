@@ -3,6 +3,7 @@ package swarm_app_3.ehb.com.contourtheapp.Activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import swarm_app_3.ehb.com.contourtheapp.Adapters.ItemClickListener;
 import swarm_app_3.ehb.com.contourtheapp.Adapters.SectionedExpandableLayoutHelper;
 import swarm_app_3.ehb.com.contourtheapp.Model.Checkpoint;
+import swarm_app_3.ehb.com.contourtheapp.Model.OpenDialogGalleryPhoto;
 import swarm_app_3.ehb.com.contourtheapp.Model.Photo;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
@@ -71,10 +73,10 @@ public class GalleryActivity extends AppCompatActivity implements ItemClickListe
     @Override
     public void itemClicked(Photo item) {
 
-        //Popout van gallery werkt voorlopig niet (imageview blijft op 0 staan?). Dus ik heb TOAST laten staan.
+        //Popout van gallery
+        OpenDialogGalleryPhoto openDialogGalleryPhoto = new OpenDialogGalleryPhoto(this, item.getSourcePhoto());
+        openDialogGalleryPhoto.show();
 
-
-        Toast.makeText(this, "Photo: " + item.getSourcePhoto() + " clicked", Toast.LENGTH_SHORT).show();
     }
 
     @Override
