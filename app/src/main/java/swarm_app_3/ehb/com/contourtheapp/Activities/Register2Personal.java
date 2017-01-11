@@ -41,21 +41,20 @@ public class Register2Personal extends AppCompatActivity {
 
         setItems();
 
+        //Gegevens ophalen van de intent
         Bundle mijnOpgehaaldeGegevens = getIntent().getExtras();
-
 
         String dateOfBirth = mijnOpgehaaldeGegevens.get("dateOfBirth").toString();
         city = mijnOpgehaaldeGegevens.get("city").toString();
 
-
-        SharedPreferences preferences =PreferenceManager.getDefaultSharedPreferences(this);
+        //indien er een inschrijving is de userid ophalen
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         opgehaaldUserId = preferences.getInt("userId", 0);
 
-        Log.d("opgehaalduserID", ""+opgehaaldUserId);
+        Log.d("opgehaalduserID", "" + opgehaaldUserId);
         KenmerkwaardeVoegToe kenmerkwaardeDateOfBirth = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, dateOfBirth, 3), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("DATE OF BIRTH", response);
                 kenmerkwaardeDateOfBirthId = Integer.parseInt(response);
                 voegUserKenmerkWaardeDateOfBirthToe();
             }
@@ -69,7 +68,6 @@ public class Register2Personal extends AppCompatActivity {
         KenmerkwaardeVoegToe kenmerkwaardeCity = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, city, 5), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("CITY", response);
                 kenmerkwaardeCityId = Integer.parseInt(response);
                 voegUserKenmerkWaardeCityToe();
             }
@@ -85,7 +83,7 @@ public class Register2Personal extends AppCompatActivity {
 
     }
 
-    private void voegUserKenmerkWaardeCityToe(){
+    private void voegUserKenmerkWaardeCityToe() {
         UserkenmerkwaardeVoegToe userkenmerkwaardeCityVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeCityId, opgehaaldUserId), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -101,7 +99,7 @@ public class Register2Personal extends AppCompatActivity {
         Webservice.getRequestQueue().add(userkenmerkwaardeCityVoegToe);
     }
 
-    private void voegUserKenmerkWaardeDateOfBirthToe(){
+    private void voegUserKenmerkWaardeDateOfBirthToe() {
         UserkenmerkwaardeVoegToe userkenmerkwaardeDateOfBirthVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeDateOfBirthId, opgehaaldUserId), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -145,7 +143,7 @@ public class Register2Personal extends AppCompatActivity {
         genderAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, genderItems) {
             @Override
             public View getDropDownView(int position, View convertView,
-                    ViewGroup parent) {
+                                        ViewGroup parent) {
                 View view = super.getDropDownView(position, convertView, parent);
                 TextView tv = (TextView) view;
 
@@ -163,7 +161,7 @@ public class Register2Personal extends AppCompatActivity {
 
         spnEyeColor = (Spinner) findViewById(R.id.spnEyeColor);
         String[] eyeColorItems = new String[]{"Brown", "Blue", "Grey", "Green", "Other"};
-        eyeColorAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, eyeColorItems){
+        eyeColorAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, eyeColorItems) {
             @Override
             public View getDropDownView(int position, View convertView,
                                         ViewGroup parent) {
@@ -181,7 +179,7 @@ public class Register2Personal extends AppCompatActivity {
 
         spnHairColor = (Spinner) findViewById(R.id.spnHairColor);
         String[] hairColorItems = new String[]{"Brown", "Blonde", "Black", "Ginger", "White", "Grey", "Other"};
-        hairColorAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, hairColorItems){
+        hairColorAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, hairColorItems) {
             @Override
             public View getDropDownView(int position, View convertView,
                                         ViewGroup parent) {
@@ -198,9 +196,6 @@ public class Register2Personal extends AppCompatActivity {
     }
 
     public void goToRegi1(View view) {
-
-
-
         this.finish();
     }
 
@@ -293,6 +288,7 @@ public class Register2Personal extends AppCompatActivity {
 
         Webservice.getRequestQueue().add(userkenmerkwaardeHeightVoegToe);
     }
+
     private void voegUserKenmerkWaardeGenderToe() {
         UserkenmerkwaardeVoegToe userkenmerkwaardeGenderVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeGenderId, opgehaaldUserId), new Response.Listener<String>() {
             @Override
@@ -308,6 +304,7 @@ public class Register2Personal extends AppCompatActivity {
 
         Webservice.getRequestQueue().add(userkenmerkwaardeGenderVoegToe);
     }
+
     private void voegUserKenmerkWaardeHairColorToe() {
         UserkenmerkwaardeVoegToe userkenmerkwaardeHairColorVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeHairColorId, opgehaaldUserId), new Response.Listener<String>() {
             @Override
@@ -323,6 +320,7 @@ public class Register2Personal extends AppCompatActivity {
 
         Webservice.getRequestQueue().add(userkenmerkwaardeHairColorVoegToe);
     }
+
     private void voegUserKenmerkWaardeEyeColorToe() {
         UserkenmerkwaardeVoegToe userkenmerkwaardeEyeColorVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeEyeColorId, opgehaaldUserId), new Response.Listener<String>() {
             @Override

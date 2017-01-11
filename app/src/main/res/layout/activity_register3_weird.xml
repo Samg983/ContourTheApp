@@ -14,17 +14,18 @@
     tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.Register3Weird">
 
     <TextView
-        android:text="@string/MayWeird"
+        android:id="@+id/lblTitleRegi3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lblTitleRegi3"
-        android:textColor="@android:color/black"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:paddingBottom="10dp"
         android:paddingRight="10dp"
         android:paddingTop="10dp"
+        android:text="@string/MayWeird"
+        android:textColor="@android:color/black"
         android:textSize="20sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,6 +55,7 @@
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>
+
     <Spinner
         android:id="@+id/spnNoseLength"
         android:layout_width="wrap_content"
@@ -227,7 +229,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -241,11 +243,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:background="@android:color/white"
-            android:gravity="center"
-            android:onClick="goToRegi2"
             android:padding="10dp"
-            android:text="@string/prev"
             android:textColor="@android:color/black" />
 
         <ImageView

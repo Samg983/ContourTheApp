@@ -12,6 +12,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context="swarm_app_3.ehb.com.contourtheapp.Activities.Register4AlmostFinished">
+
     <TextView
         android:id="@+id/lblTitleRegi4"
         android:layout_width="match_parent"
@@ -54,6 +55,7 @@
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>
+
     <Spinner
         android:id="@+id/spnComeToItaly"
         android:layout_width="match_parent"
@@ -63,6 +65,7 @@
         android:background="@drawable/background_spinner"
         android:popupBackground="@color/colorAccent"
         android:spinnerMode="dropdown" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,6 +95,7 @@
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>
+
     <Spinner
         android:id="@+id/spnHowMany"
         android:layout_width="match_parent"
@@ -106,7 +110,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
 
     <LinearLayout
@@ -121,11 +125,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:background="@android:color/white"
-            android:gravity="center"
-            android:onClick="goToRegi3"
             android:padding="10dp"
-            android:text="@string/prev"
             android:textColor="@android:color/black" />
 
         <ImageView
