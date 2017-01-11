@@ -1,5 +1,8 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
+/**
+ * Created by Bram Schrooyen on 21/12/2016.
+ */
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +23,7 @@ import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.blogpost.BlogpostGetAll;
 
 
+
 public class BlogListActivity extends AppCompatActivity {
 
 
@@ -28,19 +32,23 @@ public class BlogListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blog_list);
 
+        //webservice aanroepen om JSON-string van alle Blogposts in de database op te halen
         BlogpostGetAll mijnBlogpostGetAll = new BlogpostGetAll(new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("Request geslaagd?", response);
 
+                //JSON-string omzetten naar ArrayList van Blogpost-objecten
                 Gson gson = new Gson();
                 ArrayList<Blogpost> blogList = gson.fromJson(response, new TypeToken<ArrayList<Blogpost>>() {
                 }.getType());
 
+                //test in console
                 for (Blogpost blogpost : blogList) {
                     Log.d("Request geslaagd?", blogpost.toString());
                 }
 
+                //Arraylist van Blogposts aan BlogArrayAdapter hangen
                 BlogArrayAdapter myBlogArrayAdapter = new BlogArrayAdapter(getApplicationContext(), blogList);
 
                 updateBlogListView(myBlogArrayAdapter);
@@ -53,8 +61,9 @@ public class BlogListActivity extends AppCompatActivity {
             }
         });
 
-        Webservice.getRequestQueue().add(mijnBlogpostGetAll);
+        Webservice.getRequestQueue().add(mijnBlogpostGetAll); //get-request naar database sturen
 
+        //Floating Contour-menu toevoegen aan de activity
         CreateMenu menu = new CreateMenu(BlogListActivity.this, getApplicationContext());
         menu.showMenu();
 

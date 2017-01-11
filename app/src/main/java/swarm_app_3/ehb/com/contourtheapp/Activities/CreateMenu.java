@@ -16,6 +16,13 @@ import swarm_app_3.ehb.com.contourtheapp.R;
 
 /**
  * Created by SamGoeman on 10/01/2017.
+ * Menu by Bram Schrooyen
+ */
+
+
+/*
+    Klasse wordt in bijna elke activity opgeroepen, en daarom als aparte klasse aangemaakt om zo min mogelijk dubbele code te hebben.
+    De FloatingActionButton wordt aangemaakt via een github-library (compiled in build.gradle) -> https://github.com/oguzbilgener/CircularFloatingActionMenu
  */
 
 public class CreateMenu {
@@ -34,6 +41,7 @@ public class CreateMenu {
         DisplayMetrics metrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
+        //kijken naar de DPI-density van het gebruikte apparaat. Radius van de menuknop groter of kleiner maken naargelang de density.
         switch (metrics.densityDpi) {
             case DisplayMetrics.DENSITY_HIGH:
             case DisplayMetrics.DENSITY_XHIGH:
@@ -59,6 +67,7 @@ public class CreateMenu {
                 radius = 350;
         }
 
+        //Image voor de menu-knop zetten -> Groene bol met dunne witte rand
         ImageView icon = new ImageView(activity); // Create an icon
         icon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.circle_menu_green_with_white_border));
         FloatingActionButton actionButton = new FloatingActionButton.Builder(activity)
@@ -68,8 +77,11 @@ public class CreateMenu {
                 .setLayoutParams(actionButtonParams)
                 .build();
 
+
+        //Builder voor de submenu-knoppen
         SubActionButton.Builder itemBuilder = new SubActionButton.Builder(activity);
-        // repeat many times:
+
+        // herhalen voor elke submenu-knop
         ImageView itemIcon = new ImageView(activity);
         itemIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.menu_item1));
         SubActionButton swarmButton = itemBuilder.setContentView(itemIcon).setLayoutParams(subActionButtonParams).setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.transparent)).build();
@@ -78,6 +90,7 @@ public class CreateMenu {
         itemIcon2.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.menu_item2));
         SubActionButton blogButton = itemBuilder.setContentView(itemIcon2).build();
 
+        //transparante knop zonder onClickListener. Geeft meer plaats tussen de andere knoppen om zo ons design zo goed mogelijk te kunnen benaderen.
         ImageView itemIcon3 = new ImageView(activity);
         itemIcon3.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.transparent));
         SubActionButton button3 = itemBuilder.setContentView(itemIcon3).build();
@@ -90,6 +103,7 @@ public class CreateMenu {
         itemIcon5.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.menu_item4));
         SubActionButton galleryButton = itemBuilder.setContentView(itemIcon5).build();
 
+        //Builder voor volledige menu
         final FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(activity)
                 .addSubActionView(swarmButton)
                 .addSubActionView(blogButton)
@@ -103,6 +117,8 @@ public class CreateMenu {
                 .attachTo(actionButton)
                 .build();
 
+
+        //onClickListeners aan elke subitem-knop hangen.
         swarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

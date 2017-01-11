@@ -16,6 +16,14 @@ import swarm_app_3.ehb.com.contourtheapp.Model.Photo;
  * Created by Bram Schrooyen on 23/12/2016.
  */
 
+/*
+
+    SectionedExpandableGridAdapter en SectionedExpandableLayoutHelper zijn gemaakt op basis van een GitHub-project door 'bpncool': https://github.com/bpncool/SectionedExpandableGridRecyclerView
+    Gridlayouts in Expandable Lists zijn niet op een simpele manier te implementeren omdat beide views scrollable zijn en elkaar tegenwerken.
+    Om dit te verhelpen wordt er een RecyclerView gebruikt, dat speciaal is gemaakt om gemakkelijker te werken met layout changes en ingeladen data (wat dus gebeurt bij een Expandable List)
+
+ */
+
 public class SectionedExpandableLayoutHelper implements SectionStateChangeListener{
 
     //data list
@@ -23,7 +31,6 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
     private ArrayList<Object> mDataArrayList = new ArrayList<Object>();
 
     //section map
-    //TODO : look for a way to avoid this
     private HashMap<String, Checkpoint> mSectionMap = new HashMap<String, Checkpoint>();
 
     //adapter
@@ -32,6 +39,7 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
     //recycler view
     RecyclerView mRecyclerView;
 
+    //constructor -> werkt samen met de gridadapter om de layout volledig vorm te geven
     public SectionedExpandableLayoutHelper(Context context, RecyclerView recyclerView, ItemClickListener itemClickListener,
                                            int gridSpanCount) {
 
@@ -46,28 +54,16 @@ public class SectionedExpandableLayoutHelper implements SectionStateChangeListen
     }
 
     public void notifyDataSetChanged() {
-        //TODO : handle this condition such that these functions won't be called if the recycler view is on scroll
         generateDataList();
         mSectionedExpandableGridAdapter.notifyDataSetChanged();
     }
 
+
+    //hangt de Checkpoint objecten aangemaakt in de GalleryActivity aan de sections.
     public void addSection(int section, ArrayList<Photo> items) {
         Checkpoint newSection;
         mSectionMap.put(Integer.toString(section), (newSection = new Checkpoint(section)));
         mSectionDataMap.put(newSection, items);
-    }
-
-    public void addItem(String section, Photo item) {
-        mSectionDataMap.get(mSectionMap.get(section)).add(item);
-    }
-
-    public void removeGalleryPhoto(String section, Photo item) {
-        mSectionDataMap.get(mSectionMap.get(section)).remove(item);
-    }
-
-    public void removeGalleryCheckpoint(String section) {
-        mSectionDataMap.remove(mSectionMap.get(section));
-        mSectionMap.remove(section);
     }
 
     private void generateDataList () {

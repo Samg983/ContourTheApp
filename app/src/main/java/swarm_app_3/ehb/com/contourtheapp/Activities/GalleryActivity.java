@@ -1,18 +1,11 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
-import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
-import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -26,20 +19,18 @@ public class GalleryActivity extends AppCompatActivity implements ItemClickListe
 
     private RecyclerView mRecyclerView;
 
-    private ImageView galleryPhoto;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-        //setting the recycler view
+        //recyclerview wordt gebruikt om de view op te bouwen. Dit is nodig om een gridlayout in een expandable list layout te laten werken.
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         SectionedExpandableLayoutHelper sectionedExpandableLayoutHelper = new SectionedExpandableLayoutHelper(this,
                 mRecyclerView, this, 3);
 
-        //random data
+        //static data invoegen (aangezien foto's nog moeilijk op te halen zijn van de database houden we deze momenteel hardcoded)
         ArrayList<Photo> arrayList = new ArrayList<>();
         arrayList.add(new Photo(0, R.drawable.alps1, 0));
         arrayList.add(new Photo(1, R.drawable.alps2, 0));
@@ -67,29 +58,12 @@ public class GalleryActivity extends AppCompatActivity implements ItemClickListe
         CreateMenu menu = new CreateMenu(GalleryActivity.this, getApplicationContext());
         menu.showMenu();
 
-        //checking if adding single item works!!!!!!!!!!!!!!!!!!!!!
-        //sectionedExpandableLayoutHelper.addItem("Ice cream", new Photo("Tutti frutti",5));
-        //sectionedExpandableLayoutHelper.notifyDataSetChanged();
     }
-
-/*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
-            return true;
-        }*/
+        int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
     }
@@ -97,12 +71,7 @@ public class GalleryActivity extends AppCompatActivity implements ItemClickListe
     @Override
     public void itemClicked(Photo item) {
 
-
-//Popout van gallery werkt voorlopig niet (imageview blijft op 0 staan?). Dus ik heb TOAST laten staan.
-
-           /* OpenDialogGalleryPhoto dialogPhoto = new OpenDialogGalleryPhoto(this, item.getImgGallery());
-
-            dialogPhoto.show();*/
+        //Popout van gallery werkt voorlopig niet (imageview blijft op 0 staan?). Dus ik heb TOAST laten staan.
 
 
         Toast.makeText(this, "Photo: " + item.getSourcePhoto() + " clicked", Toast.LENGTH_SHORT).show();

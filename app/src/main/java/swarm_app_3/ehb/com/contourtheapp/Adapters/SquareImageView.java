@@ -8,6 +8,7 @@ import android.widget.ImageView;
  * Created by Bram Schrooyen on 23/12/2016.
  */
 
+//Images steeds vierkant laten weergeven in de grid.
 public class SquareImageView extends ImageView {
 
     public SquareImageView(Context context) {
@@ -27,7 +28,7 @@ public class SquareImageView extends ImageView {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         int width = getMeasuredWidth();
-        setMeasuredDimension(width, width);
+        setMeasuredDimension(width, width); //twee keer width gebruiken -> vierkant
     }
 
 

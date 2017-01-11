@@ -22,6 +22,17 @@ import swarm_app_3.ehb.com.contourtheapp.R;
  * Created by Bram Schrooyen on 23/12/2016.
  */
 
+
+/*
+
+    SectionedExpandableGridAdapter en SectionedExpandableLayoutHelper zijn gemaakt op basis van een GitHub-project door 'bpncool': https://github.com/bpncool/SectionedExpandableGridRecyclerView
+    Gridlayouts in Expandable Lists zijn niet op een simpele manier te implementeren omdat beide views scrollable zijn en elkaar tegenwerken.
+    Om dit te verhelpen wordt er een RecyclerView gebruikt, dat speciaal is gemaakt om gemakkelijker te werken met layout changes en ingeladen data (wat dus gebeurt bij een Expandable List)
+
+ */
+
+
+
 public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<SectionedExpandableGridAdapter.ViewHolder>{
 
     //data array
@@ -34,12 +45,11 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
     private final ItemClickListener mItemClickListener;
     private final SectionStateChangeListener mSectionStateChangeListener;
 
-    private GalleryActivity galleryActivity;
-
     //view type
     private static final int VIEW_TYPE_SECTION = R.layout.layout_section;
     private static final int VIEW_TYPE_ITEM = R.layout.layout_item; //TODO : change this
 
+    //constructor
     public SectionedExpandableGridAdapter(Context context, ArrayList<Object> dataArrayList,
                                           final GridLayoutManager gridLayoutManager, ItemClickListener itemClickListener,
                                           SectionStateChangeListener sectionStateChangeListener) {
@@ -56,6 +66,7 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
         });
     }
 
+    //checkt of het object een Checkpoint is (expandable list header)
     private boolean isSection(int position) {
         return mDataArrayList.get(position) instanceof Checkpoint;
     }
@@ -69,6 +80,8 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         switch (holder.viewType) {
+            // Als het object op meegegeven position een item in de grid is (een object Photo), wordt de juiste drawable aan de imageview meegegeven.
+            // De onClickListener wordt ook aangemaakt (in dit geval een Toast met ID van de drawable)
             case VIEW_TYPE_ITEM :
                 final Photo item = (Photo) mDataArrayList.get(position);
                 holder.itemImageView.setImageResource(item.getSourcePhoto());
@@ -83,6 +96,8 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
                     }
                 });
                 break;
+            // Als het object op meegegeven position een section header is (een object Checkpoint), wordt de juiste naam/id aan de textview meegegeven.
+            // De onClickListener wordt ook aangemaakt (open- en toedoen van de expandable list)
             case VIEW_TYPE_SECTION :
                 final Checkpoint section = (Checkpoint) mDataArrayList.get(position);
                 holder.sectionTextView.setText("Checkpoint " + Integer.toString(section.getCheckpointId()));
@@ -121,6 +136,8 @@ public class SectionedExpandableGridAdapter extends RecyclerView.Adapter<Section
         else return VIEW_TYPE_ITEM;
     }
 
+
+    //klasse ViewHolder van RecyclerView om data van huidige view vast te houden om elders te kunnen opvragen -> https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ViewHolder.html
     protected static class ViewHolder extends RecyclerView.ViewHolder {
 
         //common

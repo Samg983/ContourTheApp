@@ -20,6 +20,8 @@ import swarm_app_3.ehb.com.contourtheapp.R;
  * Created by Bram Schrooyen on 20/12/2016.
  */
 
+
+
 public class BlogArrayAdapter extends ArrayAdapter<Blogpost> {
         private Context mijnContext;
         private List<Blogpost> myBlogpostList;
@@ -35,6 +37,7 @@ public class BlogArrayAdapter extends ArrayAdapter<Blogpost> {
             LayoutInflater mijnLayoutInflater = (LayoutInflater)mijnContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View mijnListViewItemView = mijnLayoutInflater.inflate(R.layout.listitemview_blog, parent, false);
 
+            //java-variabele aan layout-items hangen
             TextView txtTitle = (TextView)mijnListViewItemView.findViewById(R.id.txtTitle);
             TextView txtDescription = (TextView)mijnListViewItemView.findViewById(R.id.txtDescription);
             TextView txtLocation = (TextView)mijnListViewItemView.findViewById(R.id.txtLocation);
@@ -42,6 +45,8 @@ public class BlogArrayAdapter extends ArrayAdapter<Blogpost> {
             ImageView imgBlog = (ImageView)mijnListViewItemView.findViewById(R.id.imgBlog);
             ImageView imgMarker = (ImageView)mijnListViewItemView.findViewById(R.id.locationMarker);
 
+
+            //data van huidige Blogpost aan overeenkomstige layout-items hangen
             Blogpost weerTeGevenBlog = myBlogpostList.get(position);
             txtTitle.setText(weerTeGevenBlog.getTitle());
             txtDescription.setText(weerTeGevenBlog.getContent());
