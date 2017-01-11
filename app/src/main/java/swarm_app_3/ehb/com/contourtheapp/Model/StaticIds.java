@@ -7,4 +7,5 @@ package swarm_app_3.ehb.com.contourtheapp.Model;
 public class StaticIds {
     public static int userId;
     public static int inschrijvingsId;
+    public static boolean alreadySubscribed = false;
 }

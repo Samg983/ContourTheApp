@@ -86,6 +86,7 @@ public class Register1Basic extends AppCompatActivity {
                 toRegi2.putExtra("city", txtCity.getText().toString());
                 voegInschrijvingToe();
                 startActivity(toRegi2);
+                StaticIds.alreadySubscribed = true;
             }
         }, new Response.ErrorListener() {
             @Override

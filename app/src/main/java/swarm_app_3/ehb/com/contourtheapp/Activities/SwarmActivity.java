@@ -33,6 +33,7 @@ import java.util.ArrayList;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerk;
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenDialogSwarmInfo;
+import swarm_app_3.ehb.com.contourtheapp.Model.StaticIds;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerk.KenmerkGetAll;
@@ -45,7 +46,6 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     private static final String TAG = SwarmActivity.class.getSimpleName();
 
-    private boolean alreadySubscribed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +63,13 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         Button subscribeButton = (Button) findViewById(R.id.btnSubscribe1);
 
 
-        if (alreadySubscribed) {
+        if (StaticIds.alreadySubscribed) {
             subscribeButton.setVisibility(View.INVISIBLE);
             next.setVisibility(View.INVISIBLE);
+
             CreateMenu menu = new CreateMenu(SwarmActivity.this, getApplicationContext());
             menu.showMenu();
+
         } else {
             subscribeButton.setVisibility(View.VISIBLE);
         }

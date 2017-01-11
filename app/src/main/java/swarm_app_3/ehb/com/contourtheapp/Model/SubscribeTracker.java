@@ -19,17 +19,17 @@ import swarm_app_3.ehb.com.contourtheapp.Activities.Register1Basic;
 import swarm_app_3.ehb.com.contourtheapp.R;
 
 
-public class OpenDialogSwarmInfo extends Dialog implements android.view.View.OnClickListener {
+public class SubscribeTracker extends Dialog implements View.OnClickListener {
 
     private Activity activity;
     private Button subscribeButton;
     private TextView lblMoreInfoSwarm;
 
-    public OpenDialogSwarmInfo() {
+    public SubscribeTracker() {
         super(null);
     }
 
-    public OpenDialogSwarmInfo(Activity activity) {
+    public SubscribeTracker(Activity activity) {
         super(activity);
         this.activity = activity;
     }
@@ -38,7 +38,7 @@ public class OpenDialogSwarmInfo extends Dialog implements android.view.View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.extra_info_swarm);
+        setContentView(R.layout.subscribe_tracker);
 
         lblMoreInfoSwarm = (TextView) findViewById(R.id.lblMoreInfoSwarm);
 
@@ -54,13 +54,11 @@ public class OpenDialogSwarmInfo extends Dialog implements android.view.View.OnC
                 getContext().startActivity(goToSubscribeFromSwarm);
             }
         });
-
-
-       if(StaticIds.alreadySubscribed) subscribeButton.setVisibility(View.INVISIBLE);
     }
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             default:
                 break;

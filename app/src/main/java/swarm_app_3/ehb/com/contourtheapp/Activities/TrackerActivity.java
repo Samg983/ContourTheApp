@@ -38,9 +38,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 
-import swarm_app_3.ehb.com.contourtheapp.Model.Blogpost;
 import swarm_app_3.ehb.com.contourtheapp.Model.OpenMessagesTracker;
 import swarm_app_3.ehb.com.contourtheapp.Model.StaticIds;
+import swarm_app_3.ehb.com.contourtheapp.Model.SubscribeTracker;
 import swarm_app_3.ehb.com.contourtheapp.Model.Usercoordinaat;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
@@ -59,7 +59,8 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     private LocationRequest mLocationRequest;
     private static final String TAG = TrackerActivity.class.getSimpleName();
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-    private ArrayList<LatLng> points = new ArrayList<LatLng>();;
+    private ArrayList<LatLng> points = new ArrayList<LatLng>();
+    ;
     private Polyline line;
     private static final long INTERVAL = 1000; //1 minute
     private static final long FASTEST_INTERVAL = 1000; // 1 minute
@@ -73,19 +74,27 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
         }
+
+
+        if (StaticIds.inschrijvingsId == 0) {
+            SubscribeTracker subscribeTracker = new SubscribeTracker(this);
+            subscribeTracker.show();
+        } else {
+            getAllUserCoordinaten();
+        }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
-
-
-
         CreateMenu menu = new CreateMenu(TrackerActivity.this, getApplicationContext());
         menu.showMenu();
 
-        UsercoordinaatGetAllByInschrijvingsId usercoordinaatGetAllByInschrijvingsId = new UsercoordinaatGetAllByInschrijvingsId(0, new Response.Listener<String>() {
+
+    }
+
+    private void getAllUserCoordinaten() {
+        UsercoordinaatGetAllByInschrijvingsId usercoordinaatGetAllByInschrijvingsId = new UsercoordinaatGetAllByInschrijvingsId(StaticIds.inschrijvingsId, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("succes insch", response.toString());
@@ -99,7 +108,6 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         });
 
         Webservice.getRequestQueue().add(usercoordinaatGetAllByInschrijvingsId);
-
     }
 
     private void gSonToArray(String response) {
@@ -108,7 +116,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         ArrayList<Usercoordinaat> usercoordinaatList = gson.fromJson(response, new TypeToken<ArrayList<Usercoordinaat>>() {
         }.getType());
 
-        for(Usercoordinaat usercoordinaat : usercoordinaatList){
+        for (Usercoordinaat usercoordinaat : usercoordinaatList) {
             LatLng latLng = new LatLng(usercoordinaat.getLatitude(), usercoordinaat.getLongtitude());
             points.add(latLng);
         }
@@ -199,7 +207,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         Webservice.getRequestQueue().add(usercoordinaatVoegToe);
 
 
-        points.add(latLng);
+        //points.add(latLng);
         redrawLine();
 
 
@@ -237,13 +245,15 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         mMap.clear();  //clears all Markers and Polylines
 
         PolylineOptions options = new PolylineOptions().width(10).color(Color.argb(255, 66, 160, 71)).geodesic(true);
-        for (int i = 0; i < points.size(); i++) {
-            LatLng point = points.get(i);
-            options.add(point);
-        }
+        if (!points.isEmpty()) {
+            for (int i = 0; i < points.size(); i++) {
+                LatLng point = points.get(i);
+                options.add(point);
+            }
 
-        addMarker(points.get(points.size() - 1)); //add Marker in current position
-        line = mMap.addPolyline(options); //add Polyline
+            addMarker(points.get(points.size() - 1)); //add Marker in current position
+            line = mMap.addPolyline(options);
+        }//add Polyline
     }
 
     private void addMarker(LatLng last) {

@@ -35,4 +35,5 @@
     <string name="NeemPhoto">Take a picture</string>
     <string name="MayWeird">This may be weird…</string>
     <string name="firstName">First name</string>
+    <string name="trackerSubscribe">To see the tracker, you need to subscribe.</string>
 </resources>
