@@ -1,11 +1,13 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -60,7 +62,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     private static final String TAG = TrackerActivity.class.getSimpleName();
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private ArrayList<LatLng> points = new ArrayList<LatLng>();
-    ;
+    private int opgehaaldInschrijvingsId;
     private Polyline line;
     private static final long INTERVAL = 1000; //1 minute
     private static final long FASTEST_INTERVAL = 1000; // 1 minute
@@ -76,10 +78,15 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         }
 
 
-        if (StaticIds.inschrijvingsId == 0) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        opgehaaldInschrijvingsId = preferences.getInt("inschrijvingsId", 0);
+
+        //indien er nog geen inschrijving is dan dialog showen om de gebruiker te pushen zich in te schrijven
+        if (opgehaaldInschrijvingsId == 0) {
             SubscribeTracker subscribeTracker = new SubscribeTracker(this);
             subscribeTracker.show();
         } else {
+            //indien er wel een inschrijving is dan de usercoordinaten ophalen die ter beschikking staan in de database
             getAllUserCoordinaten();
         }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -87,6 +94,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        //menu tonen
         CreateMenu menu = new CreateMenu(TrackerActivity.this, getApplicationContext());
         menu.showMenu();
 
@@ -94,10 +102,12 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     }
 
     private void getAllUserCoordinaten() {
-        UsercoordinaatGetAllByInschrijvingsId usercoordinaatGetAllByInschrijvingsId = new UsercoordinaatGetAllByInschrijvingsId(StaticIds.inschrijvingsId, new Response.Listener<String>() {
+
+        //nieuwe request sturen
+        UsercoordinaatGetAllByInschrijvingsId usercoordinaatGetAllByInschrijvingsId = new UsercoordinaatGetAllByInschrijvingsId(opgehaaldInschrijvingsId, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("succes insch", response.toString());
+                //indien response dan de array die we ontvangen ophalen en omzetten naar een arraylist
                 gSonToArray(response);
             }
         }, new Response.ErrorListener() {
@@ -116,6 +126,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         ArrayList<Usercoordinaat> usercoordinaatList = gson.fromJson(response, new TypeToken<ArrayList<Usercoordinaat>>() {
         }.getType());
 
+        //voor elk coordinaat maken we een nieuwe LatLng, deze voegen we dan toe aan points om later onze lijn mee te tekenen.
         for (Usercoordinaat usercoordinaat : usercoordinaatList) {
             LatLng latLng = new LatLng(usercoordinaat.getLatitude(), usercoordinaat.getLongtitude());
             points.add(latLng);
@@ -127,6 +138,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
         mMap = googleMap;
 
         try {
+            //mapstyle proberen te zetten
             boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
                             this, R.raw.map_style_json));
@@ -164,6 +176,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     @Override
     public void onConnected(Bundle bundle) {
 
+        //interval zetten om de hoeveel tijd hij moet gegevens versturen.
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(INTERVAL);
         mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
@@ -189,12 +202,16 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             mCurrLocationMarker.remove();
         }
 
+        Toast.makeText(this, "location changed", Toast.LENGTH_SHORT).show();
         //get latLng from current location
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Boolean alreadySubscribed = preferences.getBoolean("alreadySubscribed", false);
 
-        if(StaticIds.alreadySubscribed) {
-            UsercoordinaatVoegToe usercoordinaatVoegToe = new UsercoordinaatVoegToe(new Usercoordinaat(0, location.getLatitude(), location.getLongitude(), "0", StaticIds.inschrijvingsId), new Response.Listener<String>() {
+        //indie je ingeschreven bent worden de huidige coordinaten toegevoegd aan de database
+        if(alreadySubscribed) {
+            UsercoordinaatVoegToe usercoordinaatVoegToe = new UsercoordinaatVoegToe(new Usercoordinaat(0, location.getLatitude(), location.getLongitude(), "0", opgehaaldInschrijvingsId), new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     Log.d("Geslaagd coordinaat", response);
@@ -210,15 +227,6 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
             redrawLine();
         }
 
-        //points.add(latLng);
-
-
-
-        //move map camera
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-
-
-
         /*stop location updates
         if (mGoogleApiClient != null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
@@ -229,6 +237,8 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     }
 
     private void updateCameraBearing(GoogleMap googleMap, Location location, LatLng latLng) {
+
+       //map aanpassen aan uw positie
         if (googleMap == null) return;
         CameraPosition camPos = CameraPosition
                 .builder(
@@ -240,26 +250,30 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
                 .build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(camPos));
         location.bearingTo(location);
-        //googleMap.animateCamera(CameraUpdateFactory.zoomTo(21));
+
 
     }
 
     private void redrawLine() {
         mMap.clear();  //clears all Markers and Polylines
 
-        PolylineOptions options = new PolylineOptions().width(10).color(Color.argb(255, 66, 160, 71)).geodesic(true);
+        PolylineOptions options = new PolylineOptions().width(10).color(Color.argb(255, 66, 160, 71)).geodesic(true); //lijn om alle punten te tekenen
+
+        //indien points waarden bevat, voegen we deze toe aan options. Daarna wordt options toegevoegd en zo een lijn getekend
         if (!points.isEmpty()) {
             for (int i = 0; i < points.size(); i++) {
                 LatLng point = points.get(i);
                 options.add(point);
             }
 
+            //marker plaatsen op het laatste punt
             addMarker(points.get(points.size() - 1)); //add Marker in current position
             line = mMap.addPolyline(options);
         }//add Polyline
     }
 
     private void addMarker(LatLng last) {
+
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(last);
@@ -268,6 +282,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
 
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
+        //indien op de marker geklikt wordt, opent een dialog
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {

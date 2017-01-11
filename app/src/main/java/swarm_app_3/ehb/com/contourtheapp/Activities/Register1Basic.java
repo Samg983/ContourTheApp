@@ -3,8 +3,10 @@ package swarm_app_3.ehb.com.contourtheapp.Activities;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +41,11 @@ public class Register1Basic extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register1_basic);
+        setItems();
+    }
 
+    private void setItems() {
+        //alle velden ophalen + fonts zetten
         lblTitelRegi1 = (TextView) findViewById(R.id.lblTitleRegi1);
         lblNext = (TextView) findViewById(R.id.lblNextRegi1);
         lblName = (TextView) findViewById(R.id.lblNameRegi1);
@@ -65,28 +71,31 @@ public class Register1Basic extends AppCompatActivity {
         txtDateOfBirth.setTypeface(customFonts);
         txtCity.setTypeface(customFonts);
         txtFirstNameRegi1.setTypeface(customFonts);
-
-
     }
 
     public void goToRegi2(View view) {
-        final
 
+        //tekst uit de inputvelden halen
         String lastName = txtName.getText().toString();
         String firstName = txtFirstNameRegi1.getText().toString();
 
-
+        //nieuwe user toevoegen, request naar de server
         UserVoegToe userVoegToe = new UserVoegToe(new User(0, lastName, firstName, getImeiNumber(), 1), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 Intent toRegi2 = new Intent(Register1Basic.this, Register2Personal.class);
-                StaticIds.userId = Integer.parseInt(response);
+
                 toRegi2.putExtra("dateOfBirth", txtDateOfBirth.getText().toString());
                 toRegi2.putExtra("city", txtCity.getText().toString());
-                voegInschrijvingToe();
+
+
+                Log.d("id user", response);
+                voegInschrijvingToe(Integer.parseInt(response));
+
                 startActivity(toRegi2);
-                StaticIds.alreadySubscribed = true;
+
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -97,11 +106,11 @@ public class Register1Basic extends AppCompatActivity {
 
         Webservice.getRequestQueue().add(userVoegToe);
 
-
-
     }
 
-    public String getImeiNumber() {
+    private String getImeiNumber() {
+
+        //imeinummer ophalen, door eerst te checken of er permission is gegeven. De methode returnt het imeinummer
         String IMEI_Number_Holder = "";
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
             telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
@@ -112,11 +121,12 @@ public class Register1Basic extends AppCompatActivity {
         return IMEI_Number_Holder;
     }
 
-    public void voegInschrijvingToe(){
-        InschrijvingVoegToe inschrijvingVoegToe = new InschrijvingVoegToe(new Inschrijving(0, "vandaag", 1, StaticIds.userId), new Response.Listener<String>() {
+    private void voegInschrijvingToe(final int userIdFromResponse){
+        InschrijvingVoegToe inschrijvingVoegToe = new InschrijvingVoegToe(new Inschrijving(0, "vandaag", 1, userIdFromResponse), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                StaticIds.inschrijvingsId = Integer.parseInt(response);
+                setSharedPreferences(userIdFromResponse, Integer.parseInt(response), true);
+                Log.d("id inschrijving", response);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -126,4 +136,16 @@ public class Register1Basic extends AppCompatActivity {
 
         Webservice.getRequestQueue().add(inschrijvingVoegToe);
     }
+
+    private void setSharedPreferences(int userId, int inschrijvingsId, boolean alreadySubscribed){
+
+        //alles opslaan in sharedpreferences zoda hij de gegevens onthoudt wanneer de app gesloten wordt.
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("userId", userId);
+        editor.putInt("inschrijvingsId", inschrijvingsId);
+        editor.putBoolean("alreadySubscribed", alreadySubscribed);
+        editor.commit();
+    }
+
 }

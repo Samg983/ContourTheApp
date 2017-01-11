@@ -3,9 +3,11 @@ package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -63,7 +65,10 @@ public class SwarmActivity extends FragmentActivity implements OnMapReadyCallbac
         Button subscribeButton = (Button) findViewById(R.id.btnSubscribe1);
 
 
-        if (StaticIds.alreadySubscribed) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Boolean alreadySubscribed = preferences.getBoolean("alreadySubscribed", false);
+
+        if (alreadySubscribed) {
             subscribeButton.setVisibility(View.INVISIBLE);
             next.setVisibility(View.INVISIBLE);
 

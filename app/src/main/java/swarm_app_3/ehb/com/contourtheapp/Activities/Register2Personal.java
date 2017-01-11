@@ -1,8 +1,10 @@
 package swarm_app_3.ehb.com.contourtheapp.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,8 +48,11 @@ public class Register2Personal extends AppCompatActivity {
         String dateOfBirth = mijnOpgehaaldeGegevens.get("dateOfBirth").toString();
         city = mijnOpgehaaldeGegevens.get("city").toString();
 
-        opgehaaldUserId = StaticIds.userId;
 
+        SharedPreferences preferences =PreferenceManager.getDefaultSharedPreferences(this);
+        opgehaaldUserId = preferences.getInt("userId", 0);
+
+        Log.d("opgehaalduserID", ""+opgehaaldUserId);
         KenmerkwaardeVoegToe kenmerkwaardeDateOfBirth = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, dateOfBirth, 3), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
