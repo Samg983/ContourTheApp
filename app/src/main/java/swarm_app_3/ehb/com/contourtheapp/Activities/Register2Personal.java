@@ -17,15 +17,20 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import swarm_app_3.ehb.com.contourtheapp.Model.Kenmerkwaarde;
+import swarm_app_3.ehb.com.contourtheapp.Model.Userkenmerkwaarde;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.kenmerkwaarde.KenmerkwaardeVoegToe;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.userkenmerkwaarde.UserkenmerkwaardeVoegToe;
 
 public class Register2Personal extends AppCompatActivity {
 
     private TextView lblTitleRegi2, lblHeight, lblGender, lblEyeColor, lblHairColor, lblNextRegi2, lblPrevRegi2;
     private EditText txtHeight;
     private Spinner spnGender, spnEyeColor, spnHairColor;
+    private int kenmerkwaardeDateOfBirthId, kenmerkwaardeCityId, opgehaaldUserId, kenmerkwaardeGenderId, kenmerkwaardeHeightId, kenmerkwaardeEyeColorId, kenmerkwaardeHairColorId;
+    private String city;
+    private ArrayAdapter<String> eyeColorAdapter, hairColorAdapter, genderAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +41,18 @@ public class Register2Personal extends AppCompatActivity {
 
         Bundle mijnOpgehaaldeGegevens = getIntent().getExtras();
 
+        String opgehaaldUserIdString =  mijnOpgehaaldeGegevens.get("userId").toString();
         String dateOfBirth = mijnOpgehaaldeGegevens.get("dateOfBirth").toString();
-        String city = mijnOpgehaaldeGegevens.get("city").toString();
+        city = mijnOpgehaaldeGegevens.get("city").toString();
+
+        opgehaaldUserId = Integer.parseInt(opgehaaldUserIdString);
 
         KenmerkwaardeVoegToe kenmerkwaardeDateOfBirth = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, dateOfBirth, 3), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("Geslaagd geboortedatum", response);
+                Log.d("DATE OF BIRTH", response);
+                kenmerkwaardeDateOfBirthId = Integer.parseInt(response);
+                voegUserKenmerkWaardeDateOfBirthToe();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -54,7 +64,9 @@ public class Register2Personal extends AppCompatActivity {
         KenmerkwaardeVoegToe kenmerkwaardeCity = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, city, 5), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("Geslaagd city", response);
+                Log.d("CITY", response);
+                kenmerkwaardeCityId = Integer.parseInt(response);
+                voegUserKenmerkWaardeCityToe();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -63,20 +75,40 @@ public class Register2Personal extends AppCompatActivity {
             }
         });
 
-        Webservice.getRequestQueue().add(kenmerkwaardeDateOfBirth);
         Webservice.getRequestQueue().add(kenmerkwaardeCity);
-
+        Webservice.getRequestQueue().add(kenmerkwaardeDateOfBirth);
 
     }
 
-    public void goToRegi1(View view) {
-        this.finish();
+    private void voegUserKenmerkWaardeCityToe(){
+        UserkenmerkwaardeVoegToe userkenmerkwaardeCityVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeCityId, opgehaaldUserId), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("userCITY", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("user city err", error.toString());
+            }
+        });
+
+        Webservice.getRequestQueue().add(userkenmerkwaardeCityVoegToe);
     }
 
-    public void goToRegi3(View view) {
-        Intent toRegi3 = new Intent(this, Register3Weird.class);
-
-        startActivity(toRegi3);
+    private void voegUserKenmerkWaardeDateOfBirthToe(){
+        UserkenmerkwaardeVoegToe userkenmerkwaardeDateOfBirthVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeDateOfBirthId, opgehaaldUserId), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("user birth", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("user birth err", error.toString());
+            }
+        });
+        Webservice.getRequestQueue().add(userkenmerkwaardeDateOfBirthVoegToe);
     }
 
     public void setItems() {
@@ -100,13 +132,12 @@ public class Register2Personal extends AppCompatActivity {
         lblPrevRegi2.setTypeface(customFonts);
         lblGender.setTypeface(customFonts);
         txtHeight.setTypeface(customFonts);
-        //TextView lblCustomSpinner = (TextView) findViewById(R.id.lblCustomSpinner);
-        //lblCustomSpinner.setTypeface(customFonts);
+
 
         spnGender = (Spinner) findViewById(R.id.spnGender);
         String[] genderItems = new String[]{"Male", "Female", "Other"};
 
-        ArrayAdapter<String> genderAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, genderItems) {
+        genderAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, genderItems) {
             @Override
             public View getDropDownView(int position, View convertView,
                     ViewGroup parent) {
@@ -127,7 +158,7 @@ public class Register2Personal extends AppCompatActivity {
 
         spnEyeColor = (Spinner) findViewById(R.id.spnEyeColor);
         String[] eyeColorItems = new String[]{"Brown", "Blue", "Grey", "Green", "Other"};
-        ArrayAdapter<String> eyeColorAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, eyeColorItems){
+        eyeColorAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, eyeColorItems){
             @Override
             public View getDropDownView(int position, View convertView,
                                         ViewGroup parent) {
@@ -145,7 +176,7 @@ public class Register2Personal extends AppCompatActivity {
 
         spnHairColor = (Spinner) findViewById(R.id.spnHairColor);
         String[] hairColorItems = new String[]{"Brown", "Blonde", "Black", "Ginger", "White", "Grey", "Other"};
-        ArrayAdapter<String> hairColorAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, hairColorItems){
+        hairColorAdapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, hairColorItems){
             @Override
             public View getDropDownView(int position, View convertView,
                                         ViewGroup parent) {
@@ -159,5 +190,147 @@ public class Register2Personal extends AppCompatActivity {
             }
         };
         spnHairColor.setAdapter(hairColorAdapter);
+    }
+
+    public void goToRegi1(View view) {
+
+
+
+        this.finish();
+    }
+
+    public void goToRegi3(View view) {
+
+        String opgehaaldeHeight = txtHeight.getText().toString();
+        String opgehaaldeGender = spnGender.getSelectedItem().toString();
+        String opgehaaldeEyeColor = spnEyeColor.getSelectedItem().toString();
+        String opgehaaldeHairColor = spnHairColor.getSelectedItem().toString();
+
+
+        KenmerkwaardeVoegToe kenmerkwaardeHeight = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, opgehaaldeHeight, 6), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("height", response);
+                kenmerkwaardeHeightId = Integer.parseInt(response);
+                voegUserKenmerkWaardeHeightToe();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        KenmerkwaardeVoegToe kenmerkwaardeGender = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, opgehaaldeGender, 7), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("gender", response);
+                kenmerkwaardeGenderId = Integer.parseInt(response);
+                voegUserKenmerkWaardeGenderToe();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        KenmerkwaardeVoegToe kenmerkwaardeEyeColor = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, opgehaaldeEyeColor, 8), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("eyecolor", response);
+                kenmerkwaardeEyeColorId = Integer.parseInt(response);
+                voegUserKenmerkWaardeEyeColorToe();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        KenmerkwaardeVoegToe kenmerkwaardeHairColor = new KenmerkwaardeVoegToe(new Kenmerkwaarde(0, opgehaaldeHairColor, 9), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("haircolor", response);
+                kenmerkwaardeHairColorId = Integer.parseInt(response);
+                voegUserKenmerkWaardeHairColorToe();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        Webservice.getRequestQueue().add(kenmerkwaardeGender);
+        Webservice.getRequestQueue().add(kenmerkwaardeHeight);
+        Webservice.getRequestQueue().add(kenmerkwaardeEyeColor);
+        Webservice.getRequestQueue().add(kenmerkwaardeHairColor);
+
+        Intent toRegi3 = new Intent(this, Register3Weird.class);
+        toRegi3.putExtra("userId", opgehaaldUserId);
+        startActivity(toRegi3);
+    }
+
+    private void voegUserKenmerkWaardeHeightToe() {
+        UserkenmerkwaardeVoegToe userkenmerkwaardeHeightVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeHeightId, opgehaaldUserId), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        Webservice.getRequestQueue().add(userkenmerkwaardeHeightVoegToe);
+    }
+    private void voegUserKenmerkWaardeGenderToe() {
+        UserkenmerkwaardeVoegToe userkenmerkwaardeGenderVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeGenderId, opgehaaldUserId), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        Webservice.getRequestQueue().add(userkenmerkwaardeGenderVoegToe);
+    }
+    private void voegUserKenmerkWaardeHairColorToe() {
+        UserkenmerkwaardeVoegToe userkenmerkwaardeHairColorVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeHairColorId, opgehaaldUserId), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        Webservice.getRequestQueue().add(userkenmerkwaardeHairColorVoegToe);
+    }
+    private void voegUserKenmerkWaardeEyeColorToe() {
+        UserkenmerkwaardeVoegToe userkenmerkwaardeEyeColorVoegToe = new UserkenmerkwaardeVoegToe(new Userkenmerkwaarde(0, kenmerkwaardeEyeColorId, opgehaaldUserId), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        Webservice.getRequestQueue().add(userkenmerkwaardeEyeColorVoegToe);
     }
 }

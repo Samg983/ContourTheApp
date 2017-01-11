@@ -42,7 +42,7 @@ public class Register4AlmostFinished extends AppCompatActivity {
 
         Spinner spnComeToItaly = (Spinner) findViewById(R.id.spnComeToItaly);
         String[] items = new String[]{"Yes", "No", "Maybe"};
-        ArrayAdapter<String> adapterComeToItaly = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items){
+        ArrayAdapter<String> adapterComeToItaly = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, items){
             @Override
             public View getDropDownView(int position, View convertView,
                                         ViewGroup parent) {
@@ -60,7 +60,7 @@ public class Register4AlmostFinished extends AppCompatActivity {
 
         Spinner spnHowMany = (Spinner) findViewById(R.id.spnHowMany);
         String[] amount = new String[]{"1", "2", "3", "4", "5", "6"};
-        ArrayAdapter<String> adapterHowMany = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, amount){
+        ArrayAdapter<String> adapterHowMany = new ArrayAdapter<String>(this, R.layout.custom_spinner_layout, amount){
             @Override
             public View getDropDownView(int position, View convertView,
                                         ViewGroup parent) {

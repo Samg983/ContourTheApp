@@ -19,9 +19,11 @@ import android.widget.TextView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import swarm_app_3.ehb.com.contourtheapp.Model.Inschrijving;
 import swarm_app_3.ehb.com.contourtheapp.Model.User;
 import swarm_app_3.ehb.com.contourtheapp.R;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.Webservice;
+import swarm_app_3.ehb.com.contourtheapp.Webservice.inschrijving.InschrijvingVoegToe;
 import swarm_app_3.ehb.com.contourtheapp.Webservice.user.UserVoegToe;
 
 public class Register1Basic extends AppCompatActivity {
@@ -30,6 +32,7 @@ public class Register1Basic extends AppCompatActivity {
     private EditText txtName, txtDateOfBirth, txtCity, txtFirstNameRegi1;
     private TelephonyManager telephonyManager;
     private static final int MY_PERMISSIONS_REQUEST_TELEPHONESTATE = 99;
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +69,7 @@ public class Register1Basic extends AppCompatActivity {
     }
 
     public void goToRegi2(View view) {
-        Intent toRegi2 = new Intent(this, Register2Personal.class);
+        final
 
         String lastName = txtName.getText().toString();
         String firstName = txtFirstNameRegi1.getText().toString();
@@ -75,7 +78,13 @@ public class Register1Basic extends AppCompatActivity {
         UserVoegToe userVoegToe = new UserVoegToe(new User(0, lastName, firstName, getImeiNumber(), 1), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("Geslaagd User toevoegen", response);
+
+                Intent toRegi2 = new Intent(Register1Basic.this, Register2Personal.class);
+                userId = Integer.parseInt(response);
+                toRegi2.putExtra("dateOfBirth", txtDateOfBirth.getText().toString());
+                toRegi2.putExtra("city", txtCity.getText().toString());
+                toRegi2.putExtra("userId", Integer.toString(userId));
+                startActivity(toRegi2);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -86,9 +95,8 @@ public class Register1Basic extends AppCompatActivity {
 
         Webservice.getRequestQueue().add(userVoegToe);
 
-        toRegi2.putExtra("dateOfBirth", txtDateOfBirth.getText().toString());
-        toRegi2.putExtra("city", txtCity.getText().toString());
-        startActivity(toRegi2);
+
+
     }
 
     public String getImeiNumber() {
@@ -100,5 +108,19 @@ public class Register1Basic extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, MY_PERMISSIONS_REQUEST_TELEPHONESTATE);
         }
         return IMEI_Number_Holder;
+    }
+
+    public void voegInschrijvingToe(){
+        InschrijvingVoegToe inschrijvingVoegToe = new InschrijvingVoegToe(new Inschrijving(0, 0, 0), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
     }
 }
