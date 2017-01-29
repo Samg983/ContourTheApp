@@ -138,6 +138,7 @@
             android:text="@string/dateofbirth"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
+
     </LinearLayout>
 
     <EditText

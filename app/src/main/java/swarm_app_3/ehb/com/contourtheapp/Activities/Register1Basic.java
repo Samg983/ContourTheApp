@@ -142,7 +142,6 @@ public class Register1Basic extends AppCompatActivity {
     }
 
     private void setSharedPreferences(int userId, int inschrijvingsId, boolean alreadySubscribed){
-
         //alles opslaan in sharedpreferences zoda hij de gegevens onthoudt wanneer de app gesloten wordt.
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();

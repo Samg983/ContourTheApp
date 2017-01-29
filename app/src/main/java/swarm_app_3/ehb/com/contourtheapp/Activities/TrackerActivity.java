@@ -63,7 +63,7 @@ public class TrackerActivity extends FragmentActivity implements OnMapReadyCallb
     private ArrayList<LatLng> points = new ArrayList<LatLng>();
     private int opgehaaldInschrijvingsId;
     private Polyline line;
-    private static final long INTERVAL = 1000; //1 minute
+    private static final long INTERVAL = 1000; //1 second
     private static final long FASTEST_INTERVAL = 1000; // 1 minute
     private static final float SMALLEST_DISPLACEMENT = 0.05F; //quarter of a meter
 
